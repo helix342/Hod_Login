@@ -277,7 +277,7 @@
                                                                     </td>
                                                                     <td>
                                                                         <button type="button" value="<?php echo $row['id']; ?>"
-                                                                            class="btn btn-success btncertificate ml-5">View More</button>
+                                                                            class="btn btn-success btncertificate ml-5" data-toggle="modal" data-target="#probdesc">View More</button>
                                                                     </td>
                                                                     <td>
                                                                         <?php echo $row['Percentag']; ?>
@@ -302,7 +302,72 @@
                                                         </table>
                                                     </div>
                                                 </div>
+<<<<<<< HEAD
 
+=======
+                                                <div class="modal fade" id="probdesc" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                    <div class="modal-dialog">
+                                                        <div class="modal-content">
+                                                            <div class="modal-header">
+                                                                <h5 class="modal-title" id="exampleModalLabel">Add Academic Details</h5>
+                                                                <button type="button" class="btn" data-dismiss="modal" aria-label="Close"><i class="mdi mdi-close"></i>
+                                                                </button>
+                                                            </div>
+                                                            <form id="addnewdetails">
+                                                                <div class="modal-body">
+                                                                    <div class="mb-3">
+                                                                        <label for="course">Course *</label>
+                                                                        <select class="form-control" name="course" required>
+                                                                            <option value="NULL">Select Course</option>
+                                                                            <option value="SSLC">SSLC</option>
+                                                                            <option value="HSC">HSC</option>
+                                                                            <option value="ITI">ITI</option>
+                                                                            <option value="DIPLOMA">DIPLOMA</option>
+                                                                            <option value="UG">UG</option>
+                                                                        </select>
+                                                                    </div>
+                                                                    <div class="mb-3">
+                                                                        <label for="degree">Degree *</label>
+                                                                        <select class="form-control" name="degree" required>
+                                                                            <option value="NULL">Select Degree</option>
+                                                                            <option value="B.Tech">B.Tech</option>
+                                                                            <option value="B.E">B.E</option>
+                                                                            <option value="M.E">M.E</option>
+                                                                        </select>
+                                                                    </div>
+                                                                    <div class="mb-3">
+                                                                        <label for="spec">Specialization / Branch *</label>
+                                                                        <input type="text" name="spec" class="form-control" placeholder="Enter Specilization" required>
+                                                                    </div>
+                                                                    <div class="mb-3">
+                                                                        <label for="instname">Institution Name *</label>
+                                                                        <input type="text" name="instname" class="form-control" placeholder="Enter Institution Name"
+                                                                            required>
+                                                                    </div>
+                                                                    <div class="mb-3">
+                                                                        <label for="uni">Board/University *</label>
+                                                                        <input type="text" name="uni" class="form-control" placeholder="Enter Board/University Name"
+                                                                            required>
+                                                                    </div>
+                                                                    <div class="mb-3">
+                                                                        <label for="yop">Year of Completion *</label>
+                                                                        <input type="text" name="yop" class="form-control" required>
+                                                                    </div>
+                                                                    <div class="mb-3">
+                                                                        <label for="percentag">Percentage (%)/CGPA*</label>
+                                                                        <input type="text" name="percentag" class="form-control" required>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="modal-footer">
+                                                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                                                    <button type="submit" class="btn btn-primary">Save
+                                                                        details</button>
+                                                                </div>
+                                                            </form>
+                                                        </div>
+                                                    </div>
+                                                </div>   
+>>>>>>> d6cc4c0986535096d585b79c64bc22fe054a508d
                                             </div>
                                             <div class="tab-pane p-20" id="approved" role="tabpanel">
                                                 <div class="row">
@@ -372,68 +437,7 @@
                                                 </div>
 
                                                 <!-- Add User Modal -->
-                                                <div class="modal fade" id="adddetails" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                                    <div class="modal-dialog">
-                                                        <div class="modal-content">
-                                                            <div class="modal-header">
-                                                                <h5 class="modal-title" id="exampleModalLabel">Add Academic Details</h5>
-                                                                <button type="button" class="btn" data-dismiss="modal" aria-label="Close"><i class="mdi mdi-close"></i>
-                                                                </button>
-                                                            </div>
-                                                            <form id="addnewdetails">
-                                                                <div class="modal-body">
-                                                                    <div class="mb-3">
-                                                                        <label for="course">Course *</label>
-                                                                        <select class="form-control" name="course" required>
-                                                                            <option value="NULL">Select Course</option>
-                                                                            <option value="SSLC">SSLC</option>
-                                                                            <option value="HSC">HSC</option>
-                                                                            <option value="ITI">ITI</option>
-                                                                            <option value="DIPLOMA">DIPLOMA</option>
-                                                                            <option value="UG">UG</option>
-                                                                        </select>
-                                                                    </div>
-                                                                    <div class="mb-3">
-                                                                        <label for="degree">Degree *</label>
-                                                                        <select class="form-control" name="degree" required>
-                                                                            <option value="NULL">Select Degree</option>
-                                                                            <option value="B.Tech">B.Tech</option>
-                                                                            <option value="B.E">B.E</option>
-                                                                            <option value="M.E">M.E</option>
-                                                                        </select>
-                                                                    </div>
-                                                                    <div class="mb-3">
-                                                                        <label for="spec">Specialization / Branch *</label>
-                                                                        <input type="text" name="spec" class="form-control" placeholder="Enter Specilization" required>
-                                                                    </div>
-                                                                    <div class="mb-3">
-                                                                        <label for="instname">Institution Name *</label>
-                                                                        <input type="text" name="instname" class="form-control" placeholder="Enter Institution Name"
-                                                                            required>
-                                                                    </div>
-                                                                    <div class="mb-3">
-                                                                        <label for="uni">Board/University *</label>
-                                                                        <input type="text" name="uni" class="form-control" placeholder="Enter Board/University Name"
-                                                                            required>
-                                                                    </div>
-                                                                    <div class="mb-3">
-                                                                        <label for="yop">Year of Completion *</label>
-                                                                        <input type="text" name="yop" class="form-control" required>
-                                                                    </div>
-                                                                    <div class="mb-3">
-                                                                        <label for="percentag">Percentage (%)/CGPA*</label>
-                                                                        <input type="text" name="percentag" class="form-control" required>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="modal-footer">
-                                                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                                                    <button type="submit" class="btn btn-primary">Save
-                                                                        details</button>
-                                                                </div>
-                                                            </form>
-                                                        </div>
-                                                    </div>
-                                                </div>
+                                                
                                             </div>
 
                                             <div class="tab-pane p-20" id="completed" role="tabpanel">

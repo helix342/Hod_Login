@@ -249,6 +249,12 @@ $result = mysqli_query($conn, $sql);
                                                         class="hidden-xs-down"><i
                                                             class="bi bi-people-fill"></i><b>Completed</b></span></a>
                                             </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link" data-toggle="tab" href="#rejected" role="tab"
+                                                    aria-selected="false"><span class="hidden-sm-up"></span> <span
+                                                        class="hidden-xs-down"><i
+                                                            class="bi bi-people-fill"></i><b>Rejected</b></span></a>
+                                            </li>
                                         </ul>
                                         <div class="tab-content tabcontent-border">
                                             <div class="tab-pane p-20 active show" id="pending" role="tabpanel">
@@ -668,6 +674,18 @@ $result = mysqli_query($conn, $sql);
 
                                                                 </div>
                                                             </form>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="tab-pane p-20" id="rejected" role="tabpanel">
+                                                <div class="row">
+                                                    <div class="col-md-12">
+                                                        <div class="card">
+                                                            <div class="card-header">
+                                                                <h4>Rejected Complaint Details
+                                                                </h4>
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>

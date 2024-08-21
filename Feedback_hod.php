@@ -4,6 +4,8 @@ $sql = "SELECT * FROM complaints_detail";
 $result = mysqli_query($conn, $sql);
 $result1 = mysqli_query($conn, $sql);
 $result2 = mysqli_query($conn, $sql);
+$result3 = mysqli_query($conn, $sql);
+
 ?>
 
 <!DOCTYPE html>
@@ -678,14 +680,133 @@ $result2 = mysqli_query($conn, $sql);
                                                     </div>
                                                 </div>
                                             </div>
+
+                    <!----------rejected tab------->
                                             <div class="tab-pane p-20" id="rejected" role="tabpanel">
                                                 <div class="row">
                                                     <div class="col-md-12">
                                                         <div class="card">
                                                             <div class="card-header">
-                                                                <h4>Rejected Complaint Details
-                                                                </h4>
+                                                                <h4>Rejected Complaint Details</h4>
                                                             </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="card-body">
+                                                    <div class="table-responsive">
+                                                        <table id="myTable" class="table table-bordered table-striped">
+                                                            <thead>
+                                                                <tr>
+                                                                    <th><b>S.No</b></th>
+                                                                    <th><b>Problem id</b></th>
+                                                                    <th><b>Faculty Incharge</b></th>
+                                                                    <th><b>Problem Description</b></th>
+                                                                    <th><b>Date Registered</b></th>
+                                                                    <th><b>Image</b></th>
+                                                                    <th class="col-2"><b>Status</b></th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                                <?php
+                                                                $id = 1;
+                                                                while ($row = mysqli_fetch_assoc($result3)) {
+                                                                ?>
+                                                                    <tr>
+                                                                        <td>
+                                                                            <?php echo $id; ?>
+                                                                        </td>
+                                                                        <td>
+                                                                            <?php echo $row['problem_id']; ?>
+                                                                        </td>
+                                                                        <td>
+                                                                            <?php echo $row['faculty_id']; ?>
+                                                                        </td>
+                                                                        <td>
+                                                                            <button type="button"
+                                                                                value="<?php echo $row['id']; ?>"
+                                                                                class="btn btn-success btncertificate ml-5"
+                                                                                data-toggle="modal"
+                                                                                data-target="#probdescrej">View More</button>
+                                                                        </td>
+                                                                        <td>
+                                                                            <?php echo $row['date_of_reg']; ?>
+                                                                        </td>
+                                                                        <td>
+                                                                            <button type="button"
+                                                                                value="<?php echo $row['id']; ?>"
+                                                                                class="btn btn-success btncertificate"
+                                                                                data-toggle="modal"
+                                                                                data-target="#viewimgrej">View</button>
+
+                                                                        </td>
+                                                                        <td>
+                                                                        <button type="button" value="<?php echo $row['problem_description']; ?>" class="btn btn-danger ml-4">Problem rejected </button>
+                                                                        </td>
+                                                                    </tr>
+                                                                <?php
+                                                                    $id++;
+                                                                }
+                                                                ?>
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                </div>
+                                                <!------------------view problem description modal---------------->
+                                                <div class="modal fade" id="probdescrej" tabindex="-1"
+                                                    aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                    <div class="modal-dialog">
+                                                        <div class="modal-content">
+                                                            <div class="modal-header">
+                                                                <h5 class="modal-title" id="exampleModalLabel">Problem
+                                                                    Description</h5>
+                                                                <button type="button" class="btn" data-dismiss="modal"
+                                                                    aria-label="Close"><i class="mdi mdi-close"></i>
+                                                                </button>
+                                                            </div>
+                                                            <form id="addnewdetails">
+                                                                <div class="modal-body" style="font-size:larger;">
+                                                                    <p>dddddweianfdifvsnafidbniadnbaefovdfbsgaiskdgngwognisfdiusb
+                                                                        digbrgg girhg hrvsgif fhsv Lorem ipsum dolor sit
+                                                                        amet consectetur, adipisicing elit. Quo delectus
+                                                                        atque reprehenderit eligendi sint. Sunt odio
+                                                                        sit, laborum illum aspernatur non ullam a itaque
+                                                                        ipsa maiores eius dolores corporis est.</p>
+                                                                </div>
+                                                                <div class="modal-footer">
+                                                                    <button type="button" class="btn btn-secondary"
+                                                                        data-dismiss="modal">Close</button>
+
+                                                                </div>
+                                                            </form>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!------------view image modal-->
+                                                <div class="modal fade" id="viewimgrej" tabindex="-1"
+                                                    aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                    <div class="modal-dialog">
+                                                        <div class="modal-content">
+                                                            <div class="modal-header">
+                                                                <h5 class="modal-title" id="exampleModalLabel">Problem
+                                                                    Image</h5>
+                                                                <button type="button" class="btn" data-dismiss="modal"
+                                                                    aria-label="Close"><i class="mdi mdi-close"></i>
+                                                                </button>
+                                                            </div>
+                                                            <form id="addnewdetails">
+                                                                <div class="modal-body" style="font-size:larger;">
+                                                                    <center>
+                                                                        <img src="assets/images/logo2.png" alt="no img">
+                                                                    </center>
+
+
+                                                                </div>
+                                                                <div class="modal-footer">
+                                                                    <button type="button" class="btn btn-secondary"
+                                                                        data-dismiss="modal">Close</button>
+
+                                                                </div>
+                                                            </form>
                                                         </div>
                                                     </div>
                                                 </div>

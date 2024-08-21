@@ -453,7 +453,7 @@ $result = mysqli_query($conn, $sql);
                                                                             <?php echo $id; ?>
                                                                         </td>
                                                                         <td>
-                                                                            <?php echo $row['Course']; ?>
+                                                                            <?php echo $row['problem_id']; ?>
                                                                         </td>
                                                                         <td>
                                                                             <?php echo $row['InstName']; ?>

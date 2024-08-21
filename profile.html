@@ -17,7 +17,6 @@
     <title>MIC</title>
     <!-- Custom CSS -->
     <link href="assets/libs/flot/css/float-chart.css" rel="stylesheet" />
-    <!-- Custom CSS -->
     <link href="dist/css/style.min.css" rel="stylesheet" />
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -25,6 +24,54 @@
       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
       <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
+    <style>
+      .profile-container {
+        margin: 100px auto;
+        max-width: 900px;
+        padding: 20px;
+      }
+
+      .profile-header {
+        text-align: center;
+      }
+
+      .profile-header img {
+        border-radius: 50%;
+        width: 150px;
+        height: 150px;
+        object-fit: cover; /* Ensures the image covers the circle without distortion */
+      }
+
+      .profile-details {
+        margin-top: 20px;
+        border-top: 1px solid #ddd;
+        padding-top: 20px;
+      }
+
+      .profile-details h6 {
+        margin-bottom: 10px;
+        font-weight: bold;
+      }
+
+      .profile-details .row {
+        margin-bottom: 15px;
+      }
+
+      .profile-details .col-sm-3 {
+        font-weight: bold;
+      }
+
+      .profile-details .col-sm-9 {
+        color: #555;
+      }
+
+      footer {
+        margin-top: 50px;
+        padding: 10px 0;
+        background-color: #e4e4e4;
+        text-align: center;
+      }
+    </style>
   </head>
 
   <body>
@@ -81,14 +128,6 @@
                   class="light-logo"
                 />
               </span>
-              <!-- Logo icon -->
-              <!-- <b class="logo-icon"> -->
-              <!--You can put here icon as well // <i class="wi wi-sunset"></i> //-->
-              <!-- Dark Logo icon -->
-              <!-- <img src="assets/images/logo-text.png" alt="homepage" class="light-logo" /> -->
-
-              <!-- </b> -->
-              <!--End Logo icon -->
             </a>
             <!-- ============================================================== -->
             <!-- End Logo -->
@@ -142,8 +181,7 @@
                   data-toggle="dropdown"
                   aria-haspopup="true"
                   aria-expanded="false"
-                >
-                 
+                ></a>
               </li>
               <!-- ============================================================== -->
               <!-- End Comment -->
@@ -178,9 +216,6 @@
                   >
                 </div>
               </li>
-              <!-- ============================================================== -->
-              <!-- User profile and search -->
-              <!-- ============================================================== -->
             </ul>
           </div>
         </nav>
@@ -283,125 +318,104 @@
       <!-- ============================================================== -->
       <!-- Page wrapper  -->
       <!-- ============================================================== -->
-      <div class="container-fluid snipcss-yLWxf" style="margin-left: 300px; margin-top: 100px">
-        <div class="main-body">
-          <div class="row gutters-sm">
-            <div class="col-md-4 mb-3">
-              <div class="card">
-                <div class="card-body colr">
-                  <div class="d-flex flex-column align-items-center text-center">
-                    <img src="assets/images/logo2.png" alt="" class="rounded-circle test" width="150">
-                    <div class="mt-3">
-                      <h3>Head of the Department</h3>
-                      <h3>Computer Science and Engineering</h3>
-                      <hr>
-                    </div>
-                  </div>
-                </div>
-              </div>
+      <div class="container-fluid profile-container">
+        <div class="profile-header">
+          <img src="assets/images/users/mkce_1.jpg" alt="Profile Image">
+          <div class="mt-3">
+            <h4>Bharani Nayagi S</h4>
+            <p class="text-secondary mb-1">Assistant Professor</p>
+            <p class="text-muted font-size-sm">Department of Artificial Intelligence and Machine Learning</p>
+          </div>
+        </div>
+        <div class="profile-details">
+          <div class="row">
+            <div class="col-sm-3">
+              <h6 class="mb-0">Full Name</h6>
             </div>
-            <div class="col-md-8">
-              <div class="card mb-3">
-                <div class="card-body">
-                  <div class="row">
-                    <div class="col-sm-3">
-                      <h6 class="mb-0">Full Name</h6>
-                    </div>
-                    <div class="col-sm-9 text-secondary">Name</div>
-                  </div>
-                  <hr />
-                  <div class="row">
-                    <div class="col-sm-3">
-                      <h6 class="mb-0">ID</h6>
-                    </div>
-                    <div class="col-sm-9 text-secondary">XXXXXX</div>
-                  </div>
-                  <hr />
-                  <div class="row">
-                    <div class="col-sm-3">
-                      <h6 class="mb-0">Gender</h6>
-                    </div>
-                    <div class="col-sm-9 text-secondary">Male</div>
-                  </div>
-                  <hr />
-                  <div class="row">
-                    <div class="col-sm-3">
-                      <h6 class="mb-0">Date of Birth</h6>
-                    </div>
-                    <div class="col-sm-9 text-secondary">14-03-1979</div>
-                  </div>
-                  <hr />
-                  <div class="row">
-                    <div class="col-sm-3">
-                      <h6 class="mb-0">Blood Group</h6>
-                    </div>
-                    <div class="col-sm-9 text-secondary">B+VE</div>
-                  </div>
-                  <hr />
-                  <div class="row">
-                    <div class="col-sm-3">
-                      <h6 class="mb-0">Mobile</h6>
-                    </div>
-                    <div class="col-sm-3 text-secondary">8899151554</div>
-                  </div>
-                  <hr />
-                  <div class="row">
-                    <div class="col-sm-3">
-                      <h6 class="mb-0">Email</h6>
-                    </div>
-                    <div class="col-sm-3 text-secondary">XXXXX@mkce.ac.in</div>
-                  </div>
-                  <hr>
-                  <div class="row">
-                    <div class="col-sm-3">
-                     <h6 class="mb-0">Address</h6>
-                    </div>
-                    <div class="col-sm-9 text-secondary">
-                        ddseafvfdrfdvbrtrwfdvfgbrtgefvgbrf
-                    </div>
-                   </div>
-                   <hr>
-              </div>
+            <div class="col-sm-9 text-secondary">
+              Bharani Nayagi S
+            </div>
+          </div>
+          <hr>
+          <div class="row">
+            <div class="col-sm-3">
+              <h6 class="mb-0">Gender</h6>
+            </div>
+            <div class="col-sm-9 text-secondary">
+              Female
+            </div>
+          </div>
+          <hr>
+          <div class="row">
+            <div class="col-sm-3">
+              <h6 class="mb-0">Email</h6>
+            </div>
+            <div class="col-sm-9 text-secondary">
+              bharaninayagis.aiml@mkce.ac.in
+            </div>
+          </div>
+          <hr>
+          <div class="row">
+            <div class="col-sm-3">
+              <h6 class="mb-0">Date of Birth</h6>
+            </div>
+            <div class="col-sm-9 text-secondary">
+              26 - 08 - 1986
+            </div>
+          </div>
+          <hr>
+          <div class="row">
+            <div class="col-sm-3">
+              <h6 class="mb-0">Mobile</h6>
+            </div>
+            <div class="col-sm-9 text-secondary">
+              9360594244
+            </div>
+          </div>
+          <hr>
+          <div class="row">
+            <div class="col-sm-3">
+              <h6 class="mb-0">Address</h6>
+            </div>
+            <div class="col-sm-9 text-secondary">
+              141E1, Kothai Illam College Road, P. Velur, Namakkal-638182
             </div>
           </div>
         </div>
       </div>
-    </div>
-    <!-- ============================================================== -->
-    <!-- Bread crumb and right sidebar toggle -->
-    <!-- ============================================================== -->
-    <footer class="footer text-center" style="margin-top: 290px;background-color: rgb(228, 228, 228);">
-      <b>2024 &copy M.Kumarasamy College of Engineering All Rights Reserved.<br>
+      <!-- ============================================================== -->
+      <!-- Bread crumb and right sidebar toggle -->
+      <!-- ============================================================== -->
+      <footer class="footer text-center">
+        <b>2024 &copy M.Kumarasamy College of Engineering All Rights Reserved.<br>
         Developed and Maintained by Technology Innovation Hub.</b>
-    </footer>
-    <!-- ============================================================== -->
-    <!-- End Wrapper -->
-    <!-- ============================================================== -->
-    <!-- ============================================================== -->
-    <!-- All Jquery -->
-    <!-- ============================================================== -->
-    <script src="assets/libs/jquery/dist/jquery.min.js"></script>
-    <!-- Bootstrap tether Core JavaScript -->
-    <script src="assets/libs/popper.js/dist/umd/popper.min.js"></script>
-    <script src="assets/libs/bootstrap/dist/js/bootstrap.min.js"></script>
-    <script src="assets/libs/perfect-scrollbar/dist/perfect-scrollbar.jquery.min.js"></script>
-    <script src="assets/extra-libs/sparkline/sparkline.js"></script>
-    <!--Wave Effects -->
-    <script src="dist/js/waves.js"></script>
-    <!--Menu sidebar -->
-    <script src="dist/js/sidebarmenu.js"></script>
-    <!--Custom JavaScript -->
-    <script src="dist/js/custom.min.js"></script>
-    <!--This page JavaScript -->
-    <!-- <script src="dist/js/pages/dashboards/dashboard1.js"></script> -->
-    <!-- Charts js Files -->
-    <script src="assets/libs/flot/excanvas.js"></script>
-    <script src="assets/libs/flot/jquery.flot.js"></script>
-    <script src="assets/libs/flot/jquery.flot.pie.js"></script>
-    <script src="assets/libs/flot/jquery.flot.time.js"></script>
-    <script src="assets/libs/flot/jquery.flot.stack.js"></script>
-    <script src="assets/libs/flot/jquery.flot.crosshair.js"></script>
-    <script src="assets/libs/flot.tooltip/js/jquery.flot.tooltip.min.js"></script>
-    <script src="dist/js/pages/chart/chart-page-init.js"></script>
-  </body>
-</html>
+      </footer>
+      <!-- ============================================================== -->
+      <!-- End Wrapper -->
+      <!-- ============================================================== -->
+      <!-- ============================================================== -->
+      <!-- All Jquery -->
+      <!-- ============================================================== -->
+      <script src="assets/libs/jquery/dist/jquery.min.js"></script>
+      <!-- Bootstrap tether Core JavaScript -->
+      <script src="assets/libs/popper.js/dist/umd/popper.min.js"></script>
+      <script src="assets/libs/bootstrap/dist/js/bootstrap.min.js"></script>
+      <script src="assets/libs/perfect-scrollbar/dist/perfect-scrollbar.jquery.min.js"></script>
+      <script src="assets/extra-libs/sparkline/sparkline.js"></script>
+      <!--Wave Effects -->
+      <script src="dist/js/waves.js"></script>
+      <!--Menu sidebar -->
+      <script src="dist/js/sidebarmenu.js"></script>
+      <!--Custom JavaScript -->
+      <script src="dist/js/custom.min.js"></script>
+      <!-- Charts js Files -->
+      <script src="assets/libs/flot/excanvas.js"></script>
+      <script src="assets/libs/flot/jquery.flot.js"></script>
+      <script src="assets/libs/flot/jquery.flot.pie.js"></script>
+      <script src="assets/libs/flot/jquery.flot.time.js"></script>
+      <script src="assets/libs/flot/jquery.flot.stack.js"></script>
+      <script src="assets/libs/flot/jquery.flot.crosshair.js"></script>
+      <script src="assets/libs/flot.tooltip/js/jquery.flot.tooltip.min.js"></script>
+      <script src="dist/js/pages/chart/chart-page-init.js"></script>
+    </body>
+  </html>

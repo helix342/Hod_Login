@@ -2,6 +2,8 @@
 include("db.php");
 $sql = "SELECT * FROM complaints_detail";
 $result = mysqli_query($conn, $sql);
+$result1 = mysqli_query($conn, $sql);
+$result2 = mysqli_query($conn, $sql);
 ?>
 
 <!DOCTYPE html>
@@ -300,7 +302,7 @@ $result = mysqli_query($conn, $sql);
                                                                         </td>
                                                                         <td>
                                                                             <button type="button"
-                                                                                value="<?php echo $row['id']; ?>"
+                                                                                value="<?php echo $row['problem_description']; ?>"
                                                                                 class="btn btn-success btndesc ml-5"
                                                                                 data-toggle="modal"
                                                                                 data-target="#probdesc">View More</button>
@@ -411,7 +413,6 @@ $result = mysqli_query($conn, $sql);
                                                                         data-dismiss="modal">Close</button>
                                                                         <button type="button" class="btn btn-primary"
                                                                         data-dismiss="modal">Submit</button>
-
                                                                 </div>
                                                             </form>
                                                         </div>
@@ -446,7 +447,7 @@ $result = mysqli_query($conn, $sql);
                                                             <tbody>
                                                                 <?php
                                                                 $id = 1;
-                                                                while ($row = mysqli_fetch_assoc($result)) {
+                                                                while ($row = mysqli_fetch_assoc($result1)) {
                                                                 ?>
                                                                     <tr>
                                                                         <td>
@@ -456,17 +457,17 @@ $result = mysqli_query($conn, $sql);
                                                                             <?php echo $row['problem_id']; ?>
                                                                         </td>
                                                                         <td>
-                                                                            <?php echo $row['InstName']; ?>
+                                                                            <?php echo $row['faculty_name']; ?>
                                                                         </td>
                                                                         <td>
                                                                             <button type="button"
-                                                                                value="<?php echo $row['id']; ?>"
+                                                                                value="<?php echo $row['problem_description']; ?>"
                                                                                 class="btn btn-success btncertificate ml-5"
                                                                                 data-toggle="modal"
                                                                                 data-target="#probdescappr">View More</button>
                                                                         </td>
                                                                         <td>
-                                                                            <?php echo $row['Percentag']; ?>
+                                                                            <?php echo $row['date_of_reg']; ?>
                                                                         </td>
                                                                         <td>
                                                                             <button type="button"
@@ -474,10 +475,9 @@ $result = mysqli_query($conn, $sql);
                                                                                 class="btn btn-success btncertificate"
                                                                                 data-toggle="modal"
                                                                                 data-target="#viewimgappr">View</button>
-
                                                                         </td>
                                                                         <td>
-                                                                            <p>Status</p>
+                                                                            <button type="button" value="<?php echo $row['problem_description']; ?>" class="btn btn-success ml-4">Approval</button>
                                                                         </td>
                                                                     </tr>
                                                                 <?php
@@ -576,17 +576,17 @@ $result = mysqli_query($conn, $sql);
                                                             <tbody>
                                                                 <?php
                                                                 $id = 1;
-                                                                while ($row = mysqli_fetch_assoc($result)) {
+                                                                while ($row = mysqli_fetch_assoc($result2)) {
                                                                 ?>
                                                                     <tr>
                                                                         <td>
                                                                             <?php echo $id; ?>
                                                                         </td>
                                                                         <td>
-                                                                            <?php echo $row['Course']; ?>
+                                                                            <?php echo $row['problem_id']; ?>
                                                                         </td>
                                                                         <td>
-                                                                            <?php echo $row['InstName']; ?>
+                                                                            <?php echo $row['faculty_id']; ?>
                                                                         </td>
                                                                         <td>
                                                                             <button type="button"
@@ -596,7 +596,7 @@ $result = mysqli_query($conn, $sql);
                                                                                 data-target="#probdesccomp">View More</button>
                                                                         </td>
                                                                         <td>
-                                                                            <?php echo $row['Percentag']; ?>
+                                                                            <?php echo $row['date_of_reg']; ?>
                                                                         </td>
                                                                         <td>
                                                                             <button type="button"
@@ -607,7 +607,7 @@ $result = mysqli_query($conn, $sql);
 
                                                                         </td>
                                                                         <td>
-                                                                            <p>status</p>
+                                                                        <button type="button" value="<?php echo $row['problem_description']; ?>" class="btn btn-secondary ml-4">Waiting for assigning at manager</button>
                                                                         </td>
                                                                     </tr>
                                                                 <?php
@@ -690,6 +690,8 @@ $result = mysqli_query($conn, $sql);
                                                     </div>
                                                 </div>
                                             </div>
+
+                                            
 
                                             <footer class="footer text-center" style="margin-top: 250px;">
                                                 <b>

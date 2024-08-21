@@ -1,3 +1,9 @@
+<?php
+include("db.php");
+$sql = "SELECT * FROM complaints_detail";
+$result = mysqli_query($conn, $sql);
+?>
+
 <!DOCTYPE html>
 <html dir="ltr" lang="en">
 
@@ -174,7 +180,7 @@
                                 href="password.php" aria-expanded="false"><i class="mdi mdi-account-key"></i><span
                                     class="hide-menu">Change password</span></a></li>
                         <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
-                                href="Feedback_hod.html" aria-expanded="false"><i class="mdi mdi-comment-text"></i><span
+                                href="Feedback_hod.php" aria-expanded="false"><i class="mdi mdi-comment-text"></i><span
                                     class="hide-menu">Feedback Corner</span></a>
                         <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
                                 href="https://www.camsmkce.in/index.aspx" aria-expanded="false"><i
@@ -282,24 +288,22 @@
                                                                     while ($row = mysqli_fetch_assoc($result)) {
                                                                     ?>
                                                                 <tr>
+                                                                    <td><?php echo $id; ?></td>
                                                                     <td>
-                                                                        <?php echo $id; ?>
+                                                                        <?php echo $row['problem_id']; ?>
                                                                     </td>
                                                                     <td>
-                                                                        <?php echo $row['Course']; ?>
-                                                                    </td>
-                                                                    <td>
-                                                                        <?php echo $row['InstName']; ?>
+                                                                        <?php echo $row['faculty_name']; ?>
                                                                     </td>
                                                                     <td>
                                                                         <button type="button"
                                                                             value="<?php echo $row['id']; ?>"
-                                                                            class="btn btn-success btncertificate ml-5"
+                                                                            class="btn btn-success btndesc ml-5"
                                                                             data-toggle="modal"
                                                                             data-target="#probdesc">View More</button>
                                                                     </td>
                                                                     <td>
-                                                                        <?php echo $row['Percentag']; ?>
+                                                                        <?php echo $row['date_of_reg']; ?>
                                                                     </td>
                                                                     <td>
                                                                         <button type="button"

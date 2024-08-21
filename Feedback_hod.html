@@ -226,11 +226,23 @@
                                     <div class="card">
                                         <ul class="nav nav-tabs mb-3" role="tablist">
                                             <li class="nav-item">
-                                                <a class="nav-link active show" data-toggle="tab" href="#pending" role="tab" aria-selected="true"><span class="hidden-sm-up"></span> <span class="hidden-xs-down"><i class="bi-person"></i><b>Pending</b></span></a> </li>
+                                                <a class="nav-link active show" data-toggle="tab" href="#pending"
+                                                    role="tab" aria-selected="true"><span class="hidden-sm-up"></span>
+                                                    <span class="hidden-xs-down"><i
+                                                            class="bi-person"></i><b>Pending</b></span></a>
+                                            </li>
                                             <li class="nav-item">
-                                                <a class="nav-link" data-toggle="tab" href="#approved" role="tab" aria-selected="false"><span class="hidden-sm-up"></span> <span class="hidden-xs-down"><i class="bi bi-book"></i><b>Approved</b></span></a> </li>
+                                                <a class="nav-link" data-toggle="tab" href="#approved" role="tab"
+                                                    aria-selected="false"><span class="hidden-sm-up"></span> <span
+                                                        class="hidden-xs-down"><i
+                                                            class="bi bi-book"></i><b>Approved</b></span></a>
+                                            </li>
                                             <li class="nav-item">
-                                                <a class="nav-link" data-toggle="tab" href="#completed" role="tab" aria-selected="false"><span class="hidden-sm-up"></span> <span class="hidden-xs-down"><i class="bi bi-people-fill"></i><b>Completed</b></span></a> </li>
+                                                <a class="nav-link" data-toggle="tab" href="#completed" role="tab"
+                                                    aria-selected="false"><span class="hidden-sm-up"></span> <span
+                                                        class="hidden-xs-down"><i
+                                                            class="bi bi-people-fill"></i><b>Completed</b></span></a>
+                                            </li>
                                         </ul>
                                         <div class="tab-content tabcontent-border">
                                             <div class="tab-pane p-20 active show" id="pending" role="tabpanel">
@@ -239,8 +251,12 @@
                                                         <div class="card">
                                                             <div class="card-header">
                                                                 <h4>Pending Details
-                                                                    <button type="button" style="float:right;" class="btn btn-success btnadddetails">Aprrove All</button>
-                                                                    <button type="button" style="float:right;" class="btn btn-danger btnadddetails mr-2">Reject All</button>
+                                                                    <button type="button" style="float:right;"
+                                                                        class="btn btn-success btnadddetails">Aprrove
+                                                                        All</button>
+                                                                    <button type="button" style="float:right;"
+                                                                        class="btn btn-danger btnadddetails mr-2">Reject
+                                                                        All</button>
                                                                 </h4>
                                                             </div>
                                                         </div>
@@ -276,21 +292,29 @@
                                                                         <?php echo $row['InstName']; ?>
                                                                     </td>
                                                                     <td>
-                                                                        <button type="button" value="<?php echo $row['id']; ?>"
-                                                                            class="btn btn-success btncertificate ml-5" data-toggle="modal" data-target="#probdesc">View More</button>
+                                                                        <button type="button"
+                                                                            value="<?php echo $row['id']; ?>"
+                                                                            class="btn btn-success btncertificate ml-5"
+                                                                            data-toggle="modal"
+                                                                            data-target="#probdesc">View More</button>
                                                                     </td>
                                                                     <td>
                                                                         <?php echo $row['Percentag']; ?>
                                                                     </td>
                                                                     <td>
-                                                                        <button type="button" value="<?php echo $row['id']; ?>"
-                                                                            class="btn btn-success btncertificate" data-toggle="modal" data-target="#viewimg">View</button>
-                                                        
+                                                                        <button type="button"
+                                                                            value="<?php echo $row['id']; ?>"
+                                                                            class="btn btn-success btncertificate"
+                                                                            data-toggle="modal"
+                                                                            data-target="#viewimg">View</button>
+
                                                                     </td>
                                                                     <td>
-                                                                        <button type="button" value="<?php echo $row['id']; ?>"
+                                                                        <button type="button"
+                                                                            value="<?php echo $row['id']; ?>"
                                                                             class="btn btn-success btnuseredit">Approve</button>
-                                                                        <button type="button" value="<?php echo $row['id']; ?>"
+                                                                        <button type="button"
+                                                                            value="<?php echo $row['id']; ?>"
                                                                             class="btn btn-danger btnuserdelete">Reject</button>
                                                                     </td>
                                                                 </tr>
@@ -302,120 +326,71 @@
                                                         </table>
                                                     </div>
                                                 </div>
-<<<<<<< HEAD
-                            <!------------------view problem description modal-->
-=======
->>>>>>> 536bdfd2ee084105b4ce5b748d12de066fbbc325
-                                                <div class="modal fade" id="probdesc" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                <!------------------view problem description modal-->
+                                                <div class="modal fade" id="probdesc" tabindex="-1"
+                                                    aria-labelledby="exampleModalLabel" aria-hidden="true">
                                                     <div class="modal-dialog">
                                                         <div class="modal-content">
                                                             <div class="modal-header">
-<<<<<<< HEAD
-                                                                <h5 class="modal-title" id="exampleModalLabel">Problem Description</h5>
-=======
-                                                                <h5 class="modal-title" id="exampleModalLabel">Add Academic Details</h5>
->>>>>>> 536bdfd2ee084105b4ce5b748d12de066fbbc325
-                                                                <button type="button" class="btn" data-dismiss="modal" aria-label="Close"><i class="mdi mdi-close"></i>
+                                                                <h5 class="modal-title" id="exampleModalLabel">Problem
+                                                                    Description</h5>
+                                                                <button type="button" class="btn" data-dismiss="modal"
+                                                                    aria-label="Close"><i class="mdi mdi-close"></i>
                                                                 </button>
                                                             </div>
                                                             <form id="addnewdetails">
-<<<<<<< HEAD
                                                                 <div class="modal-body" style="font-size:larger;">
-                                                                    <p>dddddweianfdifvsnafidbniadnbaefovdfbsgaiskdgngwognisfdiusb digbrgg girhg  hrvsgif fhsv Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quo delectus atque reprehenderit eligendi sint. Sunt odio sit, laborum illum aspernatur non ullam a itaque ipsa maiores eius dolores corporis est.</p>
-                                                                    
-                                                                    
-                                                                    
-                                                                    
-                                                                    
-                                                                    
+                                                                    <p>dddddweianfdifvsnafidbniadnbaefovdfbsgaiskdgngwognisfdiusb
+                                                                        digbrgg girhg hrvsgif fhsv Lorem ipsum dolor sit
+                                                                        amet consectetur, adipisicing elit. Quo delectus
+                                                                        atque reprehenderit eligendi sint. Sunt odio
+                                                                        sit, laborum illum aspernatur non ullam a itaque
+                                                                        ipsa maiores eius dolores corporis est.</p>
+
+
+
+
+
+
                                                                 </div>
                                                                 <div class="modal-footer">
-                                                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                                                    
-=======
-                                                                <div class="modal-body">
-                                                                    <div class="mb-3">
-                                                                        <label for="course">Course *</label>
-                                                                        <select class="form-control" name="course" required>
-                                                                            <option value="NULL">Select Course</option>
-                                                                            <option value="SSLC">SSLC</option>
-                                                                            <option value="HSC">HSC</option>
-                                                                            <option value="ITI">ITI</option>
-                                                                            <option value="DIPLOMA">DIPLOMA</option>
-                                                                            <option value="UG">UG</option>
-                                                                        </select>
-                                                                    </div>
-                                                                    <div class="mb-3">
-                                                                        <label for="degree">Degree *</label>
-                                                                        <select class="form-control" name="degree" required>
-                                                                            <option value="NULL">Select Degree</option>
-                                                                            <option value="B.Tech">B.Tech</option>
-                                                                            <option value="B.E">B.E</option>
-                                                                            <option value="M.E">M.E</option>
-                                                                        </select>
-                                                                    </div>
-                                                                    <div class="mb-3">
-                                                                        <label for="spec">Specialization / Branch *</label>
-                                                                        <input type="text" name="spec" class="form-control" placeholder="Enter Specilization" required>
-                                                                    </div>
-                                                                    <div class="mb-3">
-                                                                        <label for="instname">Institution Name *</label>
-                                                                        <input type="text" name="instname" class="form-control" placeholder="Enter Institution Name"
-                                                                            required>
-                                                                    </div>
-                                                                    <div class="mb-3">
-                                                                        <label for="uni">Board/University *</label>
-                                                                        <input type="text" name="uni" class="form-control" placeholder="Enter Board/University Name"
-                                                                            required>
-                                                                    </div>
-                                                                    <div class="mb-3">
-                                                                        <label for="yop">Year of Completion *</label>
-                                                                        <input type="text" name="yop" class="form-control" required>
-                                                                    </div>
-                                                                    <div class="mb-3">
-                                                                        <label for="percentag">Percentage (%)/CGPA*</label>
-                                                                        <input type="text" name="percentag" class="form-control" required>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="modal-footer">
-                                                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                                                    <button type="submit" class="btn btn-primary">Save
-                                                                        details</button>
->>>>>>> 536bdfd2ee084105b4ce5b748d12de066fbbc325
+                                                                    <button type="button" class="btn btn-secondary"
+                                                                        data-dismiss="modal">Close</button>
+
                                                                 </div>
                                                             </form>
                                                         </div>
                                                     </div>
-<<<<<<< HEAD
                                                 </div>
-                                           <!------------view image modal-->     
-                                           <div class="modal fade" id="viewimg" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                            <div class="modal-dialog">
-                                                <div class="modal-content">
-                                                    <div class="modal-header">
-                                                        <h5 class="modal-title" id="exampleModalLabel">Problem Image</h5>
-                                                        <button type="button" class="btn" data-dismiss="modal" aria-label="Close"><i class="mdi mdi-close"></i>
-                                                        </button>
+                                                <!------------view image modal-->
+                                                <div class="modal fade" id="viewimg" tabindex="-1"
+                                                    aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                    <div class="modal-dialog">
+                                                        <div class="modal-content">
+                                                            <div class="modal-header">
+                                                                <h5 class="modal-title" id="exampleModalLabel">Problem
+                                                                    Image</h5>
+                                                                <button type="button" class="btn" data-dismiss="modal"
+                                                                    aria-label="Close"><i class="mdi mdi-close"></i>
+                                                                </button>
+                                                            </div>
+                                                            <form id="addnewdetails">
+                                                                <div class="modal-body" style="font-size:larger;">
+                                                                    <center>
+                                                                        <img src="assets/images/logo2.png" alt="no img">
+                                                                    </center>
+
+
+                                                                </div>
+                                                                <div class="modal-footer">
+                                                                    <button type="button" class="btn btn-secondary"
+                                                                        data-dismiss="modal">Close</button>
+
+                                                                </div>
+                                                            </form>
+                                                        </div>
                                                     </div>
-                                                    <form id="addnewdetails">
-                                                        <div class="modal-body" style="font-size:larger;">
-                                                            <center>
-                                                               <img src="assets/images/logo2.png" alt="no img">
-                                                            </center>
-                                                            
-                                                            
-                                                        </div>
-                                                        <div class="modal-footer">
-                                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                                            
-                                                        </div>
-                                                    </form>
                                                 </div>
-                                            </div>
-                                        </div>
-=======
-                                                </div>   
->>>>>>> 536bdfd2ee084105b4ce5b748d12de066fbbc325
                                             </div>
                                             <div class="tab-pane p-20" id="approved" role="tabpanel">
                                                 <div class="row">
@@ -464,14 +439,17 @@
                                                                         <?php echo $row['Percentag']; ?>
                                                                     </td>
                                                                     <td>
-                                                                        <button type="button" value="<?php echo $row['id']; ?>"
+                                                                        <button type="button"
+                                                                            value="<?php echo $row['id']; ?>"
                                                                             class="btn btn-success btncertificate">Certificate</button>
-                                            
+
                                                                     </td>
                                                                     <td>
-                                                                        <button type="button" value="<?php echo $row['id']; ?>"
+                                                                        <button type="button"
+                                                                            value="<?php echo $row['id']; ?>"
                                                                             class="btn btn-warning btnuseredit">Edit</button>
-                                                                        <button type="button" value="<?php echo $row['id']; ?>"
+                                                                        <button type="button"
+                                                                            value="<?php echo $row['id']; ?>"
                                                                             class="btn btn-danger btnuserdelete">Delete</button>
                                                                     </td>
                                                                 </tr>
@@ -485,7 +463,7 @@
                                                 </div>
 
                                                 <!-- Add User Modal -->
-                                                
+
                                             </div>
 
                                             <div class="tab-pane p-20" id="completed" role="tabpanel">
@@ -498,63 +476,66 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                    <div class="card-body">
-                                                        <div class="table-responsive">
-                                                            <table id="myTable" class="table table-bordered table-striped">
-                                                                <thead>
-                                                                    <tr>
-                                                                        <th><b>S.No</b></th>
-                                                                        <th><b>Course</b></th>
-                                                                        <th><b>Institution Name</b></th>
-                                                                        <th><b>Year of Passing</b></th>
-                                                                        <th><b>Percentage/CGPA</b></th>
-                                                                        <th><b>Certificate </b></th>
-                                                                        <th><b>Action</b></th>
-                                                                    </tr>
-                                                                </thead>
-                                                                <tbody>
-                                                                    <?php
+                                                <div class="card-body">
+                                                    <div class="table-responsive">
+                                                        <table id="myTable" class="table table-bordered table-striped">
+                                                            <thead>
+                                                                <tr>
+                                                                    <th><b>S.No</b></th>
+                                                                    <th><b>Course</b></th>
+                                                                    <th><b>Institution Name</b></th>
+                                                                    <th><b>Year of Passing</b></th>
+                                                                    <th><b>Percentage/CGPA</b></th>
+                                                                    <th><b>Certificate </b></th>
+                                                                    <th><b>Action</b></th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                                <?php
                                                                     $id = 1;
                                                                     while ($row = mysqli_fetch_assoc($result)) {
                                                                     ?>
-                                                                    <tr>
-                                                                        <td>
-                                                                            <?php echo $id; ?>
-                                                                        </td>
-                                                                        <td>
-                                                                            <?php echo $row['Course']; ?>
-                                                                        </td>
-                                                                        <td>
-                                                                            <?php echo $row['InstName']; ?>
-                                                                        </td>
-                                                                        <td>
-                                                                            <?php echo $row['YoP']; ?>
-                                                                        </td>
-                                                                        <td>
-                                                                            <?php echo $row['Percentag']; ?>
-                                                                        </td>
-                                                                        <td>
-                                                                            <button type="button" value="<?php echo $row['id']; ?>"
-                                                                                class="btn btn-success btncertificate">Certificate</button>
-                                                
-                                                                        </td>
-                                                                        <td>
-                                                                            <button type="button" value="<?php echo $row['id']; ?>"
-                                                                                class="btn btn-warning btnuseredit">Edit</button>
-                                                                            <button type="button" value="<?php echo $row['id']; ?>"
-                                                                                class="btn btn-danger btnuserdelete">Delete</button>
-                                                                        </td>
-                                                                    </tr>
-                                                                    <?php
+                                                                <tr>
+                                                                    <td>
+                                                                        <?php echo $id; ?>
+                                                                    </td>
+                                                                    <td>
+                                                                        <?php echo $row['Course']; ?>
+                                                                    </td>
+                                                                    <td>
+                                                                        <?php echo $row['InstName']; ?>
+                                                                    </td>
+                                                                    <td>
+                                                                        <?php echo $row['YoP']; ?>
+                                                                    </td>
+                                                                    <td>
+                                                                        <?php echo $row['Percentag']; ?>
+                                                                    </td>
+                                                                    <td>
+                                                                        <button type="button"
+                                                                            value="<?php echo $row['id']; ?>"
+                                                                            class="btn btn-success btncertificate">Certificate</button>
+
+                                                                    </td>
+                                                                    <td>
+                                                                        <button type="button"
+                                                                            value="<?php echo $row['id']; ?>"
+                                                                            class="btn btn-warning btnuseredit">Edit</button>
+                                                                        <button type="button"
+                                                                            value="<?php echo $row['id']; ?>"
+                                                                            class="btn btn-danger btnuserdelete">Delete</button>
+                                                                    </td>
+                                                                </tr>
+                                                                <?php
                                                                     $id++;
                                                                     }
                                                                     ?>
-                                                                </tbody>
-                                                            </table>
-                                                        </div>
+                                                            </tbody>
+                                                        </table>
                                                     </div>
+                                                </div>
                                             </div>
-                                            <footer class="footer text-center" style="margin-top: 50px;">
+                                            <footer class="footer text-center" style="margin-top: 250px;">
                                                 <b>
                                                     2024 © M.Kumarasamy College of Engineering All Rights Reserved.<br>
                                                     Developed and Maintained by Technology Innovation Hub.
@@ -562,23 +543,33 @@
                                             </footer>
                                         </div>
                                     </div>
-                <!-- ============================================================== -->
-                <!-- All Jquery -->
-                <!-- ============================================================== -->
-                <script src="assets/libs/jquery/dist/jquery.min.js"></script>
-                <script src="assets/libs/popper.js/dist/umd/popper.min.js"></script>
-                <script src="assets/libs/bootstrap/dist/js/bootstrap.min.js"></script>
-                <script src="assets/libs/perfect-scrollbar/dist/perfect-scrollbar.jquery.min.js"></script>
-                <script src="assets/extra-libs/sparkline/sparkline.js"></script>
-                <script src="dist/js/waves.js"></script>
-                <script src="dist/js/sidebarmenu.js"></script>
-                <script src="dist/js/custom.min.js"></script>
-                <script src="assets/extra-libs/multicheck/datatable-checkbox-init.js"></script>
-                <script src="assets/extra-libs/multicheck/jquery.multicheck.js"></script>
-                <script src="assets/extra-libs/DataTables/datatables.min.js"></script>
-                <script>
-                    $('#zero_config').DataTable();
-                </script>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+                            
+                                    <!-- ============================================================== -->
+                                    <!-- All Jquery -->
+                                    <!-- ============================================================== -->
+                                    <script src="assets/libs/jquery/dist/jquery.min.js"></script>
+                                    <script src="assets/libs/popper.js/dist/umd/popper.min.js"></script>
+                                    <script src="assets/libs/bootstrap/dist/js/bootstrap.min.js"></script>
+                                    <script
+                                        src="assets/libs/perfect-scrollbar/dist/perfect-scrollbar.jquery.min.js"></script>
+                                    <script src="assets/extra-libs/sparkline/sparkline.js"></script>
+                                    <script src="dist/js/waves.js"></script>
+                                    <script src="dist/js/sidebarmenu.js"></script>
+                                    <script src="dist/js/custom.min.js"></script>
+                                    <script src="assets/extra-libs/multicheck/datatable-checkbox-init.js"></script>
+                                    <script src="assets/extra-libs/multicheck/jquery.multicheck.js"></script>
+                                    <script src="assets/extra-libs/DataTables/datatables.min.js"></script>
+                                    <script>
+                                        $('#zero_config').DataTable();
+                                    </script>
 </body>
 
 </html>

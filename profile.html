@@ -3,35 +3,28 @@
   <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <!-- Tell the browser to be responsive to screen width -->
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content="" />
     <meta name="author" content="" />
-    <!-- Favicon icon -->
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="16x16"
-      href="assets/images/favicon.png"
-    />
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon.png" />
     <title>MIC</title>
-    <!-- Custom CSS -->
     <link href="assets/libs/flot/css/float-chart.css" rel="stylesheet" />
     <link href="dist/css/style.min.css" rel="stylesheet" />
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
     <style>
-      .profile-container {
-        margin: 100px auto;
-        max-width: 900px;
-        padding: 20px;
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #e4e4e4; /* Same as container background */
+        margin: 0;
+        padding: 0;
       }
 
-      .profile-header {
+      .profile-container {
+        margin: 100px auto;
+        max-width: 800px;
+        padding: 20px;
+        background-color: #ffffff; /* Container background color */
+        border-radius: 8px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
         text-align: center;
       }
 
@@ -39,18 +32,33 @@
         border-radius: 50%;
         width: 150px;
         height: 150px;
-        object-fit: cover; /* Ensures the image covers the circle without distortion */
+        object-fit: cover;
+        margin-bottom: 20px;
+      }
+
+      .profile-header h4 {
+        margin: 0;
+        font-size: 24px;
+        color: #333;
+      }
+
+      .profile-header p {
+        margin: 5px 0;
+        color: #555;
       }
 
       .profile-details {
         margin-top: 20px;
         border-top: 1px solid #ddd;
         padding-top: 20px;
+        text-align: left;
       }
 
       .profile-details h6 {
-        margin-bottom: 10px;
+        margin: 0;
+        font-size: 16px;
         font-weight: bold;
+        color: #333;
       }
 
       .profile-details .row {
@@ -59,17 +67,20 @@
 
       .profile-details .col-sm-3 {
         font-weight: bold;
+        color: #555;
       }
 
       .profile-details .col-sm-9 {
-        color: #555;
+        color: #333;
       }
 
       footer {
         margin-top: 50px;
         padding: 10px 0;
-        background-color: #e4e4e4;
+        background-color: #ffffff; /* Footer background color */
         text-align: center;
+        font-size: 14px;
+        color: #333;
       }
     </style>
   </head>
@@ -95,38 +106,23 @@
         <nav class="navbar top-navbar navbar-expand-md navbar-dark">
           <div class="navbar-header" data-logobg="skin5">
             <!-- This is for the sidebar toggle which is visible on mobile only -->
-            <a
-              class="nav-toggler waves-effect waves-light d-block d-md-none"
-              href="javascript:void(0)"
-              ><i class="ti-menu ti-close"></i
-            ></a>
+            <a class="nav-toggler waves-effect waves-light d-block d-md-none" href="javascript:void(0)">
+              <i class="ti-menu ti-close"></i>
+            </a>
             <!-- ============================================================== -->
             <!-- Logo -->
             <!-- ============================================================== -->
             <a class="navbar-brand" href="index.html">
               <!-- Logo icon -->
-              <b
-                class="logo-icon p-l-10"
-                style="padding-left: 0px; border-left: 0px"
-              >
-                <!--You can put here icon as well // <i class="wi wi-sunset"></i> //-->
+              <b class="logo-icon p-l-10" style="padding-left: 0px; border-left: 0px">
                 <!-- Dark Logo icon -->
-                <img
-                  src="assets/images/logo2.png"
-                  width="50px"
-                  alt="homepage"
-                  class="light-logo"
-                />
+                <img src="assets/images/logo2.png" width="50px" alt="homepage" class="light-logo" />
               </b>
               <!--End Logo icon -->
               <!-- Logo text -->
               <span class="logo-text">
                 <!-- dark Logo text -->
-                <img
-                  src="assets/images/logo-text.png"
-                  alt="homepage"
-                  class="light-logo"
-                />
+                <img src="assets/images/logo-text.png" alt="homepage" class="light-logo" />
               </span>
             </a>
             <!-- ============================================================== -->
@@ -135,36 +131,22 @@
             <!-- ============================================================== -->
             <!-- Toggle which is visible on mobile only -->
             <!-- ============================================================== -->
-            <a
-              class="topbartoggler d-block d-md-none waves-effect waves-light"
-              href="javascript:void(0)"
-              data-toggle="collapse"
-              data-target="#navbarSupportedContent"
-              aria-controls="navbarSupportedContent"
-              aria-expanded="false"
-              aria-label="Toggle navigation"
-              ><i class="ti-more"></i
-            ></a>
+            <a class="topbartoggler d-block d-md-none waves-effect waves-light" href="javascript:void(0)" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <i class="ti-more"></i>
+            </a>
           </div>
           <!-- ============================================================== -->
           <!-- End Logo -->
           <!-- ============================================================== -->
-          <div
-            class="navbar-collapse collapse"
-            id="navbarSupportedContent"
-            data-navbarbg="skin5"
-          >
+          <div class="navbar-collapse collapse" id="navbarSupportedContent" data-navbarbg="skin5">
             <!-- ============================================================== -->
             <!-- toggle and nav items -->
             <!-- ============================================================== -->
             <ul class="navbar-nav float-left mr-auto">
               <li class="nav-item d-none d-md-block">
-                <a
-                  class="nav-link sidebartoggler waves-effect waves-light"
-                  href="javascript:void(0)"
-                  data-sidebartype="mini-sidebar"
-                  ><i class="mdi mdi-menu font-24"></i
-                ></a>
+                <a class="nav-link sidebartoggler waves-effect waves-light" href="javascript:void(0)" data-sidebartype="mini-sidebar">
+                  <i class="mdi mdi-menu font-24"></i>
+                </a>
               </li>
             </ul>
             <!-- ============================================================== -->
@@ -172,48 +154,16 @@
             <!-- ============================================================== -->
             <ul class="navbar-nav float-right">
               <!-- ============================================================== -->
-              <!-- Comment -->
-              <!-- ============================================================== -->
-              <li class="nav-item dropdown">
-                <a
-                  class="nav-link dropdown-toggle waves-effect waves-dark"
-                  href=""
-                  data-toggle="dropdown"
-                  aria-haspopup="true"
-                  aria-expanded="false"
-                ></a>
-              </li>
-              <!-- ============================================================== -->
-              <!-- End Comment -->
-              <!-- ============================================================== -->
-              <!-- ============================================================== -->
-              <!-- Messages -->
-              <!-- ============================================================== -->
-
-              <!-- ============================================================== -->
-              <!-- End Messages -->
-              <!-- ============================================================== -->
-
-              <!-- ============================================================== -->
               <!-- User profile and search -->
               <!-- ============================================================== -->
               <li class="nav-item dropdown">
-                <a
-                  class="nav-link dropdown-toggle text-muted waves-effect waves-dark pro-pic"
-                  href=""
-                  data-toggle="dropdown"
-                  aria-haspopup="true"
-                  aria-expanded="false"
-                  ><img
-                    src="assets/images/users/1.jpg"
-                    alt="user"
-                    class="rounded-circle"
-                    width="31"
-                /></a>
+                <a class="nav-link dropdown-toggle text-muted waves-effect waves-dark pro-pic" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <img src="assets/images/users/1.jpg" alt="user" class="rounded-circle" width="31" />
+                </a>
                 <div class="dropdown-menu dropdown-menu-right user-dd animated">
-                  <a class="dropdown-item" href="authentication-login.html"
-                    ><i class="fa fa-power-off m-r-5 m-l-5"></i> Logout</a
-                  >
+                  <a class="dropdown-item" href="authentication-login.html">
+                    <i class="fa fa-power-off m-r-5 m-l-5"></i> Logout
+                  </a>
                 </div>
               </li>
             </ul>
@@ -233,78 +183,60 @@
           <nav class="sidebar-nav">
             <ul id="sidebarnav" class="p-t-30">
               <li class="sidebar-item">
-                <a
-                  class="sidebar-link waves-effect waves-dark sidebar-link"
-                  href="index.html"
-                  aria-expanded="false"
-                  ><i class="mdi mdi-view-dashboard"></i
-                  ><span class="hide-menu">Dashboard</span></a
-                >
+                <a class="sidebar-link waves-effect waves-dark sidebar-link" href="index.html" aria-expanded="false">
+                  <i class="mdi mdi-view-dashboard"></i>
+                  <span class="hide-menu">Dashboard</span>
+                </a>
               </li>
               <li class="sidebar-item">
-                <a
-                  class="sidebar-link waves-effect waves-dark sidebar-link"
-                  href="profile.html"
-                  aria-expanded="false"
-                  ><i class="mdi mdi-account"></i
-                  ><span class="hide-menu">Profile</span></a
-                >
+                <a class="sidebar-link waves-effect waves-dark sidebar-link" href="profile.html" aria-expanded="false">
+                  <i class="mdi mdi-account"></i>
+                  <span class="hide-menu">Profile</span>
+                </a>
               </li>
               <li class="sidebar-item">
-                <a
-                  class="sidebar-link has-arrow waves-effect waves-dark"
-                  href="edit-profile.html"
-                  aria-expanded="false"
-                  ><i class="mdi mdi-account-edit"></i
-                  ><span class="hide-menu">Edit Profile</span></a
-                >
+                <a class="sidebar-link has-arrow waves-effect waves-dark" href="edit-profile.html" aria-expanded="false">
+                  <i class="mdi mdi-account-edit"></i>
+                  <span class="hide-menu">Edit Profile</span>
+                </a>
                 <ul aria-expanded="false" class="collapse first-level">
                   <li class="sidebar-item">
-                    <a href="basic-details.php" class="sidebar-link"
-                      ><i class="mdi mdi-account-settings-variant"></i
-                      ><span class="hide-menu"> Basic Details </span></a
-                    >
+                    <a href="basic-details.php" class="sidebar-link">
+                      <i class="mdi mdi-account-settings-variant"></i>
+                      <span class="hide-menu"> Basic Details </span>
+                    </a>
                   </li>
                   <li class="sidebar-item">
-                    <a href="academic-details.html" class="sidebar-link"
-                      ><i class="mdi mdi-book-multiple"></i
-                      ><span class="hide-menu"> Academic Details </span></a
-                    >
+                    <a href="academic-details.html" class="sidebar-link">
+                      <i class="mdi mdi-book-multiple"></i>
+                      <span class="hide-menu"> Academic Details </span>
+                    </a>
                   </li>
                   <li class="sidebar-item">
-                    <a href="examdetails.php" class="sidebar-link"
-                      ><i class="mdi mdi-book-open"></i
-                      ><span class="hide-menu"> Exams Details </span></a
-                    >
+                    <a href="examdetails.php" class="sidebar-link">
+                      <i class="mdi mdi-book-open"></i>
+                      <span class="hide-menu"> Exams Details </span>
+                    </a>
                   </li>
                 </ul>
               </li>
               <li class="sidebar-item">
-                <a
-                  class="sidebar-link waves-effect waves-dark sidebar-link"
-                  href="bus.html"
-                  aria-expanded="false"
-                  ><i class="mdi mdi-bus"></i
-                  ><span class="hide-menu">Bus Booking</span></a
-                >
+                <a class="sidebar-link waves-effect waves-dark sidebar-link" href="bus.html" aria-expanded="false">
+                  <i class="mdi mdi-bus"></i>
+                  <span class="hide-menu">Bus Booking</span>
+                </a>
               </li>
               <li class="sidebar-item">
-                <a
-                  class="sidebar-link waves-effect waves-dark sidebar-link"
-                  href="password.php"
-                  aria-expanded="false"
-                  ><i class="mdi mdi-account-key"></i
-                  ><span class="hide-menu">Change password</span></a
-                >
+                <a class="sidebar-link waves-effect waves-dark sidebar-link" href="password.php" aria-expanded="false">
+                  <i class="mdi mdi-account-key"></i>
+                  <span class="hide-menu">Change password</span>
+                </a>
               </li>
               <li class="sidebar-item">
-                <a
-                  class="sidebar-link waves-effect waves-dark sidebar-link"
-                  href="https://www.camsmkce.in/index.aspx"
-                  aria-expanded="false"
-                  ><i class="mdi mdi-vector-arrange-above"></i
-                  ><span class="hide-menu">Cams</span></a
-                >
+                <a class="sidebar-link waves-effect waves-dark sidebar-link" href="https://www.camsmkce.in" aria-expanded="false">
+                  <i class="mdi mdi-link"></i>
+                  <span class="hide-menu">CAMS</span>
+                </a>
               </li>
             </ul>
           </nav>
@@ -318,104 +250,114 @@
       <!-- ============================================================== -->
       <!-- Page wrapper  -->
       <!-- ============================================================== -->
-      <div class="container-fluid profile-container">
-        <div class="profile-header">
-          <img src="assets/images/users/mkce_1.jpg" alt="Profile Image">
-          <div class="mt-3">
-            <h4>Bharani Nayagi S</h4>
-            <p class="text-secondary mb-1">Assistant Professor</p>
-            <p class="text-muted font-size-sm">Department of Artificial Intelligence and Machine Learning</p>
+      <div class="page-wrapper">
+        <!-- ============================================================== -->
+        <!-- Container fluid  -->
+        <!-- ============================================================== -->
+        <div class="container-fluid profile-container mt-4">
+          <div class="profile-header">
+            <img src="assets/images/users/mkce_1.jpg" alt="Profile Image">
+            <div>
+              <h4>Head</h4>
+              <p class="text-secondary">Head of the department</p>
+              <p class="text-muted">Department of Artificial Intelligence and Machine Learning</p>
+            </div>
+          </div>
+          <div class="profile-details">
+            <div class="row">
+              <div class="col-sm-3">
+                <h6>Full Name</h6>
+              </div>
+              <div class="col-sm-9">
+                Head
+              </div>
+            </div>
+            <hr>
+            <div class="row">
+              <div class="col-sm-3">
+                <h6>Gender</h6>
+              </div>
+              <div class="col-sm-9">
+                Male/Female
+              </div>
+            </div>
+            <hr>
+            <div class="row">
+              <div class="col-sm-3">
+                <h6>Email</h6>
+              </div>
+              <div class="col-sm-9">
+                head_name.dept@mkce.ac.in
+              </div>
+            </div>
+            <hr>
+            <div class="row">
+              <div class="col-sm-3">
+                <h6>Date of Birth</h6>
+              </div>
+              <div class="col-sm-9">
+                00 - 00 - 0000
+              </div>
+            </div>
+            <hr>
+            <div class="row">
+              <div class="col-sm-3">
+                <h6>Mobile</h6>
+              </div>
+              <div class="col-sm-9">
+                93344XXXXX
+              </div>
+            </div>
+            <hr>
+            <div class="row">
+              <div class="col-sm-3">
+                <h6>Address</h6>
+              </div>
+              <div class="col-sm-9">
+                1, xx street, xxxx nagar, xxx.
+              </div>
+            </div>
           </div>
         </div>
-        <div class="profile-details">
-          <div class="row">
-            <div class="col-sm-3">
-              <h6 class="mb-0">Full Name</h6>
-            </div>
-            <div class="col-sm-9 text-secondary">
-              Bharani Nayagi S
-            </div>
-          </div>
-          <hr>
-          <div class="row">
-            <div class="col-sm-3">
-              <h6 class="mb-0">Gender</h6>
-            </div>
-            <div class="col-sm-9 text-secondary">
-              Female
-            </div>
-          </div>
-          <hr>
-          <div class="row">
-            <div class="col-sm-3">
-              <h6 class="mb-0">Email</h6>
-            </div>
-            <div class="col-sm-9 text-secondary">
-              bharaninayagis.aiml@mkce.ac.in
-            </div>
-          </div>
-          <hr>
-          <div class="row">
-            <div class="col-sm-3">
-              <h6 class="mb-0">Date of Birth</h6>
-            </div>
-            <div class="col-sm-9 text-secondary">
-              26 - 08 - 1986
-            </div>
-          </div>
-          <hr>
-          <div class="row">
-            <div class="col-sm-3">
-              <h6 class="mb-0">Mobile</h6>
-            </div>
-            <div class="col-sm-9 text-secondary">
-              9360594244
-            </div>
-          </div>
-          <hr>
-          <div class="row">
-            <div class="col-sm-3">
-              <h6 class="mb-0">Address</h6>
-            </div>
-            <div class="col-sm-9 text-secondary">
-              141E1, Kothai Illam College Road, P. Velur, Namakkal-638182
-            </div>
-          </div>
-        </div>
+        <!-- ============================================================== -->
+        <!-- End Container fluid  -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- Footer -->
+        <!-- ============================================================== -->
+        <footer class="footer">
+          <b>2024 &copy; M.Kumarasamy College of Engineering. All Rights Reserved.<br>
+          Developed and Maintained by Technology Innovation Hub.</b>
+        </footer>
+        <!-- ============================================================== -->
+        <!-- End Footer -->
+        <!-- ============================================================== -->
       </div>
       <!-- ============================================================== -->
-      <!-- Bread crumb and right sidebar toggle -->
+      <!-- End Page wrapper  -->
       <!-- ============================================================== -->
-      <footer class="footer text-center">
-        <b>2024 &copy M.Kumarasamy College of Engineering All Rights Reserved.<br>
-        Developed and Maintained by Technology Innovation Hub.</b>
-      </footer>
-      <!-- ============================================================== -->
-      <!-- End Wrapper -->
-      <!-- ============================================================== -->
-      <!-- ============================================================== -->
-      <!-- All Jquery -->
-      <!-- ============================================================== -->
-      <script src="assets/libs/jquery/dist/jquery.min.js"></script>
-      <!-- Bootstrap tether Core JavaScript -->
-      <script src="assets/libs/popper.js/dist/umd/popper.min.js"></script>
-      <script src="assets/libs/bootstrap/dist/js/bootstrap.min.js"></script>
-      <script src="assets/libs/perfect-scrollbar/dist/perfect-scrollbar.jquery.min.js"></script>
-      <script src="assets/extra-libs/sparkline/sparkline.js"></script>
-      <!--Wave Effects -->
-      <script src="dist/js/waves.js"></script>
-      <!--Menu sidebar -->
-      <script src="dist/js/sidebarmenu.js"></script>
-      <!--Custom JavaScript -->
-      <script src="dist/js/custom.min.js"></script>
-      <!-- Charts js Files -->
-      <script src="assets/libs/flot/excanvas.js"></script>
-      <script src="assets/libs/flot/jquery.flot.js"></script>
-      <script src="assets/libs/flot/jquery.flot.pie.js"></script>
-      <script src="assets/libs/flot/jquery.flot.time.js"></script>
-      <script src="assets/libs/flot/jquery.flot.stack.js"></script>
-      <script src="assets/libs/flot/jquery.flot.crosshair.js"></script>
-      <script src="assets/libs/flot.tooltip/js/jquery.flot.tooltip.min.js"></script>
-      <script src="dist/js/pages/chart/chart-page-init.js"></script>
-    </body>
-  </html>
+    </div>
+    <!-- ============================================================== -->
+    <!-- End Main wrapper  -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- All Jquery -->
+    <!-- ============================================================== -->
+    <script src="assets/libs/jquery/dist/jquery.min.js"></script>
+    <script src="assets/libs/popper.js/dist/umd/popper.min.js"></script>
+    <script src="assets/libs/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="assets/libs/perfect-scrollbar/dist/perfect-scrollbar.jquery.min.js"></script>
+    <script src="assets/extra-libs/sparkline/sparkline.js"></script>
+    <script src="dist/js/waves.js"></script>
+    <script src="dist/js/sidebarmenu.js"></script>
+    <script src="dist/js/custom.min.js"></script>
+    <script src="assets/libs/flot/excanvas.js"></script>
+    <script src="assets/libs/flot/jquery.flot.js"></script>
+    <script src="assets/libs/flot/jquery.flot.pie.js"></script>
+    <script src="assets/libs/flot/jquery.flot.time.js"></script>
+    <script src="assets/libs/flot/jquery.flot.stack.js"></script>
+    <script src="assets/libs/flot/jquery.flot.crosshair.js"></script>
+    <script src="assets/libs/flot.tooltip/js/jquery.flot.tooltip.min.js"></script>
+    <script src="dist/js/pages/chart/chart-page-init.js"></script>
+  </body>
+</html>

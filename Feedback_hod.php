@@ -2,6 +2,10 @@
 include("db.php");
 $sql = "SELECT * FROM complaints_detail";
 $result = mysqli_query($conn, $sql);
+$result1 = mysqli_query($conn, $sql);
+$result2 = mysqli_query($conn, $sql);
+$result3 = mysqli_query($conn, $sql);
+
 ?>
 
 <!DOCTYPE html>
@@ -249,6 +253,12 @@ $result = mysqli_query($conn, $sql);
                                                         class="hidden-xs-down"><i
                                                             class="bi bi-people-fill"></i><b>Completed</b></span></a>
                                             </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link" data-toggle="tab" href="#rejected" role="tab"
+                                                    aria-selected="false"><span class="hidden-sm-up"></span> <span
+                                                        class="hidden-xs-down"><i
+                                                            class="bi bi-people-fill"></i><b>Rejected</b></span></a>
+                                            </li>
                                         </ul>
                                         <div class="tab-content tabcontent-border">
                                             <div class="tab-pane p-20 active show" id="pending" role="tabpanel">
@@ -259,9 +269,6 @@ $result = mysqli_query($conn, $sql);
                                                                 <h4>Pending Details
                                                                     <button type="button" style="float:right;"
                                                                         class="btn btn-success btnadddetails">Aprrove
-                                                                        All</button>
-                                                                    <button type="button" style="float:right;"
-                                                                        class="btn btn-danger btnadddetails mr-2">Reject
                                                                         All</button>
                                                                 </h4>
                                                             </div>
@@ -284,46 +291,46 @@ $result = mysqli_query($conn, $sql);
                                                             </thead>
                                                             <tbody>
                                                                 <?php
-                                                                    $id = 1;
-                                                                    while ($row = mysqli_fetch_assoc($result)) {
-                                                                    ?>
-                                                                <tr>
-                                                                    <td><?php echo $id; ?></td>
-                                                                    <td>
-                                                                        <?php echo $row['problem_id']; ?>
-                                                                    </td>
-                                                                    <td>
-                                                                        <?php echo $row['faculty_name']; ?>
-                                                                    </td>
-                                                                    <td>
-                                                                        <button type="button"
-                                                                            value="<?php echo $row['id']; ?>"
-                                                                            class="btn btn-success btndesc ml-5"
-                                                                            data-toggle="modal"
-                                                                            data-target="#probdesc">View More</button>
-                                                                    </td>
-                                                                    <td>
-                                                                        <?php echo $row['date_of_reg']; ?>
-                                                                    </td>
-                                                                    <td>
-                                                                        <button type="button"
-                                                                            value="<?php echo $row['id']; ?>"
-                                                                            class="btn btn-success btncertificate"
-                                                                            data-toggle="modal"
-                                                                            data-target="#viewimg">View</button>
+                                                                $id = 1;
+                                                                while ($row = mysqli_fetch_assoc($result)) {
+                                                                ?>
+                                                                    <tr>
+                                                                        <td><?php echo $id; ?></td>
+                                                                        <td>
+                                                                            <?php echo $row['problem_id']; ?>
+                                                                        </td>
+                                                                        <td>
+                                                                            <?php echo $row['faculty_name']; ?>
+                                                                        </td>
+                                                                        <td>
+                                                                            <button type="button"
+                                                                                value="<?php echo $row['problem_description']; ?>"
+                                                                                class="btn btn-success btndesc ml-5"
+                                                                                data-toggle="modal"
+                                                                                data-target="#probdesc">View More</button>
+                                                                        </td>
+                                                                        <td>
+                                                                            <?php echo $row['date_of_reg']; ?>
+                                                                        </td>
+                                                                        <td>
+                                                                            <button type="button"
+                                                                                value="<?php echo $row['id']; ?>"
+                                                                                class="btn btn-success btncertificate"
+                                                                                data-toggle="modal"
+                                                                                data-target="#viewimg">View</button>
 
-                                                                    </td>
-                                                                    <td>
-                                                                        <button type="button"
-                                                                            value="<?php echo $row['id']; ?>"
-                                                                            class="btn btn-success btnuseredit">Approve</button>
-                                                                        <button type="button"
-                                                                            value="<?php echo $row['id']; ?>"
-                                                                            class="btn btn-danger btnuserdelete">Reject</button>
-                                                                    </td>
-                                                                </tr>
+                                                                        </td>
+                                                                        <td>
+                                                                            <button type="button"
+                                                                                value="<?php echo $row['id']; ?>"
+                                                                                class="btn btn-success btnuseredit">Approve</button>
+                                                                            <button type="button"
+                                                                                value="<?php echo $row['id']; ?>"
+                                                                                class="btn btn-danger btnuserdelete" data-toggle="modal" data-target="#rejectreason">Reject</button>
+                                                                        </td>
+                                                                    </tr>
                                                                 <?php
-                                                                $id++;
+                                                                    $id++;
                                                                 }
                                                                 ?>
                                                             </tbody>
@@ -387,6 +394,32 @@ $result = mysqli_query($conn, $sql);
                                                         </div>
                                                     </div>
                                                 </div>
+                                                <!------------reject  reason modal----->
+                                                <div class="modal fade" id="rejectreason" tabindex="-1"
+                                                    aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                    <div class="modal-dialog">
+                                                        <div class="modal-content">
+                                                            <div class="modal-header">
+                                                                <h5 class="modal-title" id="exampleModalLabel">
+                                                                    Reason for rejection</h5>
+                                                                <button type="button" class="btn" data-dismiss="modal"
+                                                                    aria-label="Close"><i class="mdi mdi-close"></i>
+                                                                </button>
+                                                            </div>
+                                                            <form id="addnewdetails">
+                                                                <div class="modal-body" style="font-size:larger;">
+                                                                    <textarea class="form-control" placeholder="Enter reason" style="width:440px;height: 180px;"></textarea>
+                                                                </div>
+                                                                <div class="modal-footer">
+                                                                    <button type="button" class="btn btn-secondary"
+                                                                        data-dismiss="modal">Close</button>
+                                                                        <button type="button" class="btn btn-primary"
+                                                                        data-dismiss="modal">Submit</button>
+                                                                </div>
+                                                            </form>
+                                                        </div>
+                                                    </div>
+                                                </div>
                                             </div>
                                             <div class="tab-pane p-20" id="approved" role="tabpanel">
                                                 <div class="row">
@@ -415,43 +448,42 @@ $result = mysqli_query($conn, $sql);
                                                             </thead>
                                                             <tbody>
                                                                 <?php
-                                                                    $id = 1;
-                                                                    while ($row = mysqli_fetch_assoc($result)) {
-                                                                    ?>
-                                                                <tr>
-                                                                    <td>
-                                                                        <?php echo $id; ?>
-                                                                    </td>
-                                                                    <td>
-                                                                        <?php echo $row['Course']; ?>
-                                                                    </td>
-                                                                    <td>
-                                                                        <?php echo $row['InstName']; ?>
-                                                                    </td>
-                                                                    <td>
-                                                                        <button type="button"
-                                                                            value="<?php echo $row['id']; ?>"
-                                                                            class="btn btn-success btncertificate ml-5"
-                                                                            data-toggle="modal"
-                                                                            data-target="#probdescappr">View More</button>
-                                                                    </td>
-                                                                    <td>
-                                                                        <?php echo $row['Percentag']; ?>
-                                                                    </td>
-                                                                    <td>
-                                                                        <button type="button"
-                                                                            value="<?php echo $row['id']; ?>"
-                                                                            class="btn btn-success btncertificate"
-                                                                            data-toggle="modal"
-                                                                            data-target="#viewimgappr">View</button>
-
-                                                                    </td>
-                                                                    <td>
-                                                                        <p>Status</p>
-                                                                    </td>
-                                                                </tr>
+                                                                $id = 1;
+                                                                while ($row = mysqli_fetch_assoc($result1)) {
+                                                                ?>
+                                                                    <tr>
+                                                                        <td>
+                                                                            <?php echo $id; ?>
+                                                                        </td>
+                                                                        <td>
+                                                                            <?php echo $row['problem_id']; ?>
+                                                                        </td>
+                                                                        <td>
+                                                                            <?php echo $row['faculty_name']; ?>
+                                                                        </td>
+                                                                        <td>
+                                                                            <button type="button"
+                                                                                value="<?php echo $row['problem_description']; ?>"
+                                                                                class="btn btn-success btncertificate ml-5"
+                                                                                data-toggle="modal"
+                                                                                data-target="#probdescappr">View More</button>
+                                                                        </td>
+                                                                        <td>
+                                                                            <?php echo $row['date_of_reg']; ?>
+                                                                        </td>
+                                                                        <td>
+                                                                            <button type="button"
+                                                                                value="<?php echo $row['id']; ?>"
+                                                                                class="btn btn-success btncertificate"
+                                                                                data-toggle="modal"
+                                                                                data-target="#viewimgappr">View</button>
+                                                                        </td>
+                                                                        <td>
+                                                                            <button type="button" value="<?php echo $row['problem_description']; ?>" class="btn btn-success ml-4">Approval</button>
+                                                                        </td>
+                                                                    </tr>
                                                                 <?php
-                                                                $id++;
+                                                                    $id++;
                                                                 }
                                                                 ?>
                                                             </tbody>
@@ -545,50 +577,50 @@ $result = mysqli_query($conn, $sql);
                                                             </thead>
                                                             <tbody>
                                                                 <?php
-                                                                    $id = 1;
-                                                                    while ($row = mysqli_fetch_assoc($result)) {
-                                                                    ?>
-                                                                <tr>
-                                                                    <td>
-                                                                        <?php echo $id; ?>
-                                                                    </td>
-                                                                    <td>
-                                                                        <?php echo $row['Course']; ?>
-                                                                    </td>
-                                                                    <td>
-                                                                        <?php echo $row['InstName']; ?>
-                                                                    </td>
-                                                                    <td>
-                                                                        <button type="button"
-                                                                            value="<?php echo $row['id']; ?>"
-                                                                            class="btn btn-success btncertificate ml-5"
-                                                                            data-toggle="modal"
-                                                                            data-target="#probdesccomp">View More</button>
-                                                                    </td>
-                                                                    <td>
-                                                                        <?php echo $row['Percentag']; ?>
-                                                                    </td>
-                                                                    <td>
-                                                                        <button type="button"
-                                                                            value="<?php echo $row['id']; ?>"
-                                                                            class="btn btn-success btncertificate"
-                                                                            data-toggle="modal"
-                                                                            data-target="#viewimgcomp">View</button>
+                                                                $id = 1;
+                                                                while ($row = mysqli_fetch_assoc($result2)) {
+                                                                ?>
+                                                                    <tr>
+                                                                        <td>
+                                                                            <?php echo $id; ?>
+                                                                        </td>
+                                                                        <td>
+                                                                            <?php echo $row['problem_id']; ?>
+                                                                        </td>
+                                                                        <td>
+                                                                            <?php echo $row['faculty_id']; ?>
+                                                                        </td>
+                                                                        <td>
+                                                                            <button type="button"
+                                                                                value="<?php echo $row['id']; ?>"
+                                                                                class="btn btn-success btncertificate ml-5"
+                                                                                data-toggle="modal"
+                                                                                data-target="#probdesccomp">View More</button>
+                                                                        </td>
+                                                                        <td>
+                                                                            <?php echo $row['date_of_reg']; ?>
+                                                                        </td>
+                                                                        <td>
+                                                                            <button type="button"
+                                                                                value="<?php echo $row['id']; ?>"
+                                                                                class="btn btn-success btncertificate"
+                                                                                data-toggle="modal"
+                                                                                data-target="#viewimgcomp">View</button>
 
-                                                                    </td>
-                                                                    <td>
-                                                                        <p>status</p>
-                                                                    </td>
-                                                                </tr>
+                                                                        </td>
+                                                                        <td>
+                                                                        <button type="button" value="<?php echo $row['problem_description']; ?>" class="btn btn-secondary ml-4">Waiting for assigning at manager</button>
+                                                                        </td>
+                                                                    </tr>
                                                                 <?php
-                                                                $id++;
+                                                                    $id++;
                                                                 }
                                                                 ?>
                                                             </tbody>
                                                         </table>
                                                     </div>
                                                 </div>
-                                                <!------------------view problem description modal-->
+                                                <!------------------view problem description modal---------------->
                                                 <div class="modal fade" id="probdesccomp" tabindex="-1"
                                                     aria-labelledby="exampleModalLabel" aria-hidden="true">
                                                     <div class="modal-dialog">
@@ -649,9 +681,142 @@ $result = mysqli_query($conn, $sql);
                                                 </div>
                                             </div>
 
+                    <!----------rejected tab------->
+                                            <div class="tab-pane p-20" id="rejected" role="tabpanel">
+                                                <div class="row">
+                                                    <div class="col-md-12">
+                                                        <div class="card">
+                                                            <div class="card-header">
+                                                                <h4>Rejected Complaint Details</h4>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="card-body">
+                                                    <div class="table-responsive">
+                                                        <table id="myTable" class="table table-bordered table-striped">
+                                                            <thead>
+                                                                <tr>
+                                                                    <th><b>S.No</b></th>
+                                                                    <th><b>Problem id</b></th>
+                                                                    <th><b>Faculty Incharge</b></th>
+                                                                    <th><b>Problem Description</b></th>
+                                                                    <th><b>Date Registered</b></th>
+                                                                    <th><b>Image</b></th>
+                                                                    <th class="col-2"><b>Status</b></th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                                <?php
+                                                                $id = 1;
+                                                                while ($row = mysqli_fetch_assoc($result3)) {
+                                                                ?>
+                                                                    <tr>
+                                                                        <td>
+                                                                            <?php echo $id; ?>
+                                                                        </td>
+                                                                        <td>
+                                                                            <?php echo $row['problem_id']; ?>
+                                                                        </td>
+                                                                        <td>
+                                                                            <?php echo $row['faculty_id']; ?>
+                                                                        </td>
+                                                                        <td>
+                                                                            <button type="button"
+                                                                                value="<?php echo $row['id']; ?>"
+                                                                                class="btn btn-success btncertificate ml-5"
+                                                                                data-toggle="modal"
+                                                                                data-target="#probdescrej">View More</button>
+                                                                        </td>
+                                                                        <td>
+                                                                            <?php echo $row['date_of_reg']; ?>
+                                                                        </td>
+                                                                        <td>
+                                                                            <button type="button"
+                                                                                value="<?php echo $row['id']; ?>"
+                                                                                class="btn btn-success btncertificate"
+                                                                                data-toggle="modal"
+                                                                                data-target="#viewimgrej">View</button>
+
+                                                                        </td>
+                                                                        <td>
+                                                                        <button type="button" value="<?php echo $row['problem_description']; ?>" class="btn btn-danger ml-4">Problem rejected </button>
+                                                                        </td>
+                                                                    </tr>
+                                                                <?php
+                                                                    $id++;
+                                                                }
+                                                                ?>
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                </div>
+                                                <!------------------view problem description modal---------------->
+                                                <div class="modal fade" id="probdescrej" tabindex="-1"
+                                                    aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                    <div class="modal-dialog">
+                                                        <div class="modal-content">
+                                                            <div class="modal-header">
+                                                                <h5 class="modal-title" id="exampleModalLabel">Problem
+                                                                    Description</h5>
+                                                                <button type="button" class="btn" data-dismiss="modal"
+                                                                    aria-label="Close"><i class="mdi mdi-close"></i>
+                                                                </button>
+                                                            </div>
+                                                            <form id="addnewdetails">
+                                                                <div class="modal-body" style="font-size:larger;">
+                                                                    <p>dddddweianfdifvsnafidbniadnbaefovdfbsgaiskdgngwognisfdiusb
+                                                                        digbrgg girhg hrvsgif fhsv Lorem ipsum dolor sit
+                                                                        amet consectetur, adipisicing elit. Quo delectus
+                                                                        atque reprehenderit eligendi sint. Sunt odio
+                                                                        sit, laborum illum aspernatur non ullam a itaque
+                                                                        ipsa maiores eius dolores corporis est.</p>
+                                                                </div>
+                                                                <div class="modal-footer">
+                                                                    <button type="button" class="btn btn-secondary"
+                                                                        data-dismiss="modal">Close</button>
+
+                                                                </div>
+                                                            </form>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!------------view image modal-->
+                                                <div class="modal fade" id="viewimgrej" tabindex="-1"
+                                                    aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                    <div class="modal-dialog">
+                                                        <div class="modal-content">
+                                                            <div class="modal-header">
+                                                                <h5 class="modal-title" id="exampleModalLabel">Problem
+                                                                    Image</h5>
+                                                                <button type="button" class="btn" data-dismiss="modal"
+                                                                    aria-label="Close"><i class="mdi mdi-close"></i>
+                                                                </button>
+                                                            </div>
+                                                            <form id="addnewdetails">
+                                                                <div class="modal-body" style="font-size:larger;">
+                                                                    <center>
+                                                                        <img src="assets/images/logo2.png" alt="no img">
+                                                                    </center>
+
+
+                                                                </div>
+                                                                <div class="modal-footer">
+                                                                    <button type="button" class="btn btn-secondary"
+                                                                        data-dismiss="modal">Close</button>
+
+                                                                </div>
+                                                            </form>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            
+
                                             <footer class="footer text-center" style="margin-top: 250px;">
                                                 <b>
-                                                     2024 © M.Kumarasamy College of Engineering All Rights Reserved.<br>
+                                                    2024 © M.Kumarasamy College of Engineering All Rights Reserved.<br>
                                                     Developed and Maintained by Technology Innovation Hub.
                                                 </b>
                                             </footer>
@@ -666,25 +831,25 @@ $result = mysqli_query($conn, $sql);
         </div>
     </div>
 
-                            
-                                    <!-- ============================================================== -->
-                                    <!-- All Jquery -->
-                                    <!-- ============================================================== -->
-                                    <script src="assets/libs/jquery/dist/jquery.min.js"></script>
-                                    <script src="assets/libs/popper.js/dist/umd/popper.min.js"></script>
-                                    <script src="assets/libs/bootstrap/dist/js/bootstrap.min.js"></script>
-                                    <script
-                                        src="assets/libs/perfect-scrollbar/dist/perfect-scrollbar.jquery.min.js"></script>
-                                    <script src="assets/extra-libs/sparkline/sparkline.js"></script>
-                                    <script src="dist/js/waves.js"></script>
-                                    <script src="dist/js/sidebarmenu.js"></script>
-                                    <script src="dist/js/custom.min.js"></script>
-                                    <script src="assets/extra-libs/multicheck/datatable-checkbox-init.js"></script>
-                                    <script src="assets/extra-libs/multicheck/jquery.multicheck.js"></script>
-                                    <script src="assets/extra-libs/DataTables/datatables.min.js"></script>
-                                    <script>
-                                        $('#zero_config').DataTable();
-                                    </script>
+
+    <!-- ============================================================== -->
+    <!-- All Jquery -->
+    <!-- ============================================================== -->
+    <script src="assets/libs/jquery/dist/jquery.min.js"></script>
+    <script src="assets/libs/popper.js/dist/umd/popper.min.js"></script>
+    <script src="assets/libs/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script
+        src="assets/libs/perfect-scrollbar/dist/perfect-scrollbar.jquery.min.js"></script>
+    <script src="assets/extra-libs/sparkline/sparkline.js"></script>
+    <script src="dist/js/waves.js"></script>
+    <script src="dist/js/sidebarmenu.js"></script>
+    <script src="dist/js/custom.min.js"></script>
+    <script src="assets/extra-libs/multicheck/datatable-checkbox-init.js"></script>
+    <script src="assets/extra-libs/multicheck/jquery.multicheck.js"></script>
+    <script src="assets/extra-libs/DataTables/datatables.min.js"></script>
+    <script>
+        $('#zero_config').DataTable();
+    </script>
 </body>
 
 </html>

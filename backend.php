@@ -109,4 +109,21 @@ if (isset($_POST['update_details'])) {
 }
 
 
+$user_id = 1; // Replace with dynamic user ID based on session or query parameter
+
+$sql = "SELECT * FROM users WHERE id = ?";
+$stmt = $conn->prepare($sql);
+$stmt->bind_param("i", $user_id);
+$stmt->execute();
+$result = $stmt->get_result();
+
+if ($result->num_rows > 0) {
+    // Fetch data
+    $user = $result->fetch_assoc();
+} else {
+    $user = null;
+}
+
+$stmt->close();
+$conn->close();
 ?>

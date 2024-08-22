@@ -1,3 +1,9 @@
+<?php
+include("db.php");
+$sql = "SELECT * FROM academic_details";
+$result = mysqli_query($conn, $sql);
+?>
+
 <!DOCTYPE html>
 <html dir="ltr" lang="en">
   <head>

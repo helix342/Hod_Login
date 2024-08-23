@@ -742,7 +742,7 @@ $result3 = mysqli_query($conn, $sql3);
                                                                         </td>
                                                                         <td>
                                                                             <center>
-                                                                            <button type="button" value="<?php echo $row['problem_description']; ?>" class="btn btn-danger">Problem rejected </button>
+                                                                            <button  class="btn btn-danger" data-toggle="modal" data-target="#problemrejected" type="button" value="<?php echo $row['problem_description']; ?>">Problem rejected </button>
                                                                             </center>
                                                                         </td>
                                                                     </tr>
@@ -767,14 +767,7 @@ $result3 = mysqli_query($conn, $sql3);
                                                                 </button>
                                                             </div>
                                                             <form id="addnewdetails">
-                                                                <div class="modal-body" style="font-size:larger;">
-                                                                    <p>dddddweianfdifvsnafidbniadnbaefovdfbsgaiskdgngwognisfdiusb
-                                                                        digbrgg girhg hrvsgif fhsv Lorem ipsum dolor sit
-                                                                        amet consectetur, adipisicing elit. Quo delectus
-                                                                        atque reprehenderit eligendi sint. Sunt odio
-                                                                        sit, laborum illum aspernatur non ullam a itaque
-                                                                        ipsa maiores eius dolores corporis est.</p>
-                                                                </div>
+                                                                
                                                                 <div class="modal-footer">
                                                                     <button type="button" class="btn btn-secondary"
                                                                         data-dismiss="modal">Close</button>
@@ -803,6 +796,35 @@ $result3 = mysqli_query($conn, $sql3);
                                                                     </center>
 
 
+                                                                </div>
+                                                                <div class="modal-footer">
+                                                                    <button type="button" class="btn btn-secondary"
+                                                                        data-dismiss="modal">Close</button>
+
+                                                                </div>
+                                                            </form>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!------------problem rejected modal-------------->
+                                                <div class="modal fade" id="problemrejected" tabindex="-1"
+                                                    aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                    <div class="modal-dialog">
+                                                        <div class="modal-content">
+                                                            <div class="modal-header">
+                                                                <h5 class="modal-title" id="exampleModalLabel">Reason for Rejection</h5>
+                                                                <button type="button" class="btn" data-dismiss="modal"
+                                                                    aria-label="Close"><i class="mdi mdi-close"></i>
+                                                                </button>
+                                                            </div>
+                                                            <form id="addnewdetails">
+                                                                <div class="modal-body" style="font-size:larger;">
+                                                                    <p>dddddweianfdifvsnafidbniadnbaefovdfbsgaiskdgngwognisfdiusb
+                                                                        digbrgg girhg hrvsgif fhsv Lorem ipsum dolor sit
+                                                                        amet consectetur, adipisicing elit. Quo delectus
+                                                                        atque reprehenderit eligendi sint. Sunt odio
+                                                                        sit, laborum illum aspernatur non ullam a itaque
+                                                                        ipsa maiores eius dolores corporis est.</p>
                                                                 </div>
                                                                 <div class="modal-footer">
                                                                     <button type="button" class="btn btn-secondary"

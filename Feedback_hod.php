@@ -1,14 +1,13 @@
 <?php
 include("db.php");
 $sql = "SELECT * FROM complaints_detail WHERE status = 2";
-$sql1 = "SELECT * FROM complaints_detail WHERE status = 4";
+$sql1 = "SELECT * FROM complaints_detail WHERE status IN (4, 6, 7, 8, 9, 10, 11, 12)";
 $sql2 = "SELECT * FROM complaints_detail WHERE status = 11";
 $sql3 = "SELECT * FROM complaints_detail WHERE status = 5";
 $result = mysqli_query($conn, $sql);
 $result1 = mysqli_query($conn, $sql1);
 $result2 = mysqli_query($conn, $sql2);  
 $result3 = mysqli_query($conn, $sql3);
-
 ?>
 
 <!DOCTYPE html>
@@ -477,7 +476,9 @@ $result3 = mysqli_query($conn, $sql3);
                                                                                 data-target="#viewimgappr">View</button>
                                                                         </td>
                                                                         <td>
-                                                                            <button type="button" value="<?php echo $row['problem_description']; ?>" class="btn btn-success ml-4">Approval</button>
+                                                                        <center>
+                                                                            <b>Waiting for assigning at manager</b>
+                                                                        </center>
                                                                         </td>
                                                                     </tr>
                                                                 <?php
@@ -607,7 +608,9 @@ $result3 = mysqli_query($conn, $sql3);
 
                                                                         </td>
                                                                         <td>
-                                                                        <button type="button" value="<?php echo $row['problem_description']; ?>" class="btn btn-secondary ml-4">Waiting for assigning at manager</button>
+                                                                            <center>
+                                                                            <b>Completed</b>
+                                                                            </center>
                                                                         </td>
                                                                     </tr>
                                                                 <?php
@@ -717,7 +720,7 @@ $result3 = mysqli_query($conn, $sql3);
                                                                             <?php echo $row['problem_id']; ?>
                                                                         </td>
                                                                         <td>
-                                                                            <?php echo $row['faculty_id']; ?>
+                                                                            <?php echo $row['faculty_name']; ?>
                                                                         </td>
                                                                         <td>
                                                                             <button type="button"

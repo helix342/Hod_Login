@@ -304,7 +304,6 @@ $result3 = mysqli_query($conn, $sql);
                                                                         </td>
                                                                         <td>
                                                                             <button type="button"
-                                                                                value="<?php echo $row['problem_description']; ?>"
                                                                                 class="btn btn-success btndesc ml-5"
                                                                                 data-toggle="modal"
                                                                                 data-target="#probdesc">View More</button>
@@ -329,10 +328,6 @@ $result3 = mysqli_query($conn, $sql);
                                                                                 class="btn btn-danger btnuserdelete" data-toggle="modal" data-target="#rejectreason">Reject</button>
                                                                         </td>
                                                                     </tr>
-                                                                <?php
-                                                                    $id++;
-                                                                }
-                                                                ?>
                                                             </tbody>
                                                         </table>
                                                     </div>
@@ -351,17 +346,11 @@ $result3 = mysqli_query($conn, $sql);
                                                             </div>
                                                             <form id="addnewdetails">
                                                                 <div class="modal-body" style="font-size:larger;">
-                                                                    <p>dddddweianfdifvsnafidbniadnbaefovdfbsgaiskdgngwognisfdiusb
-                                                                        digbrgg girhg hrvsgif fhsv Lorem ipsum dolor sit
-                                                                        amet consectetur, adipisicing elit. Quo delectus
-                                                                        atque reprehenderit eligendi sint. Sunt odio
-                                                                        sit, laborum illum aspernatur non ullam a itaque
-                                                                        ipsa maiores eius dolores corporis est.</p>
+                                                                    <?php echo $row['problem_description']; ?>
                                                                 </div>
                                                                 <div class="modal-footer">
                                                                     <button type="button" class="btn btn-secondary"
                                                                         data-dismiss="modal">Close</button>
-
                                                                 </div>
                                                             </form>
                                                         </div>
@@ -417,6 +406,10 @@ $result3 = mysqli_query($conn, $sql);
                                                                         data-dismiss="modal">Submit</button>
                                                                 </div>
                                                             </form>
+                                                            <?php
+                                                            $id++;
+                                                            }
+                                                            ?>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -740,7 +733,9 @@ $result3 = mysqli_query($conn, $sql);
 
                                                                         </td>
                                                                         <td>
-                                                                        <button type="button" value="<?php echo $row['problem_description']; ?>" class="btn btn-danger ml-4">Problem rejected </button>
+                                                                            <center>
+                                                                            <button type="button" value="<?php echo $row['problem_description']; ?>" class="btn btn-danger">Problem rejected </button>
+                                                                            </center>
                                                                         </td>
                                                                     </tr>
                                                                 <?php

@@ -1,10 +1,13 @@
 <?php
 include("db.php");
-$sql = "SELECT * FROM complaints_detail";
+$sql = "SELECT * FROM complaints_detail WHERE status = 2";
+$sql1 = "SELECT * FROM complaints_detail WHERE status = 4";
+$sql2 = "SELECT * FROM complaints_detail WHERE status = 11";
+$sql3 = "SELECT * FROM complaints_detail WHERE status = 5";
 $result = mysqli_query($conn, $sql);
-$result1 = mysqli_query($conn, $sql);
-$result2 = mysqli_query($conn, $sql);
-$result3 = mysqli_query($conn, $sql);
+$result1 = mysqli_query($conn, $sql1);
+$result2 = mysqli_query($conn, $sql2);  
+$result3 = mysqli_query($conn, $sql3);
 
 ?>
 

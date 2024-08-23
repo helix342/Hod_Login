@@ -107,24 +107,4 @@ if (isset($_POST['update_details'])) {
         echo json_encode($res);
     }
 }
-$hod_id = isset($_GET['hod_id']) ? intval($_GET['hod_id']) : 1; // Default to ID 1 if not set
-
-// Prepare and execute the SQL statement
-$sql = "SELECT * FROM hod WHERE id = ?";
-$stmt = $conn->prepare($sql);
-$stmt->bind_param("i", $hod_id);
-$stmt->execute();
-$result = $stmt->get_result();
-
-if ($result->num_rows > 0) {
-    $hod = $result->fetch_assoc();
-    // Return the data in JSON format
-    echo json_encode($hod);
-} else {
-    // Return an error if no record is found
-    echo json_encode(['error' => 'No record found']);
-}
-
-$stmt->close();
-$conn->close();
 ?>

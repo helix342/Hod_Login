@@ -28,12 +28,14 @@ $result3 = mysqli_query($conn, $sql3);
     <link href="assets/libs/flot/css/float-chart.css" rel="stylesheet">
     <!-- Custom CSS -->
     <link href="dist/css/style.min.css" rel="stylesheet">
+    <link href="styles.css" rel="stylesheet">
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
     <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
 <![endif]-->
+
 </head>
 
 <body>
@@ -283,13 +285,13 @@ $result3 = mysqli_query($conn, $sql3);
                                                         <table id="myTable" class="table table-bordered table-striped">
                                                             <thead>
                                                                 <tr>
-                                                                    <th><b>S.No</b></th>
-                                                                    <th><b>Problem id</b></th>
-                                                                    <th><b>Faculty Incharge</b></th>
-                                                                    <th><b>Problem Description</b></th>
-                                                                    <th><b>Date Registered</b></th>
-                                                                    <th><b>Image</b></th>
-                                                                    <th><b>Action</b></th>
+                                                                    <th style="background-color: #7460ee; background: linear-gradient(to bottom right, #cc66ff 1%, #0033cc 100%); color: white;"><b>S.No</b></th>
+                                                                    <th style="background-color: #7460ee; background: linear-gradient(to bottom right, #cc66ff 1%, #0033cc 100%); color: white;"><b>Problem id</b></th>
+                                                                    <th style="background-color: #7460ee; background: linear-gradient(to bottom right, #cc66ff 1%, #0033cc 100%); color: white;"><b>Faculty Incharge</b></th>
+                                                                    <th style="background-color: #7460ee; background: linear-gradient(to bottom right, #cc66ff 1%, #0033cc 100%); color: white;"><b>Problem Description</b></th>
+                                                                    <th style="background-color: #7460ee; background: linear-gradient(to bottom right, #cc66ff 1%, #0033cc 100%); color: white;"><b>Date Registered</b></th>
+                                                                    <th  style="background-color: #7460ee; background: linear-gradient(to bottom right, #cc66ff 1%, #0033cc 100%); color: white;"><b>Image</b></th>
+                                                                    <th  style="background-color: #7460ee; background: linear-gradient(to bottom right, #cc66ff 1%, #0033cc 100%); color: white;"><b>Action</b></th>
                                                                 </tr>
                                                             </thead>
                                                             <tbody>
@@ -433,13 +435,13 @@ $result3 = mysqli_query($conn, $sql3);
                                                         <table id="myTable" class="table table-bordered table-striped">
                                                             <thead>
                                                                 <tr>
-                                                                    <th><b>S.No</b></th>
-                                                                    <th><b>Problem id</b></th>
-                                                                    <th><b>Faculty Incharge</b></th>
-                                                                    <th><b>Problem Description</b></th>
-                                                                    <th><b>Date Registered</b></th>
-                                                                    <th><b>Image</b></th>
-                                                                    <th class="col-2"><b>Status</b></th>
+                                                                    <th style="background-color: #7460ee; background: linear-gradient(to bottom right, #cc66ff 1%, #0033cc 100%); color: white;"><b>S.No</b></th>
+                                                                    <th style="background-color: #7460ee; background: linear-gradient(to bottom right, #cc66ff 1%, #0033cc 100%); color: white;"><b>Problem id</b></th>
+                                                                    <th style="background-color: #7460ee; background: linear-gradient(to bottom right, #cc66ff 1%, #0033cc 100%); color: white;"><b>Faculty Incharge</b></th>
+                                                                    <th style="background-color: #7460ee; background: linear-gradient(to bottom right, #cc66ff 1%, #0033cc 100%); color: white;"><b>Problem Description</b></th>
+                                                                    <th style="background-color: #7460ee; background: linear-gradient(to bottom right, #cc66ff 1%, #0033cc 100%); color: white;"><b>Date Registered</b></th>
+                                                                    <th style="background-color: #7460ee; background: linear-gradient(to bottom right, #cc66ff 1%, #0033cc 100%); color: white;"><b>Image</b></th>
+                                                                    <th style="background-color: #7460ee; background: linear-gradient(to bottom right, #cc66ff 1%, #0033cc 100%); color: white;" class="col-2"><b>Status</b></th>
                                                                 </tr>
                                                             </thead>
                                                             <tbody>
@@ -562,13 +564,13 @@ $result3 = mysqli_query($conn, $sql3);
                                                         <table id="myTable" class="table table-bordered table-striped">
                                                             <thead>
                                                                 <tr>
-                                                                    <th><b>S.No</b></th>
-                                                                    <th><b>Problem id</b></th>
-                                                                    <th><b>Faculty Incharge</b></th>
-                                                                    <th><b>Problem Description</b></th>
-                                                                    <th><b>Date Registered</b></th>
-                                                                    <th><b>Image</b></th>
-                                                                    <th class="col-2"><b>Status</b></th>
+                                                                    <th style="background-color: #7460ee; background: linear-gradient(to bottom right, #cc66ff 1%, #0033cc 100%); color: white;"><b>S.No</b></th>
+                                                                    <th style="background-color: #7460ee; background: linear-gradient(to bottom right, #cc66ff 1%, #0033cc 100%); color: white;"><b>Problem id</b></th>
+                                                                    <th style="background-color: #7460ee; background: linear-gradient(to bottom right, #cc66ff 1%, #0033cc 100%); color: white;"><b>Faculty Incharge</b></th>
+                                                                    <th style="background-color: #7460ee; background: linear-gradient(to bottom right, #cc66ff 1%, #0033cc 100%); color: white;"><b>Problem Description</b></th>
+                                                                    <th style="background-color: #7460ee; background: linear-gradient(to bottom right, #cc66ff 1%, #0033cc 100%); color: white;"><b>Date Registered</b></th>
+                                                                    <th style="background-color: #7460ee; background: linear-gradient(to bottom right, #cc66ff 1%, #0033cc 100%); color: white;"><b>Image</b></th>
+                                                                    <th style="background-color: #7460ee; background: linear-gradient(to bottom right, #cc66ff 1%, #0033cc 100%); color: white;" class="col-2"><b>Status</b></th>
                                                                 </tr>
                                                             </thead>
                                                             <tbody>
@@ -693,13 +695,13 @@ $result3 = mysqli_query($conn, $sql3);
                                                         <table id="myTable" class="table table-bordered table-striped">
                                                             <thead>
                                                                 <tr>
-                                                                    <th><b>S.No</b></th>
-                                                                    <th><b>Problem id</b></th>
-                                                                    <th><b>Faculty Incharge</b></th>
-                                                                    <th><b>Problem Description</b></th>
-                                                                    <th><b>Date Registered</b></th>
-                                                                    <th><b>Image</b></th>
-                                                                    <th class="col-2"><b>Status</b></th>
+                                                                    <th style="background-color: #7460ee; background: linear-gradient(to bottom right, #cc66ff 1%, #0033cc 100%); color: white;"><b>S.No</b></th>
+                                                                    <th style="background-color: #7460ee; background: linear-gradient(to bottom right, #cc66ff 1%, #0033cc 100%); color: white;"><b>Problem id</b></th>
+                                                                    <th style="background-color: #7460ee; background: linear-gradient(to bottom right, #cc66ff 1%, #0033cc 100%); color: white;"><b>Faculty Incharge</b></th>
+                                                                    <th style="background-color: #7460ee; background: linear-gradient(to bottom right, #cc66ff 1%, #0033cc 100%); color: white;"><b>Problem Description</b></th>
+                                                                    <th style="background-color: #7460ee; background: linear-gradient(to bottom right, #cc66ff 1%, #0033cc 100%); color: white;"><b>Date Registered</b></th>
+                                                                    <th style="background-color: #7460ee; background: linear-gradient(to bottom right, #cc66ff 1%, #0033cc 100%); color: white;"><b>Image</b></th>
+                                                                    <th style="background-color: #7460ee; background: linear-gradient(to bottom right, #cc66ff 1%, #0033cc 100%); color: white;" class="col-2"><b>Status</b></th>
                                                                 </tr>
                                                             </thead>
                                                             <tbody>

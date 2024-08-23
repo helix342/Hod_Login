@@ -12,7 +12,7 @@ $result3 = mysqli_query($conn, $sql3);
 ?>
 
 <!DOCTYPE html>
-<html dir="ltr" lang="en">
+<html dir="ltr" lang="en">  
 
 <head>
     <meta charset="utf-8">

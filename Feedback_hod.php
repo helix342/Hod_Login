@@ -766,14 +766,7 @@ $result3 = mysqli_query($conn, $sql3);
                                                                 </button>
                                                             </div>
                                                             <form id="addnewdetails">
-                                                                <div class="modal-body" style="font-size:larger;">
-                                                                    <p>dddddweianfdifvsnafidbniadnbaefovdfbsgaiskdgngwognisfdiusb
-                                                                        digbrgg girhg hrvsgif fhsv Lorem ipsum dolor sit
-                                                                        amet consectetur, adipisicing elit. Quo delectus
-                                                                        atque reprehenderit eligendi sint. Sunt odio
-                                                                        sit, laborum illum aspernatur non ullam a itaque
-                                                                        ipsa maiores eius dolores corporis est.</p>
-                                                                </div>
+                                                                
                                                                 <div class="modal-footer">
                                                                     <button type="button" class="btn btn-secondary"
                                                                         data-dismiss="modal">Close</button>
@@ -818,8 +811,7 @@ $result3 = mysqli_query($conn, $sql3);
                                                     <div class="modal-dialog">
                                                         <div class="modal-content">
                                                             <div class="modal-header">
-                                                                <h5 class="modal-title" id="exampleModalLabel">Problem
-                                                                    Description</h5>
+                                                                <h5 class="modal-title" id="exampleModalLabel">Reason for Rejection</h5>
                                                                 <button type="button" class="btn" data-dismiss="modal"
                                                                     aria-label="Close"><i class="mdi mdi-close"></i>
                                                                 </button>

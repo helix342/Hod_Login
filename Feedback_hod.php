@@ -371,7 +371,7 @@ $result3 = mysqli_query($conn, $sql);
                                                             <form id="addnewdetails">
                                                                 <div class="modal-body" style="font-size:larger;">
                                                                     <center>
-                                                                        <img src="assets/images/logo2.png" alt="no img">
+                                                                        <?php echo $row['image']; ?>
                                                                     </center>
                                                                 </div>
                                                                 <div class="modal-footer">

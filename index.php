@@ -229,7 +229,7 @@ $sql3 = "SELECT * FROM complaints_detail WHERE status = 5";
                     <div class="cir">
                         <div class="bo">
                             <div class="content1">
-                                <div class="stats-box text-center p-3" style="background-color:rgb(14, 86, 239);">
+                                <div class="stats-box text-center p-3" style="background-color:orange;">
                                     <i class="fas fa-clock"></i>
                                     <h1 class="font-light text-white">
                                         <?php $query2 = "SELECT COUNT(*) as pending FROM complaints_detail WHERE  status ='2'";

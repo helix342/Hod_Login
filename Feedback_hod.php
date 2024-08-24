@@ -6,12 +6,12 @@ $sql2 = "SELECT * FROM complaints_detail WHERE status = 11";
 $sql3 = "SELECT * FROM complaints_detail WHERE status = 5";
 $result = mysqli_query($conn, $sql);
 $result1 = mysqli_query($conn, $sql1);
-$result2 = mysqli_query($conn, $sql2);  
+$result2 = mysqli_query($conn, $sql2);
 $result3 = mysqli_query($conn, $sql3);
 ?>
 
 <!DOCTYPE html>
-<html dir="ltr" lang="en">  
+<html dir="ltr" lang="en">
 
 <head>
     <meta charset="utf-8">
@@ -234,7 +234,7 @@ $result3 = mysqli_query($conn, $sql3);
                         <div class="card">
                             <form class="zmdi-format-valign-top">
                                 <div class="card-body">
-                                    <h4 class="card-title">Profile Information</h4>
+                                    <h4 class="card-title">Complaint Details</h4>
                                     <div class="card">
                                         <ul class="nav nav-tabs mb-3" role="tablist">
                                             <li class="nav-item">
@@ -316,18 +316,14 @@ $result3 = mysqli_query($conn, $sql3);
                                                                         <td>
                                                                             <button type="button"
                                                                                 value="<?php echo $row['id']; ?>"
-                                                                                class="btn btn-success btncertificate"
+                                                                                class="btn btn-success btnimg"
                                                                                 data-toggle="modal"
                                                                                 data-target="#viewimg">View</button>
 
                                                                         </td>
                                                                         <td>
-                                                                            <button type="button"
-                                                                                value="<?php echo $row['id']; ?>"
-                                                                                class="btn btn-success btnuseredit">Approve</button>
-                                                                            <button type="button"
-                                                                                value="<?php echo $row['id']; ?>"
-                                                                                class="btn btn-danger btnuserdelete" data-toggle="modal" data-target="#rejectreason">Reject</button>
+                                                                            <button type="button" value="<?php echo $row['id']; ?>" name="update_id" id="detail_id" class="btn btn-success btnapprove">Approve</button>
+                                                                            <button type="button" value="<?php echo $row['id']; ?>" class="btn btn-danger btnreject" data-toggle="modal" data-target="#rejectreason">Reject</button>
                                                                         </td>
                                                                     </tr>
                                                             </tbody>
@@ -404,14 +400,14 @@ $result3 = mysqli_query($conn, $sql3);
                                                                 <div class="modal-footer">
                                                                     <button type="button" class="btn btn-secondary"
                                                                         data-dismiss="modal">Close</button>
-                                                                        <button type="button" class="btn btn-primary"
+                                                                    <button type="button" class="btn btn-primary"
                                                                         data-dismiss="modal">Submit</button>
                                                                 </div>
                                                             </form>
-                                                            <?php
-                                                            $id++;
-                                                            }
-                                                            ?>
+                                                        <?php
+                                                                    $id++;
+                                                                }
+                                                        ?>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -474,9 +470,9 @@ $result3 = mysqli_query($conn, $sql3);
                                                                                 data-target="#viewimgappr">View</button>
                                                                         </td>
                                                                         <td>
-                                                                        <center>
-                                                                            <b>Waiting for assigning at manager</b>
-                                                                        </center>
+                                                                            <center>
+                                                                                <b>Waiting for assigning at manager</b>
+                                                                            </center>
                                                                         </td>
                                                                     </tr>
                                                                 <?php
@@ -534,8 +530,6 @@ $result3 = mysqli_query($conn, $sql3);
                                                                     <center>
                                                                         <img src="assets/images/logo2.png" alt="no img">
                                                                     </center>
-
-
                                                                 </div>
                                                                 <div class="modal-footer">
                                                                     <button type="button" class="btn btn-secondary"
@@ -607,7 +601,7 @@ $result3 = mysqli_query($conn, $sql3);
                                                                         </td>
                                                                         <td>
                                                                             <center>
-                                                                            <b>Completed</b>
+                                                                                <b>Completed</b>
                                                                             </center>
                                                                         </td>
                                                                     </tr>
@@ -670,8 +664,7 @@ $result3 = mysqli_query($conn, $sql3);
 
                                                                 </div>
                                                                 <div class="modal-footer">
-                                                                    <button type="button" class="btn btn-secondary"
-                                                                        data-dismiss="modal">Close</button>
+                                                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
 
                                                                 </div>
                                                             </form>
@@ -680,7 +673,7 @@ $result3 = mysqli_query($conn, $sql3);
                                                 </div>
                                             </div>
 
-                    <!----------rejected tab------->
+                                            <!----------rejected tab------->
                                             <div class="tab-pane p-20" id="rejected" role="tabpanel">
                                                 <div class="row">
                                                     <div class="col-md-12">
@@ -740,7 +733,7 @@ $result3 = mysqli_query($conn, $sql3);
                                                                         </td>
                                                                         <td>
                                                                             <center>
-                                                                            <button type="button" value="<?php echo $row['problem_description']; ?>" class="btn btn-danger">Problem rejected </button>
+                                                                                <button type="button" value="<?php echo $row['problem_description']; ?>" class="btn btn-danger">Problem rejected </button>
                                                                             </center>
                                                                         </td>
                                                                     </tr>
@@ -799,8 +792,6 @@ $result3 = mysqli_query($conn, $sql3);
                                                                     <center>
                                                                         <img src="assets/images/logo2.png" alt="no img">
                                                                     </center>
-
-
                                                                 </div>
                                                                 <div class="modal-footer">
                                                                     <button type="button" class="btn btn-secondary"
@@ -812,8 +803,6 @@ $result3 = mysqli_query($conn, $sql3);
                                                     </div>
                                                 </div>
                                             </div>
-
-                                            
 
                                             <footer class="footer text-center" style="margin-top: 250px;">
                                                 <b>
@@ -839,8 +828,7 @@ $result3 = mysqli_query($conn, $sql3);
     <script src="assets/libs/jquery/dist/jquery.min.js"></script>
     <script src="assets/libs/popper.js/dist/umd/popper.min.js"></script>
     <script src="assets/libs/bootstrap/dist/js/bootstrap.min.js"></script>
-    <script
-        src="assets/libs/perfect-scrollbar/dist/perfect-scrollbar.jquery.min.js"></script>
+    <script src="assets/libs/perfect-scrollbar/dist/perfect-scrollbar.jquery.min.js"></script>
     <script src="assets/extra-libs/sparkline/sparkline.js"></script>
     <script src="dist/js/waves.js"></script>
     <script src="dist/js/sidebarmenu.js"></script>
@@ -851,6 +839,39 @@ $result3 = mysqli_query($conn, $sql3);
     <script>
         $('#zero_config').DataTable();
     </script>
+
+    <script>
+        $(document).ready(function() {
+            $('#myTable').DataTable();
+        });
+
+        $(document).on('click', '.btnapprove', function(e) {
+            e.preventDefault();
+
+            if (confirm('Are you sure you want to approve this complaint?')) {
+                var update_id = $(this).val();
+                $.ajax({
+                    type: "POST",
+                    url: "backend.php",
+                    data: {
+                        'update_status': true,
+                        'update_id': update_id
+                    },
+                    success: function(response) {
+
+                        var res = jQuery.parseJSON(response);
+                        if (res.status == 500) {
+                            alert(res.message);
+                            $('#myTable').load(location.href + " #myTable");
+                        } else {
+                            $('#myTable').load(location.href + " #myTable");
+                        }
+                    }
+                });
+            }
+        });
+    </script>
+
 </body>
 
 </html>

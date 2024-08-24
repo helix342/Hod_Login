@@ -575,10 +575,7 @@ $result3 = mysqli_query($conn, $sql3);
                                                                         data-dismiss="modal">Close</button>
                                                                 </div>
                                                             </form>
-                                                            <?php
-                                                                $id++;
-                                                            }
-                                                            ?>
+                                                            
                                                         </div>  
                                                     </div>
                                                 </div>

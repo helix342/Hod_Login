@@ -1,7 +1,7 @@
 <?php
 include("db.php");
 $sql = "SELECT * FROM complaints_detail WHERE status = 2";
-$sql1 = "SELECT * FROM complaints_detail WHERE status IN (4, 6, 7, 8, 9, 10, 11, 12)";
+$sql1 = "SELECT * FROM complaints_detail WHERE status IN (4, 6, 7, 8, 9, 10, 12)";
 $sql2 = "SELECT * FROM complaints_detail WHERE status = 11";
 $sql3 = "SELECT * FROM complaints_detail WHERE status = 5";
 $result = mysqli_query($conn, $sql);
@@ -27,12 +27,14 @@ $result3 = mysqli_query($conn, $sql3);
     <link href="assets/libs/flot/css/float-chart.css" rel="stylesheet">
     <!-- Custom CSS -->
     <link href="dist/css/style.min.css" rel="stylesheet">
+    <link href="styles.css" rel="stylesheet">
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
     <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
 <![endif]-->
+
 </head>
 
 <body>
@@ -45,22 +47,12 @@ $result3 = mysqli_query($conn, $sql3);
             <div class="lds-pos"></div>
         </div>
     </div>
-    <!-- ============================================================== -->
-    <!-- Main wrapper - style you can find in pages.scss -->
-    <!-- ============================================================== -->
     <div id="main-wrapper">
-        <!-- ============================================================== -->
-        <!-- Topbar header - style you can find in pages.scss -->
-        <!-- ============================================================== -->
         <header class="topbar" data-navbarbg="skin5">
             <nav class="navbar top-navbar navbar-expand-md navbar-dark">
                 <div class="navbar-header" data-logobg="skin5">
-                    <!-- This is for the sidebar toggle which is visible on mobile only -->
                     <a class="nav-toggler waves-effect waves-light d-block d-md-none" href="javascript:void(0)"><i
                             class="ti-menu ti-close"></i></a>
-                    <!-- ============================================================== -->
-                    <!-- Logo -->
-                    <!-- ============================================================== -->
                     <a class="navbar-brand" href="https://www.mkce.ac.in">
                         <!-- Logo icon -->
                         <b class="logo-icon p-l-10" style="padding-left:0px; border-left:0px;">
@@ -282,13 +274,34 @@ $result3 = mysqli_query($conn, $sql3);
                                                         <table id="myTable" class="table table-bordered table-striped">
                                                             <thead>
                                                                 <tr>
-                                                                    <th><b>S.No</b></th>
-                                                                    <th><b>Problem id</b></th>
-                                                                    <th><b>Faculty Incharge</b></th>
-                                                                    <th><b>Problem Description</b></th>
-                                                                    <th><b>Date Registered</b></th>
-                                                                    <th><b>Image</b></th>
-                                                                    <th><b>Action</b></th>
+                                                                    <th class="pending status"
+                                                                        style="background-color: #7460ee; background: linear-gradient(to bottom right, #cc66ff 1%, #0033cc 100%); color: white;">
+                                                                        <b>S.No</b>
+                                                                    </th>
+                                                                    <th
+                                                                        style="background-color: #7460ee; background: linear-gradient(to bottom right, #cc66ff 1%, #0033cc 100%); color: white;">
+                                                                        <b>Problem id</b>
+                                                                    </th>
+                                                                    <th
+                                                                        style="background-color: #7460ee; background: linear-gradient(to bottom right, #cc66ff 1%, #0033cc 100%); color: white;">
+                                                                        <b>Faculty Incharge</b>
+                                                                    </th>
+                                                                    <th
+                                                                        style="background-color: #7460ee; background: linear-gradient(to bottom right, #cc66ff 1%, #0033cc 100%); color: white;">
+                                                                        <b>Problem Description</b>
+                                                                    </th>
+                                                                    <th
+                                                                        style="background-color: #7460ee; background: linear-gradient(to bottom right, #cc66ff 1%, #0033cc 100%); color: white;">
+                                                                        <b>Date Registered</b>
+                                                                    </th>
+                                                                    <th
+                                                                        style="background-color: #7460ee; background: linear-gradient(to bottom right, #cc66ff 1%, #0033cc 100%); color: white;">
+                                                                        <b>Image</b>
+                                                                    </th>
+                                                                    <th
+                                                                        style="background-color: #7460ee; background: linear-gradient(to bottom right, #cc66ff 1%, #0033cc 100%); color: white;">
+                                                                        <b>Action</b>
+                                                                    </th>
                                                                 </tr>
                                                             </thead>
                                                             <tbody>
@@ -296,36 +309,45 @@ $result3 = mysqli_query($conn, $sql3);
                                                                 $id = 1;
                                                                 while ($row = mysqli_fetch_assoc($result)) {
                                                                 ?>
-                                                                    <tr>
-                                                                        <td><?php echo $id; ?></td>
-                                                                        <td>
-                                                                            <?php echo $row['problem_id']; ?>
-                                                                        </td>
-                                                                        <td>
-                                                                            <?php echo $row['faculty_name']; ?>
-                                                                        </td>
-                                                                        <td>
-                                                                            <button type="button"
-                                                                                class="btn btn-success btndesc ml-5"
-                                                                                data-toggle="modal"
-                                                                                data-target="#probdesc">View More</button>
-                                                                        </td>
-                                                                        <td>
-                                                                            <?php echo $row['date_of_reg']; ?>
-                                                                        </td>
-                                                                        <td>
-                                                                            <button type="button"
-                                                                                value="<?php echo $row['id']; ?>"
-                                                                                class="btn btn-success btnimg"
-                                                                                data-toggle="modal"
-                                                                                data-target="#viewimg">View</button>
+                                                                <tr>
+                                                                    <td>
+                                                                        <?php echo $id; ?>
+                                                                    </td>
+                                                                    <td>
+                                                                        <?php echo $row['problem_id']; ?>
+                                                                    </td>
+                                                                    <td>
+                                                                        <?php echo $row['faculty_name']; ?>
+                                                                    </td>
+                                                                    <td>
+                                                                        <button type="button"
+                                                                            class="btn btn-success btndesc ml-5"
+                                                                            data-toggle="modal"
+                                                                            data-target="#probdesc">View More</button>
+                                                                    </td>
+                                                                    <td>
+                                                                        <?php echo $row['date_of_reg']; ?>
+                                                                    </td>
+                                                                    <td>
+                                                                        <button type="button"
+                                                                            value="<?php echo $row['id']; ?>"
+                                                                            class="btn btn-success btncertificate"
+                                                                            data-toggle="modal"
+                                                                            data-target="#viewimg">View</button>
 
-                                                                        </td>
-                                                                        <td>
-                                                                            <button type="button" value="<?php echo $row['id']; ?>" name="update_id" id="detail_id" class="btn btn-success btnapprove">Approve</button>
-                                                                            <button type="button" value="<?php echo $row['id']; ?>" class="btn btn-danger btnreject" data-toggle="modal" data-target="#rejectreason">Reject</button>
-                                                                        </td>
-                                                                    </tr>
+                                                                    </td>
+                                                                    <td>
+                                                                        <button type="button"
+                                                                            value="<?php echo $row['id']; ?>"
+                                                                            id="detail_id"
+                                                                            class="btn btn-success btnapprove">Approve</button>
+                                                                        <button type="button"
+                                                                            value="<?php echo $row['id']; ?>"
+                                                                            class="btn btn-danger btnuserdelete"
+                                                                            data-toggle="modal"
+                                                                            data-target="#rejectreason">Reject</button>
+                                                                    </td>
+                                                                </tr>
                                                             </tbody>
                                                         </table>
                                                     </div>
@@ -395,7 +417,9 @@ $result3 = mysqli_query($conn, $sql3);
                                                             </div>
                                                             <form id="addnewdetails">
                                                                 <div class="modal-body" style="font-size:larger;">
-                                                                    <textarea class="form-control" placeholder="Enter reason" style="width:440px;height: 180px;"></textarea>
+                                                                    <textarea class="form-control"
+                                                                        placeholder="Enter reason"
+                                                                        style="width:440px;height: 180px;"></textarea>
                                                                 </div>
                                                                 <div class="modal-footer">
                                                                     <button type="button" class="btn btn-secondary"
@@ -428,13 +452,32 @@ $result3 = mysqli_query($conn, $sql3);
                                                         <table id="myTable" class="table table-bordered table-striped">
                                                             <thead>
                                                                 <tr>
-                                                                    <th><b>S.No</b></th>
-                                                                    <th><b>Problem id</b></th>
-                                                                    <th><b>Faculty Incharge</b></th>
-                                                                    <th><b>Problem Description</b></th>
-                                                                    <th><b>Date Registered</b></th>
-                                                                    <th><b>Image</b></th>
-                                                                    <th class="col-2"><b>Status</b></th>
+                                                                    <th
+                                                                        style="background-color: #7460ee; background: linear-gradient(to bottom right, #cc66ff 1%, #0033cc 100%); color: white;">
+                                                                        <b>S.No</b>
+                                                                    </th>
+                                                                    <th
+                                                                        style="background-color: #7460ee; background: linear-gradient(to bottom right, #cc66ff 1%, #0033cc 100%); color: white;">
+                                                                        <b>Problem id</b>
+                                                                    </th>
+                                                                    <th
+                                                                        style="background-color: #7460ee; background: linear-gradient(to bottom right, #cc66ff 1%, #0033cc 100%); color: white;">
+                                                                        <b>Faculty Incharge</b>
+                                                                    </th>
+                                                                    <th
+                                                                        style="background-color: #7460ee; background: linear-gradient(to bottom right, #cc66ff 1%, #0033cc 100%); color: white;">
+                                                                        <b>Problem Description</b>
+                                                                    </th>
+                                                                    <th
+                                                                        style="background-color: #7460ee; background: linear-gradient(to bottom right, #cc66ff 1%, #0033cc 100%); color: white;">
+                                                                        <b>Date Registered</b>
+                                                                    </th>
+                                                                    <th
+                                                                        style="background-color: #7460ee; background: linear-gradient(to bottom right, #cc66ff 1%, #0033cc 100%); color: white;">
+                                                                        <b>Image</b>
+                                                                    </th>
+                                                                    <th style="background-color: #7460ee; background: linear-gradient(to bottom right, #cc66ff 1%, #0033cc 100%); color: white;"
+                                                                        class="col-2"><b>Status</b></th>
                                                                 </tr>
                                                             </thead>
                                                             <tbody>
@@ -442,39 +485,40 @@ $result3 = mysqli_query($conn, $sql3);
                                                                 $id = 1;
                                                                 while ($row = mysqli_fetch_assoc($result1)) {
                                                                 ?>
-                                                                    <tr>
-                                                                        <td>
-                                                                            <?php echo $id; ?>
-                                                                        </td>
-                                                                        <td>
-                                                                            <?php echo $row['problem_id']; ?>
-                                                                        </td>
-                                                                        <td>
-                                                                            <?php echo $row['faculty_name']; ?>
-                                                                        </td>
-                                                                        <td>
-                                                                            <button type="button"
-                                                                                value="<?php echo $row['problem_description']; ?>"
-                                                                                class="btn btn-success btncertificate ml-5"
-                                                                                data-toggle="modal"
-                                                                                data-target="#probdescappr">View More</button>
-                                                                        </td>
-                                                                        <td>
-                                                                            <?php echo $row['date_of_reg']; ?>
-                                                                        </td>
-                                                                        <td>
-                                                                            <button type="button"
-                                                                                value="<?php echo $row['id']; ?>"
-                                                                                class="btn btn-success btncertificate"
-                                                                                data-toggle="modal"
-                                                                                data-target="#viewimgappr">View</button>
-                                                                        </td>
-                                                                        <td>
-                                                                            <center>
-                                                                                <b>Waiting for assigning at manager</b>
-                                                                            </center>
-                                                                        </td>
-                                                                    </tr>
+                                                                <tr>
+                                                                    <td>
+                                                                        <?php echo $id; ?>
+                                                                    </td>
+                                                                    <td>
+                                                                        <?php echo $row['problem_id']; ?>
+                                                                    </td>
+                                                                    <td>
+                                                                        <?php echo $row['faculty_name']; ?>
+                                                                    </td>
+                                                                    <td>
+                                                                        <button type="button"
+                                                                            value="<?php echo $row['problem_description']; ?>"
+                                                                            class="btn btn-success btncertificate ml-5"
+                                                                            data-toggle="modal"
+                                                                            data-target="#probdescappr">View
+                                                                            More</button>
+                                                                    </td>
+                                                                    <td>
+                                                                        <?php echo $row['date_of_reg']; ?>
+                                                                    </td>
+                                                                    <td>
+                                                                        <button type="button"
+                                                                            value="<?php echo $row['id']; ?>"
+                                                                            class="btn btn-success btncertificate"
+                                                                            data-toggle="modal"
+                                                                            data-target="#viewimgappr">View</button>
+                                                                    </td>
+                                                                    <td>
+                                                                        <center>
+                                                                            <b>Waiting for assigning at manager</b>
+                                                                        </center>
+                                                                    </td>
+                                                                </tr>
                                                                 <?php
                                                                     $id++;
                                                                 }
@@ -557,13 +601,32 @@ $result3 = mysqli_query($conn, $sql3);
                                                         <table id="myTable" class="table table-bordered table-striped">
                                                             <thead>
                                                                 <tr>
-                                                                    <th><b>S.No</b></th>
-                                                                    <th><b>Problem id</b></th>
-                                                                    <th><b>Faculty Incharge</b></th>
-                                                                    <th><b>Problem Description</b></th>
-                                                                    <th><b>Date Registered</b></th>
-                                                                    <th><b>Image</b></th>
-                                                                    <th class="col-2"><b>Status</b></th>
+                                                                    <th
+                                                                        style="background-color: #7460ee; background: linear-gradient(to bottom right, #cc66ff 1%, #0033cc 100%); color: white;">
+                                                                        <b>S.No</b>
+                                                                    </th>
+                                                                    <th
+                                                                        style="background-color: #7460ee; background: linear-gradient(to bottom right, #cc66ff 1%, #0033cc 100%); color: white;">
+                                                                        <b>Problem id</b>
+                                                                    </th>
+                                                                    <th
+                                                                        style="background-color: #7460ee; background: linear-gradient(to bottom right, #cc66ff 1%, #0033cc 100%); color: white;">
+                                                                        <b>Faculty Incharge</b>
+                                                                    </th>
+                                                                    <th
+                                                                        style="background-color: #7460ee; background: linear-gradient(to bottom right, #cc66ff 1%, #0033cc 100%); color: white;">
+                                                                        <b>Problem Description</b>
+                                                                    </th>
+                                                                    <th
+                                                                        style="background-color: #7460ee; background: linear-gradient(to bottom right, #cc66ff 1%, #0033cc 100%); color: white;">
+                                                                        <b>Date Registered</b>
+                                                                    </th>
+                                                                    <th
+                                                                        style="background-color: #7460ee; background: linear-gradient(to bottom right, #cc66ff 1%, #0033cc 100%); color: white;">
+                                                                        <b>Image</b>
+                                                                    </th>
+                                                                    <th style="background-color: #7460ee; background: linear-gradient(to bottom right, #cc66ff 1%, #0033cc 100%); color: white;"
+                                                                        class="col-2"><b>Status</b></th>
                                                                 </tr>
                                                             </thead>
                                                             <tbody>
@@ -571,40 +634,41 @@ $result3 = mysqli_query($conn, $sql3);
                                                                 $id = 1;
                                                                 while ($row = mysqli_fetch_assoc($result2)) {
                                                                 ?>
-                                                                    <tr>
-                                                                        <td>
-                                                                            <?php echo $id; ?>
-                                                                        </td>
-                                                                        <td>
-                                                                            <?php echo $row['problem_id']; ?>
-                                                                        </td>
-                                                                        <td>
-                                                                            <?php echo $row['faculty_id']; ?>
-                                                                        </td>
-                                                                        <td>
-                                                                            <button type="button"
-                                                                                value="<?php echo $row['id']; ?>"
-                                                                                class="btn btn-success btncertificate ml-5"
-                                                                                data-toggle="modal"
-                                                                                data-target="#probdesccomp">View More</button>
-                                                                        </td>
-                                                                        <td>
-                                                                            <?php echo $row['date_of_reg']; ?>
-                                                                        </td>
-                                                                        <td>
-                                                                            <button type="button"
-                                                                                value="<?php echo $row['id']; ?>"
-                                                                                class="btn btn-success btncertificate"
-                                                                                data-toggle="modal"
-                                                                                data-target="#viewimgcomp">View</button>
+                                                                <tr>
+                                                                    <td>
+                                                                        <?php echo $id; ?>
+                                                                    </td>
+                                                                    <td>
+                                                                        <?php echo $row['problem_id']; ?>
+                                                                    </td>
+                                                                    <td>
+                                                                        <?php echo $row['faculty_id']; ?>
+                                                                    </td>
+                                                                    <td>
+                                                                        <button type="button"
+                                                                            value="<?php echo $row['id']; ?>"
+                                                                            class="btn btn-success btncertificate ml-5"
+                                                                            data-toggle="modal"
+                                                                            data-target="#probdesccomp">View
+                                                                            More</button>
+                                                                    </td>
+                                                                    <td>
+                                                                        <?php echo $row['date_of_reg']; ?>
+                                                                    </td>
+                                                                    <td>
+                                                                        <button type="button"
+                                                                            value="<?php echo $row['id']; ?>"
+                                                                            class="btn btn-success btncertificate"
+                                                                            data-toggle="modal"
+                                                                            data-target="#viewimgcomp">View</button>
 
-                                                                        </td>
-                                                                        <td>
-                                                                            <center>
-                                                                                <b>Completed</b>
-                                                                            </center>
-                                                                        </td>
-                                                                    </tr>
+                                                                    </td>
+                                                                    <td>
+                                                                        <center>
+                                                                            <b>Completed</b>
+                                                                        </center>
+                                                                    </td>
+                                                                </tr>
                                                                 <?php
                                                                     $id++;
                                                                 }
@@ -689,13 +753,32 @@ $result3 = mysqli_query($conn, $sql3);
                                                         <table id="myTable" class="table table-bordered table-striped">
                                                             <thead>
                                                                 <tr>
-                                                                    <th><b>S.No</b></th>
-                                                                    <th><b>Problem id</b></th>
-                                                                    <th><b>Faculty Incharge</b></th>
-                                                                    <th><b>Problem Description</b></th>
-                                                                    <th><b>Date Registered</b></th>
-                                                                    <th><b>Image</b></th>
-                                                                    <th class="col-2"><b>Status</b></th>
+                                                                    <th
+                                                                        style="background-color: #7460ee; background: linear-gradient(to bottom right, #cc66ff 1%, #0033cc 100%); color: white;">
+                                                                        <b>S.No</b>
+                                                                    </th>
+                                                                    <th
+                                                                        style="background-color: #7460ee; background: linear-gradient(to bottom right, #cc66ff 1%, #0033cc 100%); color: white;">
+                                                                        <b>Problem id</b>
+                                                                    </th>
+                                                                    <th
+                                                                        style="background-color: #7460ee; background: linear-gradient(to bottom right, #cc66ff 1%, #0033cc 100%); color: white;">
+                                                                        <b>Faculty Incharge</b>
+                                                                    </th>
+                                                                    <th
+                                                                        style="background-color: #7460ee; background: linear-gradient(to bottom right, #cc66ff 1%, #0033cc 100%); color: white;">
+                                                                        <b>Problem Description</b>
+                                                                    </th>
+                                                                    <th
+                                                                        style="background-color: #7460ee; background: linear-gradient(to bottom right, #cc66ff 1%, #0033cc 100%); color: white;">
+                                                                        <b>Date Registered</b>
+                                                                    </th>
+                                                                    <th
+                                                                        style="background-color: #7460ee; background: linear-gradient(to bottom right, #cc66ff 1%, #0033cc 100%); color: white;">
+                                                                        <b>Image</b>
+                                                                    </th>
+                                                                    <th style="background-color: #7460ee; background: linear-gradient(to bottom right, #cc66ff 1%, #0033cc 100%); color: white;"
+                                                                        class="col-2"><b>Status</b></th>
                                                                 </tr>
                                                             </thead>
                                                             <tbody>
@@ -703,32 +786,33 @@ $result3 = mysqli_query($conn, $sql3);
                                                                 $id = 1;
                                                                 while ($row = mysqli_fetch_assoc($result3)) {
                                                                 ?>
-                                                                    <tr>
-                                                                        <td>
-                                                                            <?php echo $id; ?>
-                                                                        </td>
-                                                                        <td>
-                                                                            <?php echo $row['problem_id']; ?>
-                                                                        </td>
-                                                                        <td>
-                                                                            <?php echo $row['faculty_name']; ?>
-                                                                        </td>
-                                                                        <td>
-                                                                            <button type="button"
-                                                                                value="<?php echo $row['id']; ?>"
-                                                                                class="btn btn-success btncertificate ml-5"
-                                                                                data-toggle="modal"
-                                                                                data-target="#probdescrej">View More</button>
-                                                                        </td>
-                                                                        <td>
-                                                                            <?php echo $row['date_of_reg']; ?>
-                                                                        </td>
-                                                                        <td>
-                                                                            <button type="button"
-                                                                                value="<?php echo $row['id']; ?>"
-                                                                                class="btn btn-success btncertificate"
-                                                                                data-toggle="modal"
-                                                                                data-target="#viewimgrej">View</button>
+                                                                <tr>
+                                                                    <td>
+                                                                        <?php echo $id; ?>
+                                                                    </td>
+                                                                    <td>
+                                                                        <?php echo $row['problem_id']; ?>
+                                                                    </td>
+                                                                    <td>
+                                                                        <?php echo $row['faculty_name']; ?>
+                                                                    </td>
+                                                                    <td>
+                                                                        <button type="button"
+                                                                            value="<?php echo $row['id']; ?>"
+                                                                            class="btn btn-success btncertificate ml-5"
+                                                                            data-toggle="modal"
+                                                                            data-target="#probdescrej">View
+                                                                            More</button>
+                                                                    </td>
+                                                                    <td>
+                                                                        <?php echo $row['date_of_reg']; ?>
+                                                                    </td>
+                                                                    <td>
+                                                                        <button type="button"
+                                                                            value="<?php echo $row['id']; ?>"
+                                                                            class="btn btn-success btncertificate"
+                                                                            data-toggle="modal"
+                                                                            data-target="#viewimgrej">View</button>
 
                                                                         </td>
                                                                         <td>
@@ -758,14 +842,7 @@ $result3 = mysqli_query($conn, $sql3);
                                                                 </button>
                                                             </div>
                                                             <form id="addnewdetails">
-                                                                <div class="modal-body" style="font-size:larger;">
-                                                                    <p>dddddweianfdifvsnafidbniadnbaefovdfbsgaiskdgngwognisfdiusb
-                                                                        digbrgg girhg hrvsgif fhsv Lorem ipsum dolor sit
-                                                                        amet consectetur, adipisicing elit. Quo delectus
-                                                                        atque reprehenderit eligendi sint. Sunt odio
-                                                                        sit, laborum illum aspernatur non ullam a itaque
-                                                                        ipsa maiores eius dolores corporis est.</p>
-                                                                </div>
+
                                                                 <div class="modal-footer">
                                                                     <button type="button" class="btn btn-secondary"
                                                                         data-dismiss="modal">Close</button>
@@ -802,7 +879,38 @@ $result3 = mysqli_query($conn, $sql3);
                                                         </div>
                                                     </div>
                                                 </div>
+                                                <!------------problem rejected modal-------------->
+                                                <div class="modal fade" id="problemrejected" tabindex="-1"
+                                                    aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                    <div class="modal-dialog">
+                                                        <div class="modal-content">
+                                                            <div class="modal-header">
+                                                                <h5 class="modal-title" id="exampleModalLabel">Reason
+                                                                    for Rejection</h5>
+                                                                <button type="button" class="btn" data-dismiss="modal"
+                                                                    aria-label="Close"><i class="mdi mdi-close"></i>
+                                                                </button>
+                                                            </div>
+                                                            <form id="addnewdetails">
+                                                                <div class="modal-body" style="font-size:larger;">
+                                                                    <p>dddddweianfdifvsnafidbniadnbaefovdfbsgaiskdgngwognisfdiusb
+                                                                        digbrgg girhg hrvsgif fhsv Lorem ipsum dolor sit
+                                                                        amet consectetur, adipisicing elit. Quo delectus
+                                                                        atque reprehenderit eligendi sint. Sunt odio
+                                                                        sit, laborum illum aspernatur non ullam a itaque
+                                                                        ipsa maiores eius dolores corporis est.</p>
+                                                                </div>
+                                                                <div class="modal-footer">
+                                                                    <button type="button" class="btn btn-secondary"
+                                                                        data-dismiss="modal">Close</button>
+
+                                                                </div>
+                                                            </form>
+                                                        </div>
+                                                    </div>
+                                                </div>
                                             </div>
+
 
                                             <footer class="footer text-center" style="margin-top: 250px;">
                                                 <b>

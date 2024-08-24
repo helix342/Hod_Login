@@ -5,6 +5,7 @@ $sql1 = "SELECT * FROM complaints_detail WHERE status IN (4, 6, 7, 8, 9, 10, 12)
 $sql2 = "SELECT * FROM complaints_detail WHERE status = 11";
 $sql3 = "SELECT * FROM complaints_detail WHERE status = 5";
 $result = mysqli_query($conn, $sql);
+$result4 = mysqli_query($conn, $sql);
 $result1 = mysqli_query($conn, $sql1);
 $result2 = mysqli_query($conn, $sql2);
 $result3 = mysqli_query($conn, $sql3);
@@ -334,7 +335,6 @@ $result3 = mysqli_query($conn, $sql3);
                                                                             class="btn btn-success btncertificate"
                                                                             data-toggle="modal"
                                                                             data-target="#viewimg">View</button>
-
                                                                     </td>
                                                                     <td>
                                                                         <button type="button"
@@ -347,6 +347,10 @@ $result3 = mysqli_query($conn, $sql3);
                                                                             data-toggle="modal"
                                                                             data-target="#rejectreason">Reject</button>
                                                                     </td>
+                                                                    <?php
+                                                                    $id++;
+                                                                    }
+                                                                    ?>
                                                                 </tr>
                                                             </tbody>
                                                         </table>
@@ -366,7 +370,15 @@ $result3 = mysqli_query($conn, $sql3);
                                                             </div>
                                                             <form id="addnewdetails">
                                                                 <div class="modal-body" style="font-size:larger;">
-                                                                    <?php echo $row['problem_description']; ?>
+                                                                <?php
+                                                                $id = 1;
+                                                                while ($row = mysqli_fetch_assoc($result4)) {
+                                                                ?>
+                                                                <?php echo $row['problem_description']; ?>
+                                                                <?php
+                                                                $id++;
+                                                                    }
+                                                                ?>
                                                                 </div>
                                                                 <div class="modal-footer">
                                                                     <button type="button" class="btn btn-secondary"
@@ -428,10 +440,7 @@ $result3 = mysqli_query($conn, $sql3);
                                                                         data-dismiss="modal">Submit</button>
                                                                 </div>
                                                             </form>
-                                                        <?php
-                                                                    $id++;
-                                                                }
-                                                        ?>
+                                                        
                                                         </div>
                                                     </div>
                                                 </div>

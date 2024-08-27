@@ -987,6 +987,7 @@ $result3 = mysqli_query($conn, $sql3);
             }
         });
 
+    //<!-----------------pending tab prob desc ajax------------->
         $(document).on('click', '#seeproblem', function(e) {
                 e.preventDefault();
                 var user_id = $(this).val();
@@ -1021,7 +1022,6 @@ $result3 = mysqli_query($conn, $sql3);
                     data: {
                         'seedetailscomp': true,
                         'user_idcomp': user_idcomp
-                        
                     },
                     success: function(response) {
                         var res = jQuery.parseJSON(response);
@@ -1062,7 +1062,5 @@ $result3 = mysqli_query($conn, $sql3);
                 });
             });
     </script>
-
 </body>
-
 </html>

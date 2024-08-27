@@ -398,15 +398,7 @@ $result3 = mysqli_query($conn, $sql3);
                                                             <form id="addnewdetails">
                                                                 <div class="modal-body" style="font-size:larger;">
                                                                     <center>
-                                                                        <?php
-                                                                    $idpd = 1;
-                                                                while ($row = mysqli_fetch_assoc($result1)) {
-                                                                    ?>
-                                                                        <?php echo $row['image']; ?>
-                                                                    <?php
-                                                                $idpd++;
-                                                                }
-                                                                ?>
+                                                                        
                                                                     </center>
                                                                 </div>
                                                                 <div class="modal-footer">
@@ -490,7 +482,7 @@ $result3 = mysqli_query($conn, $sql3);
                                                                         <b>Image</b>
                                                                     </th>
                                                                     <th style="background-color: #7460ee; background: linear-gradient(to bottom right, #cc66ff 1%, #0033cc 100%); color: white;"
-                                                                        class="col-2"><b>Status</b></th>
+                                                                    class="col-2"><b>Status</b></th>
                                                                 </tr>
                                                             </thead>
                                                             <tbody>
@@ -526,13 +518,6 @@ $result3 = mysqli_query($conn, $sql3);
                                                                                 data-target="#viewimgappr">View</button>
                                                                         </td>
                                                                         <td>
-                                                                        
-                                                                        
-                                                                        <center>
-                                                                            <b>Waiting for assigning at manager</b>
-                                                                        </center>
-                                                                    </td>
-                                                                </tr>
                                                                             <?php echo $row['status']; ?>
                                                                         </td>
                                                                     </tr>
@@ -676,33 +661,6 @@ $result3 = mysqli_query($conn, $sql3);
                                                                                 class="btn btn-success btncertificate"
                                                                                 data-toggle="modal"
                                                                                 data-target="#viewimgcomp">View</button>
-                                                                <tr>
-                                                                    <td>
-                                                                        <?php echo $id; ?>
-                                                                    </td>
-                                                                    <td>
-                                                                        <?php echo $row['problem_id']; ?>
-                                                                    </td>
-                                                                    <td>
-                                                                        <?php echo $row['faculty_name']; ?>
-                                                                    </td>
-                                                                    <td>
-                                                                        <button type="button"
-                                                                            class="btn btn-success btncertificate ml-5"
-                                                                            data-toggle="modal" id="seeproblemcomp"
-                                                                            data-target="#probdesccomp" value="<?php echo $row['id']; ?>">View
-                                                                            More</button>
-                                                                    </td>
-                                                                    <td>
-                                                                        <?php echo $row['date_of_reg']; ?>
-                                                                    </td>
-                                                                    <td>
-                                                                        <button type="button"
-                                                                            value="<?php echo $row['id']; ?>"
-                                                                            class="btn btn-success btncertificate"
-                                                                            data-toggle="modal" id="seeproblem"
-                                                                            data-target="#viewimgcomp">View</button>
-
                                                                         </td>
                                                                         <td>
                                                                             <center>
@@ -737,7 +695,6 @@ $result3 = mysqli_query($conn, $sql3);
                                                                 <div class="modal-footer">
                                                                     <button type="button" class="btn btn-secondary"
                                                                         data-dismiss="modal">Close</button>
-
                                                                 </div>
                                                             </form>
                                                         </div>
@@ -760,12 +717,9 @@ $result3 = mysqli_query($conn, $sql3);
                                                                     <center>
                                                                         <img src="assets/images/logo2.png" alt="no img">
                                                                     </center>
-
-
                                                                 </div>
                                                                 <div class="modal-footer">
                                                                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-
                                                                 </div>
                                                             </form>
                                                         </div>

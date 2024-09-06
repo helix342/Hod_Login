@@ -502,9 +502,9 @@ $result3 = mysqli_query($conn, $sql3);
                                                                         </td>
                                                                         <td>
                                                                             <button type="button"
-                                                                                value="<?php echo $row['problem_description']; ?>"
+                                                                                value="<?php echo $row['id']; ?>"
                                                                                 class="btn btn-success btndesc ml-5"
-                                                                                data-toggle="modal"
+                                                                                data-toggle="modal" id="seeproblemapr"
                                                                                 data-target="#probdescappr">View More</button>
                                                                         </td>
                                                                         <td>
@@ -543,7 +543,7 @@ $result3 = mysqli_query($conn, $sql3);
                                                             </div>
                                                             <form id="addnewdetails">
                                                                 <div class="modal-body" style="font-size:larger;">
-                                                                    
+                                                                    <input type="text" id="pdapr" value="" disabled style="width: 450px;height: 100px;">
                                                                 </div>
                                                                 <div class="modal-footer">
                                                                     <button type="button" class="btn btn-secondary"
@@ -570,7 +570,6 @@ $result3 = mysqli_query($conn, $sql3);
                                                                 <div class="modal-body" style="font-size:larger;">
                                                                     <center>
                                                                         <?php echo $row['image']; ?>
-
                                                                     </center>
                                                                 </div>
                                                                 <div class="modal-footer">
@@ -648,7 +647,7 @@ $result3 = mysqli_query($conn, $sql3);
                                                                             <button type="button"
                                                                                 value="<?php echo $row['id']; ?>"
                                                                                 class="btn btn-success btncertificate ml-5"
-                                                                                data-toggle="modal"
+                                                                                data-toggle="modal" id="seeproblemcomp"
                                                                                 data-target="#probdesccomp">View
                                                                                 More</button>
                                                                         </td>
@@ -690,7 +689,7 @@ $result3 = mysqli_query($conn, $sql3);
                                                             </div>
                                                             <form id="addnewdetails">
                                                                 <div class="modal-body" style="font-size:larger;">
-                                                                    <input type="text" id="pdcomp" value="">
+                                                                    <input type="text" id="pdcomp" value="" style="width: 450px;height: 100px;" disabled>
                                                                 </div>
                                                                 <div class="modal-footer">
                                                                     <button type="button" class="btn btn-secondary"
@@ -950,7 +949,7 @@ $result3 = mysqli_query($conn, $sql3);
             $('#myTable2').DataTable();
             $('#myTable3').DataTable();
             $('#myTable4').DataTable();
-            table.ajax.reload()
+          //  table.ajax.reload()
         });
 
         $(document).on('click', '.btnapprove', function(e) {
@@ -974,7 +973,7 @@ $result3 = mysqli_query($conn, $sql3);
                             $('#myTable1').load(location.href + " #myTable1");
                             $('#myTable2').load(location.href + " #myTable2");
                             $('#myTable3').load(location.href + " #myTable3");
-                            table.ajax.reload()
+                            //table.ajax.reload()
                         }
                     }
                 });
@@ -1002,7 +1001,7 @@ $result3 = mysqli_query($conn, $sql3);
                             $('#myTable1').load(location.href + " #myTable1");
                             $('#myTable2').load(location.href + " #myTable2");
                             $('#myTable3').load(location.href + " #myTable3");
-                            table.ajax.reload()
+                           // table.ajax.reload()
                         }
                     }
                 });
@@ -1028,7 +1027,6 @@ $result3 = mysqli_query($conn, $sql3);
 
                 success: function(response) {
                     var res = jQuery.parseJSON(response);
-
                     if (res.status == 200) {
                         $('#rejectreason').modal('hide');
                         $('#rejectdetails')[0].reset();
@@ -1075,6 +1073,31 @@ $result3 = mysqli_query($conn, $sql3);
                     }
                 });
             });
+    //<!---------------------approved tab prob desc ajax---------------->
+    $(document).on('click', '#seeproblemapr', function(e) {
+                e.preventDefault();
+                var user_idapr = $(this).val();
+                console.log(user_idapr)
+                $.ajax({
+                    type: "POST",
+                    url: "backend.php",
+                    data: {
+                        'seedetailsapr': true,
+                        'user_idapr': user_idapr
+                    },
+                    success: function(response) {
+                        var res = jQuery.parseJSON(response);
+                        console.log(res)
+                        if (res.status == 500) {
+                            alert(res.message);
+                        } else {
+                            $('#pdapr').val(res.data.problem_description);
+                            $('#probdescappr').modal('show');
+                        }
+                    }
+                });
+            });
+
     //<!-------completed tab prob desc ajax--------------->
             $(document).on('click', '#seeproblemcomp', function(e) {
                 e.preventDefault();
@@ -1111,7 +1134,6 @@ $result3 = mysqli_query($conn, $sql3);
                     data: {
                         'seedetailsrej': true,
                         'user_idrej': user_idrej
-                        
                     },
                     success: function(response) {
                         var res = jQuery.parseJSON(response);

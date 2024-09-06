@@ -715,3 +715,8 @@
     line-height: 14px;
     cursor: pointer;
   }
+  .navbarpage:active{
+    background-color: #7460ee; 
+    background: linear-gradient(to bottom right, #cc66ff 1%, #0033cc 100%); 
+    color: white;
+  }

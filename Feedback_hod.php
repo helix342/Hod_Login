@@ -583,6 +583,7 @@ $result3 = mysqli_query($conn, $sql3);
                                                                                 value='<?php echo $row['id']; ?>'
                                                                                 class="btn btn-success btndesc ml-5"
                                                                                 data-toggle="modal" id="seeproblemapr"
+                                                                                data-toggle="modal" id="seeproblemapr"
                                                                                 data-target="#probdescappr">View More</button>
                                                                         </td>
                                                                         <td>
@@ -677,7 +678,6 @@ $result3 = mysqli_query($conn, $sql3);
                                                                 <div class="modal-body" style="font-size:larger;">
                                                                     <center>
                                                                         <?php echo $row['image']; ?>
-
                                                                     </center>
                                                                 </div>
                                                                 <div class="modal-footer">
@@ -1042,6 +1042,7 @@ $result3 = mysqli_query($conn, $sql3);
             $('#myTable2').DataTable();
             $('#myTable3').DataTable();
             $('#myTable4').DataTable();
+          //  table.ajax.reload()
         });
 
         $(document).on('click', '.btnapprove', function(e) {
@@ -1065,6 +1066,7 @@ $result3 = mysqli_query($conn, $sql3);
                             $('#myTable1').load(location.href + " #myTable1");
                             $('#myTable2').load(location.href + " #myTable2");
                             $('#myTable3').load(location.href + " #myTable3");
+                            //table.ajax.reload()
                         }
                     }
                 });
@@ -1092,6 +1094,7 @@ $result3 = mysqli_query($conn, $sql3);
                             $('#myTable1').load(location.href + " #myTable1");
                             $('#myTable2').load(location.href + " #myTable2");
                             $('#myTable3').load(location.href + " #myTable3");
+                           // table.ajax.reload()
                         }
                     }
                 });
@@ -1115,15 +1118,14 @@ $result3 = mysqli_query($conn, $sql3);
                     processData: false,
                     contentType: false,
 
-                    success: function(response) {
-                        var res = jQuery.parseJSON(response);
-
-                        if (res.status == 200) {
-                            $('#rejectreason').modal('hide');
-                            $('#rejectdetails')[0].reset();
-                            $('#myTable1').load(location.href + " #myTable1");
-                            $('#myTable4').load(location.href + " #myTable4");
-                            table.ajax.reload()
+                success: function(response) {
+                    var res = jQuery.parseJSON(response);
+                    if (res.status == 200) {
+                        $('#rejectreason').modal('hide');
+                        $('#rejectdetails')[0].reset();
+                        $('#myTable1').load(location.href + " #myTable1");
+                        $('#myTable4').load(location.href + " #myTable4");
+                        table.ajax.reload()
 
                         } else if (res.status == 500) {
                             $('#rejectreason').modal('hide');
@@ -1299,7 +1301,5 @@ $result3 = mysqli_query($conn, $sql3);
         //     });
         // });
     </script>
-
 </body>
-
 </html>

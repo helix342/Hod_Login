@@ -226,7 +226,7 @@ $sql3 = "SELECT * FROM complaints_detail WHERE status = 5";
             <div class="row">
                 <!-- Pending -->
                 <div class="col-12 col-md-3 mb-3">
-                    <div class="cir">
+                    <div class="cir" >
                         <div class="bo">
                             <div class="content1">
                                 <div class="stats-box text-center p-3" style="background-color:orange;">

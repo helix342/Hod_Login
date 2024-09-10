@@ -3,7 +3,7 @@ include("db.php");
 $sql = "SELECT * FROM complaints_detail WHERE status = 2";
 $sql1 = "SELECT * FROM complaints_detail WHERE status IN (4, 6, 7, 8, 9, 10, 12)";
 $sql2 = "SELECT * FROM complaints_detail WHERE status = 11";
-$sql3 = "SELECT * FROM complaints_detail WHERE status IN (3, 5, 16, 17)";
+$sql3 = "SELECT * FROM complaints_detail WHERE status IN (5, 16, 17)";
 $result = mysqli_query($conn, $sql);
 $result1 = mysqli_query($conn, $sql1);
 $result2 = mysqli_query($conn, $sql2);
@@ -28,12 +28,10 @@ $result3 = mysqli_query($conn, $sql3);
     <!-- Custom CSS -->
     <link href="dist/css/style.min.css" rel="stylesheet">
     <link href="styles.css" rel="stylesheet">
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-<![endif]-->
+    <link href="dboardstyles.css" rel="stylesheet">
+    <link href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.min.css" rel="stylesheet" crossorigin="anonymous">
+    <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js" crossorigin="anonymous"></script>
+
 </head>
 
 <body>
@@ -104,21 +102,6 @@ $result3 = mysqli_query($conn, $sql3);
                     <!-- ============================================================== -->
                     <ul class="navbar-nav float-right">
                         <!-- ============================================================== -->
-                        <!-- Comment -->
-                        <!-- ============================================================== -->
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle waves-effect waves-dark" href="" data-toggle="dropdown"
-                                aria-haspopup="true" aria-expanded="false"> <i class="mdi mdi-bell font-24"></i>
-                            </a>
-                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="#">Notifications</a>
-                            </div>
-                        </li>
-                        <!-- ============================================================== -->
-                        <!-- End Comment -->
-                        <!-- ============================================================== -->
-
-                        <!-- ============================================================== -->
                         <!-- User profile and search -->
                         <!-- ============================================================== -->
                         <li class="nav-item dropdown">
@@ -126,14 +109,9 @@ $result3 = mysqli_query($conn, $sql3);
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img
                                     src="assets/images/users/1.jpg" alt="user" class="rounded-circle" width="31"></a>
                             <div class="dropdown-menu dropdown-menu-right user-dd animated">
-                                <a class="dropdown-item" href="javascript:void(0)"><i class="ti-user m-r-5 m-l-5"></i>
-                                    My Profile</a>
-                                <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="javascript:void(0)"><i
-                                        class="ti-settings m-r-5 m-l-5"></i> Account Settings</a>
-                                <div class="dropdown-divider"></div>
                                 <a class="dropdown-item" href="javascript:void(0)"><i
                                         class="fa fa-power-off m-r-5 m-l-5"></i> Logout</a>
+                                <div class="dropdown-divider"></div>
                             </div>
                         </li>
                         <!-- ============================================================== -->
@@ -165,23 +143,20 @@ $result3 = mysqli_query($conn, $sql3);
                                 href="edit-profile.html" aria-expanded="false"><i class="mdi mdi-account-edit"></i><span
                                     class="hide-menu">Edit Profile</span></a>
                             <ul aria-expanded="false" class="collapse  first-level">
-                                <li class="sidebar-item"><a href="basic-details.php" class="sidebar-link"><i
+                                <li class="sidebar-item"><a href="error-404.html" class="sidebar-link"><i
                                             class="mdi mdi-account-settings-variant"></i><span class="hide-menu"> Basic
                                             Details </span></a></li>
-                                <li class="sidebar-item"><a href="academic-details.html" class="sidebar-link"><i
+                                <li class="sidebar-item"><a href="error-404.html" class="sidebar-link"><i
                                             class="mdi mdi-book-multiple"></i><span class="hide-menu"> Academic Details
                                         </span></a></li>
                             </ul>
                         </li>
                         <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
-                                href="password.php" aria-expanded="false"><i class="mdi mdi-account-key"></i><span
+                                href="error-404.html" aria-expanded="false"><i class="mdi mdi-account-key"></i><span
                                     class="hide-menu">Change password</span></a></li>
                         <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
                                 href="Feedback_hod.php" aria-expanded="false"><i class="mdi mdi-comment-text"></i><span
                                     class="hide-menu">Feedback Corner</span></a>
-                        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
-                                href="https://www.camsmkce.in/index.aspx" aria-expanded="false"><i
-                                    class="mdi mdi-vector-arrange-above"></i><span class="hide-menu">Cams</span></a>
                     </ul>
                 </nav>
                 <!-- End Sidebar navigation -->
@@ -202,7 +177,7 @@ $result3 = mysqli_query($conn, $sql3);
                         <div class="ml-auto text-right">
                             <nav aria-label="breadcrumb">
                                 <ol class="breadcrumb">
-                                    <li class="breadcrumb-item"><a href="#">Home</a></li>
+                                    <li class="breadcrumb-item"><a href="index.php">Home</a></li>
                                     <li class="breadcrumb-item active" aria-current="page">Feedback Corner</li>
                                 </ol>
                             </nav>
@@ -229,33 +204,137 @@ $result3 = mysqli_query($conn, $sql3);
                                     <div class="card">
                                         <ul class="nav nav-tabs mb-3" role="tablist">
                                             <li class="nav-item">
-                                                <a class="nav-link active show" data-toggle="tab" href="#pending"
+                                                <a class="nav-link active show" data-toggle="tab" href="#dashboard"
                                                     role="tab" aria-selected="true"><span class="hidden-sm-up"></span>
                                                     <span class="hidden-xs-down"><i
-                                                            class="bi-person"></i><b>Pending</b></span></a>
+                                                            class="mdi mdi-view-grid"></i><b>&nbsp Dashboard</b></span></a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link" data-toggle="tab" href="#pending"
+                                                    role="tab" aria-selected="false"><span class="hidden-sm-up"></span>
+                                                    <span class="hidden-xs-down"><i
+                                                            class="fas fa-clock"></i><b>&nbsp Pending</b></span></a>
                                             </li>
                                             <li class="nav-item">
                                                 <a class="nav-link" data-toggle="tab" href="#approved" role="tab"
                                                     aria-selected="false"><span class="hidden-sm-up"></span> <span
                                                         class="hidden-xs-down"><i
-                                                            class="bi bi-book"></i><b>Approved</b></span></a>
+                                                            class="fas fa-check"></i><b>&nbsp Approved</b></span></a>
                                             </li>
                                             <li class="nav-item">
                                                 <a class="nav-link" data-toggle="tab" href="#completed" role="tab"
                                                     aria-selected="false"><span class="hidden-sm-up"></span> <span
                                                         class="hidden-xs-down"><i
-                                                            class="bi bi-people-fill"></i><b>Completed</b></span></a>
+                                                            class="mdi mdi-check-all"></i><b>&nbsp Completed</b></span></a>
                                             </li>
                                             <li class="nav-item">
                                                 <a class="nav-link" data-toggle="tab" href="#rejected" role="tab"
                                                     aria-selected="false"><span class="hidden-sm-up"></span> <span
                                                         class="hidden-xs-down"><i
-                                                            class="bi bi-people-fill"></i><b>Rejected</b></span></a>
+                                                            class="mdi mdi-close-circle"></i><b>&nbsp Rejected</b></span></a>
                                             </li>
                                         </ul>
-                                        <!-------------------------pending tab---------------------------->
+                                        <!-------------------------dashboard------------------------------>
                                         <div class="tab-content tabcontent-border">
-                                            <div class="tab-pane p-20 active show" id="pending" role="tabpanel">
+                                            <div class="tab-pane p-20 active show" id="dashboard" role="tabpanel">
+                                                <div class="card">
+                                                    <div class="card-body">
+                                                        <h4 class="card-title m-b-0"><b>Issue Analysis</b></h4><br>
+                                                        <div class="row">
+                                                            <!-- Pending -->
+                                                            <div class="col-12 col-md-3 mb-3">
+                                                                <div class="cir">
+                                                                    <div class="bo">
+                                                                        <div class="content1">
+                                                                            <div class="stats-box text-center p-3" style="background-color:orange;">
+                                                                                
+                                                                                <i class="fas fa-clock"></i>
+                                                                                <h1 class="font-light text-white">
+                                                                                    <?php $query2 = "SELECT COUNT(*) as pending FROM complaints_detail WHERE  status ='2'";
+                                                                                    $output2 = mysqli_query($conn, $query2);
+                                                                                    $row2 = mysqli_fetch_assoc($output2);
+                                                                                    $pendingCount = $row2['pending'];
+                                                                                    echo $pendingCount;
+                                                                                    ?>
+                                                                                </h1>
+                                                                                <small class="font-light">Pending</small>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+                                                            <!-- Approved -->
+                                                            <div class="col-12 col-md-3 mb-3">
+                                                                <div class="cir">
+                                                                    <div class="bo">
+                                                                        <div class="content1">
+                                                                            <div class="stats-box text-center p-3" style="background-color:rgb(14, 86, 239);">
+                                                                                <i class="fas fa-check"></i>
+                                                                                <h1 class="font-light text-white">
+                                                                                    <?php $query2 = "SELECT COUNT(*) as approved FROM complaints_detail WHERE   (status ='4' or status ='6' or status='7' or status='8' or status='9' or status='10' or status='11')";
+                                                                                    $output2 = mysqli_query($conn, $query2);
+                                                                                    $row2 = mysqli_fetch_assoc($output2);
+                                                                                    $pendingCount = $row2['approved'];
+                                                                                    echo $pendingCount;
+                                                                                    ?>
+                                                                                </h1>
+                                                                                <small class="font-light">Approved</small>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+                                                            <!-- Completed -->
+                                                            <div class="col-12 col-md-3 mb-3">
+                                                                <div class="cir">
+                                                                    <div class="bo">
+                                                                        <div class="content1">
+                                                                            <div class="stats-box text-center p-3" style="background-color:rgb(70, 160, 70);">
+                                                                                <i class="mdi mdi-check-all"></i>
+                                                                                <h1 class="font-light text-white">
+                                                                                    <?php $query2 = "SELECT COUNT(*) as completed FROM complaints_detail WHERE  status ='11'";
+                                                                                    $output2 = mysqli_query($conn, $query2);
+                                                                                    $row2 = mysqli_fetch_assoc($output2);
+                                                                                    $pendingCount = $row2['completed'];
+                                                                                    echo $pendingCount;
+                                                                                    ?>
+                                                                                </h1>
+                                                                                <small class="font-light">Completed</small>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+                                                            <!-- Rejected -->
+                                                            <div class="col-12 col-md-3 mb-3">
+                                                                <div class="cir">
+                                                                    <div class="bo">
+                                                                        <div class="content1">
+                                                                            <div class="stats-box text-center p-3" style="background-color: rgb(241, 0, 0);">
+                                                                                <i class="mdi mdi-close-circle"></i>
+                                                                                <h1 class="font-light text-white">
+                                                                                    <?php $query2 = "SELECT COUNT(*) as rejected FROM complaints_detail WHERE  status ='5'";
+                                                                                    $output2 = mysqli_query($conn, $query2);
+                                                                                    $row2 = mysqli_fetch_assoc($output2);
+                                                                                    $pendingCount = $row2['rejected'];
+                                                                                    echo $pendingCount;
+                                                                                    ?>
+                                                                                </h1>
+                                                                                <small class="font-light">Rejected</small>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-------------------------pending tab---------------------------->
+                                            <div class="tab-pane p-20" id="pending" role="tabpanel">
                                                 <div class="row">
                                                     <div class="col-md-12">
                                                         <div class="card">
@@ -284,7 +363,7 @@ $result3 = mysqli_query($conn, $sql3);
                                                                     </th>
                                                                     <th
                                                                         style="background-color: #7460ee; background: linear-gradient(to bottom right, #cc66ff 1%, #0033cc 100%); color: white;">
-                                                                        <b>Faculty Incharge</b>
+                                                                        <b>Faculty Name</b>
                                                                     </th>
                                                                     <th
                                                                         style="background-color: #7460ee; background: linear-gradient(to bottom right, #cc66ff 1%, #0033cc 100%); color: white;">
@@ -330,14 +409,13 @@ $result3 = mysqli_query($conn, $sql3);
                                                                             <?php echo $row['date_of_reg']; ?>
                                                                         </td>
                                                                         <td>
-                                                                        <button type="button"
-                                                                            value="<?php echo $row['id']; ?>"
-                                                                            class="btn btn-success btncertificate"
-                                                                            data-toggle="modal"
-                                                                            data-target="#imageModal">View</button>
-                                                                                       
+                                                                            <button type="button"
+                                                                                value="<?php echo $row['id']; ?>"
+                                                                                class="btn btn-success btncertificate ml-5"
+                                                                                data-toggle="modal"
+                                                                                data-target="">View
+                                                                            </button>
                                                                         </td>
-
                                                                         <td>
                                                                             <button type="button"
                                                                                 value="<?php echo $row['id']; ?>"
@@ -372,7 +450,8 @@ $result3 = mysqli_query($conn, $sql3);
                                                             </div>
                                                             <form id="addnewdetails">
                                                                 <div class="modal-body" style="font-size:larger;">
-                                                                    <input type="text" id="pd">
+                                                                    <textarea type="text" id="pd" style="width:440px;height: 180px;" readonly>
+                                                                    </textarea>
                                                                 </div>
                                                                 <div class="modal-footer">
                                                                     <button type="button" class="btn btn-secondary"
@@ -425,11 +504,11 @@ $result3 = mysqli_query($conn, $sql3);
                                                                     <button type="submit" class="btn btn-primary">Submit</button>
                                                                 </div>
                                                             </form>
-
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
+
                                             <!--------------approved tab-------------------->
                                             <div class="tab-pane p-20" id="approved" role="tabpanel">
                                                 <div class="row">
@@ -457,7 +536,7 @@ $result3 = mysqli_query($conn, $sql3);
                                                                     </th>
                                                                     <th
                                                                         style="background-color: #7460ee; background: linear-gradient(to bottom right, #cc66ff 1%, #0033cc 100%); color: white;">
-                                                                        <b>Faculty Incharge</b>
+                                                                        <b>Faculty Name</b>
                                                                     </th>
                                                                     <th
                                                                         style="background-color: #7460ee; background: linear-gradient(to bottom right, #cc66ff 1%, #0033cc 100%); color: white;">
@@ -492,8 +571,9 @@ $result3 = mysqli_query($conn, $sql3);
                                                                         </td>
                                                                         <td>
                                                                             <button type="button"
-                                                                                value="<?php echo $row['id']; ?>"
+                                                                                value='<?php echo $row['id']; ?>'
                                                                                 class="btn btn-success btndesc ml-5"
+                                                                                data-toggle="modal" id="seeproblemapr"
                                                                                 data-toggle="modal" id="seeproblemapr"
                                                                                 data-target="#probdescappr">View More</button>
                                                                         </td>
@@ -558,7 +638,8 @@ $result3 = mysqli_query($conn, $sql3);
                                                             </div>
                                                             <form id="addnewdetails">
                                                                 <div class="modal-body" style="font-size:larger;">
-                                                                    <input type="text" id="pdapr" value="" disabled style="width: 450px;height: 100px;">
+                                                                    <textarea type="text" id="pdapr" style="width:440px;height: 180px;" readonly>
+                                                                </textarea>
                                                                 </div>
                                                                 <div class="modal-footer">
                                                                     <button type="button" class="btn btn-secondary"
@@ -569,23 +650,34 @@ $result3 = mysqli_query($conn, $sql3);
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <!-- Modal for Approved Images -->
-<div class="modal fade" id="approvedModal" tabindex="-1" aria-labelledby="approvedModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="approvedModalLabel">Approved Image</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <img id="approvedImage" src="" alt="Approved Image" class="img-fluid" style="width: 100%; height: auto;">
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-            </div>
-        </div>
-    </div>
-</div>
+                                                <!------------view image modal-->
+                                                <div class="modal fade" id="viewimgappr" tabindex="-1"
+                                                    aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                    <div class="modal-dialog">
+                                                        <div class="modal-content">
+                                                            <div class="modal-header">
+                                                                <h5 class="modal-title" id="exampleModalLabel">Problem
+                                                                    Image</h5>
+                                                                <button type="button" class="btn" data-dismiss="modal"
+                                                                    aria-label="Close"><i class="mdi mdi-close"></i>
+                                                                </button>
+                                                            </div>
+                                                            <form id="addnewdetails">
+                                                                <div class="modal-body" style="font-size:larger;">
+                                                                    <center>
+                                                                        <?php echo $row['image']; ?>
+                                                                    </center>
+                                                                </div>
+                                                                <div class="modal-footer">
+                                                                    <button type="button" class="btn btn-secondary"
+                                                                        data-dismiss="modal">Close</button>
+                                                                </div>
+                                                            </form>
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
 
                                             <!-----------completed tab----------->
                                             <div class="tab-pane p-20" id="completed" role="tabpanel">
@@ -613,7 +705,7 @@ $result3 = mysqli_query($conn, $sql3);
                                                                     </th>
                                                                     <th
                                                                         style="background-color: #7460ee; background: linear-gradient(to bottom right, #cc66ff 1%, #0033cc 100%); color: white;">
-                                                                        <b>Faculty Incharge</b>
+                                                                        <b>Faculty Name</b>
                                                                     </th>
                                                                     <th
                                                                         style="background-color: #7460ee; background: linear-gradient(to bottom right, #cc66ff 1%, #0033cc 100%); color: white;">
@@ -650,10 +742,9 @@ $result3 = mysqli_query($conn, $sql3);
                                                                         <td>
                                                                             <button type="button"
                                                                                 value="<?php echo $row['id']; ?>"
-                                                                                class="btn btn-success btncertificate ml-5"
+                                                                                class="btn btn-success btndesc ml-5"
                                                                                 data-toggle="modal" id="seeproblemcomp"
-                                                                                data-target="#probdesccomp">View
-                                                                                More</button>
+                                                                                data-target="#probdesccomp">View More</button>
                                                                         </td>
                                                                         <td>
                                                                             <?php echo $row['date_of_reg']; ?>
@@ -690,7 +781,8 @@ $result3 = mysqli_query($conn, $sql3);
                                                             </div>
                                                             <form id="addnewdetails">
                                                                 <div class="modal-body" style="font-size:larger;">
-                                                                    <input type="text" id="pdcomp" value="" style="width: 450px;height: 100px;" disabled>
+                                                                    <textarea type="text" id="pdcomp" value="" style="width:440px;height: 180px;" readonly>
+                                                                </textarea>
                                                                 </div>
                                                                 <div class="modal-footer">
                                                                     <button type="button" class="btn btn-secondary"
@@ -743,7 +835,7 @@ $result3 = mysqli_query($conn, $sql3);
                                                                     </th>
                                                                     <th
                                                                         style="background-color: #7460ee; background: linear-gradient(to bottom right, #cc66ff 1%, #0033cc 100%); color: white;">
-                                                                        <b>Faculty Incharge</b>
+                                                                        <b>Faculty Name</b>
                                                                     </th>
                                                                     <th
                                                                         style="background-color: #7460ee; background: linear-gradient(to bottom right, #cc66ff 1%, #0033cc 100%); color: white;">
@@ -780,10 +872,9 @@ $result3 = mysqli_query($conn, $sql3);
                                                                         <td>
                                                                             <button type="button"
                                                                                 value="<?php echo $row['id']; ?>"
-                                                                                class="btn btn-success btncertificate"
+                                                                                class="btn btn-success btndesc ml-5"
                                                                                 data-toggle="modal" id="seeproblemrej"
-                                                                                data-target="#probdescrej">View
-                                                                                More</button>
+                                                                                data-target="#probdescrej">View More</button>
                                                                         </td>
                                                                         <td>
                                                                             <?php echo $row['date_of_reg']; ?>
@@ -795,7 +886,7 @@ $result3 = mysqli_query($conn, $sql3);
                                                                         </td>
                                                                         <td class="col-1">
                                                                             <button type="button" value="<?php echo $row['id']; ?>" class="btn btn-danger btnrejectmodal" data-toggle="modal"
-                                                                                data-target="#problemrejected" id="rejectedfeedback">Problem rejected </button>
+                                                                                data-target="#problemrejected" id="rejectedfeedback">Rejected Reason</button>
                                                                         </td>
                                                                     </tr>
                                                                 <?php
@@ -820,7 +911,8 @@ $result3 = mysqli_query($conn, $sql3);
                                                             </div>
                                                             <form id="addnewdetails">
                                                                 <div class="modal-body" style="font-size:larger;">
-                                                                    <input type="text" id="pdrej" value="">
+                                                                    <textarea type="text" id="pdrej" value="" style="width:440px;height: 180px;" readonly>
+                                                                </textarea>
                                                                 </div>
                                                                 <div class="modal-footer">
                                                                     <button type="button" class="btn btn-secondary"
@@ -872,7 +964,8 @@ $result3 = mysqli_query($conn, $sql3);
                                                             </div>
                                                             <form id="addnewdetails">
                                                                 <div class="modal-body" style="font-size:larger;">
-                                                                    <input type="text" id="pdrej2" value="" readonly>
+                                                                    <textarea type="text" id="pdrej2" value="" style="width:440px;height: 180px;" readonly>
+                                                                </textarea>
                                                                     <div class="modal-footer">
                                                                         <button type="button" class="btn btn-secondary"
                                                                             data-dismiss="modal">Close</button>
@@ -882,15 +975,13 @@ $result3 = mysqli_query($conn, $sql3);
                                                     </div>
                                                 </div>
                                             </div>
-
-
-                                            <footer class="footer text-center" style="margin-top: 250px;">
-                                                <b>
-                                                    2024 © M.Kumarasamy College of Engineering All Rights Reserved.<br>
-                                                    Developed and Maintained by Technology Innovation Hub.
-                                                </b>
-                                            </footer>
                                         </div>
+                                        <footer class="footer text-center">
+                                            <b>
+                                                2024 © M.Kumarasamy College of Engineering All Rights Reserved.<br>
+                                                Developed and Maintained by Technology Innovation Hub.
+                                            </b>
+                                        </footer>
                                     </div>
                                 </div>
                             </form>
@@ -1022,8 +1113,7 @@ $result3 = mysqli_query($conn, $sql3);
                 });
             }
         });
-// pending tab
-    //<!-----------------pending tab prob desc ajax------------->
+        // pending tab
         $(document).on('click', '#seeproblem', function(e) {
             e.preventDefault();
             var user_id = $(this).val();
@@ -1047,6 +1137,33 @@ $result3 = mysqli_query($conn, $sql3);
                 }
             });
         });
+
+
+        //<!--------------approved tab prob desc ajax------------>
+        $(document).on('click', '#seeproblemapr', function(e) {
+            e.preventDefault();
+            var user_idapr = $(this).val();
+            console.log(user_idapr)
+            $.ajax({
+                type: "POST",
+                url: "backend.php",
+                data: {
+                    'seedetailsapr': true,
+                    'user_idapr': user_idapr
+                },
+                success: function(response) {
+                    var res = jQuery.parseJSON(response);
+                    console.log(res)
+                    if (res.status == 500) {
+                        alert(res.message);
+                    } else {
+                        $('#pdapr').val(res.data.problem_description);
+                        $('#probdescappr').modal('show');
+                    }
+                }
+            });
+        });
+
         //<!-------completed tab prob desc ajax--------------->
         $(document).on('click', '#seeproblemcomp', function(e) {
             e.preventDefault();
@@ -1118,7 +1235,7 @@ $result3 = mysqli_query($conn, $sql3);
                     if (res.status == 500) {
                         alert(res.message);
                     } else {
-                        $('#pdrej2').val(res.data.problem_description);
+                        $('#pdrej2').val(res.data.feedback);
                         $('#problemrejected').modal('show');
                     }
                 }

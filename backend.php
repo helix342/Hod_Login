@@ -128,6 +128,33 @@ if (isset($_POST['seedetailsapr'])) {
     }
 }
 
+if (isset($_POST['seedetailsapr'])) {
+    $student_id1 = mysqli_real_escape_string($conn, $_POST['user_idapr']);
+
+    $query = "SELECT * FROM complaints_detail WHERE id='$student_id1' ";
+    $query_run = mysqli_query($conn, $query);
+    //data only for editing
+    $User_data = mysqli_fetch_array($query_run);
+
+
+    if ($query_run) {
+        $res = [
+            'status' => 200,
+            'message' => 'details Fetch Successfully by id',
+            'data' => $User_data
+        ];
+        echo json_encode($res);
+        return;
+    } else {
+        $res = [
+            'status' => 500,
+            'message' => 'Details Not Deleted'
+        ];
+        echo json_encode($res);
+        return;
+    }
+}
+
 if (isset($_POST['seedetailscomp'])) {
     $student_id2 = mysqli_real_escape_string($conn, $_POST['user_idcomp']);
     
@@ -158,7 +185,7 @@ if (isset($_POST['seedetailscomp'])) {
 if (isset($_POST['seedetailsrej'])) {
     $student_id3 = mysqli_real_escape_string($conn, $_POST['user_idrej1']);
     
-    $query = "SELECT * FROM complaints_detail WHERE id='$student_id3' and status='5'";
+    $query = "SELECT * FROM complaints_detail WHERE id='$student_id3'";
     $query_run = mysqli_query($conn, $query);
     //data only for editing
     $User_data = mysqli_fetch_array($query_run);
@@ -186,7 +213,7 @@ if (isset($_POST['seedetailsrej'])) {
 if (isset($_POST['seefeedback'])) {
     $student_id4 = mysqli_real_escape_string($conn, $_POST['user_idrej']);
     
-    $query = "SELECT feedback FROM complaints_detail WHERE id='$student_id4'";
+    $query = "SELECT * FROM complaints_detail WHERE id='$student_id4'";
     $query_run = mysqli_query($conn, $query);
     //data only for editing
     $User_data = mysqli_fetch_array($query_run);

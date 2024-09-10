@@ -247,7 +247,7 @@ $result3 = mysqli_query($conn, $sql3);
                                                                     <div class="bo">
                                                                         <div class="content1">
                                                                             <div class="stats-box text-center p-3" style="background-color:orange;">
-                                                                                
+
                                                                                 <i class="fas fa-clock"></i>
                                                                                 <h1 class="font-light text-white">
                                                                                     <?php $query2 = "SELECT COUNT(*) as pending FROM complaints_detail WHERE  status ='2'";
@@ -411,7 +411,7 @@ $result3 = mysqli_query($conn, $sql3);
                                                                         <td>
                                                                             <button type="button"
                                                                                 value="<?php echo $row['id']; ?>"
-                                                                                class="btn btn-success btncertificate ml-5"
+                                                                                class="btn btn-success btncertificate"
                                                                                 data-toggle="modal"
                                                                                 data-target="">View
                                                                             </button>
@@ -429,7 +429,7 @@ $result3 = mysqli_query($conn, $sql3);
                                                                         </td>
                                                                     <?php
                                                                     $id++;
-                                                                }
+                                                                    }
                                                                     ?>
                                                                     </tr>
                                                             </tbody>
@@ -450,7 +450,7 @@ $result3 = mysqli_query($conn, $sql3);
                                                             </div>
                                                             <form id="addnewdetails">
                                                                 <div class="modal-body" style="font-size:larger;">
-                                                                    <textarea type="text" id="pd" style="width:440px;height: 180px;" readonly>
+                                                                    <textarea type="text" id="pd" value="" style="width:440px;height: 180px;" readonly>
                                                                     </textarea>
                                                                 </div>
                                                                 <div class="modal-footer">
@@ -461,33 +461,7 @@ $result3 = mysqli_query($conn, $sql3);
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <!------------view image modal-->
-                                                <div class="modal fade" id="viewimgrej" tabindex="-1"
-                                                    aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                                    <div class="modal-dialog">
-                                                        <div class="modal-content">
-                                                            <div class="modal-header">
-                                                                <h5 class="modal-title" id="exampleModalLabel">Problem
-                                                                    Image</h5>
-                                                                <button type="button" class="btn" data-dismiss="modal"
-                                                                    aria-label="Close"><i class="mdi mdi-close"></i>
-                                                                </button>
-                                                            </div>
-                                                            <form id="addnewdetails">
-                                                                <div class="modal-body" style="font-size:larger;">
-                                                                    <center>
-                                                                        <img src="assets/images/logo2.png" alt="no img">
-                                                                    </center>
-                                                                </div>
-                                                                <div class="modal-footer">
-                                                                    <button type="button" class="btn btn-secondary"
-                                                                        data-dismiss="modal">Close</button>
 
-                                                                </div>
-                                                            </form>
-                                                        </div>
-                                                    </div>
-                                                </div>
                                                 <!------------reject  reason modal----->
                                                 <div class="modal fade" id="rejectreason" tabindex="-1"
                                                     aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -517,501 +491,500 @@ $result3 = mysqli_query($conn, $sql3);
                                                     </div>
                                                 </div>
                                             </div>
-
-                                            <!--------------approved tab-------------------->
-                                            <div class="tab-pane p-20" id="approved" role="tabpanel">
-                                                <div class="row">
-                                                    <div class="col-md-12">
-                                                        <div class="card">
-                                                            <div class="card-header">
-                                                                <h4>Approved Complaint Details
-                                                                </h4>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="card-body">
-                                                    <div class="table-responsive">
-                                                        <table id="myTable2" class="table table-bordered table-striped">
-                                                            <thead>
-                                                                <tr>
-                                                                    <th
-                                                                        style="background-color: #7460ee; background: linear-gradient(to bottom right, #cc66ff 1%, #0033cc 100%); color: white;">
-                                                                        <b>S.No</b>
-                                                                    </th>
-                                                                    <th
-                                                                        style="background-color: #7460ee; background: linear-gradient(to bottom right, #cc66ff 1%, #0033cc 100%); color: white;">
-                                                                        <b>Problem id</b>
-                                                                    </th>
-                                                                    <th
-                                                                        style="background-color: #7460ee; background: linear-gradient(to bottom right, #cc66ff 1%, #0033cc 100%); color: white;">
-                                                                        <b>Faculty Name</b>
-                                                                    </th>
-                                                                    <th
-                                                                        style="background-color: #7460ee; background: linear-gradient(to bottom right, #cc66ff 1%, #0033cc 100%); color: white;">
-                                                                        <b>Problem Description</b>
-                                                                    </th>
-                                                                    <th
-                                                                        style="background-color: #7460ee; background: linear-gradient(to bottom right, #cc66ff 1%, #0033cc 100%); color: white;">
-                                                                        <b>Date Registered</b>
-                                                                    </th>
-                                                                    <th
-                                                                        style="background-color: #7460ee; background: linear-gradient(to bottom right, #cc66ff 1%, #0033cc 100%); color: white;">
-                                                                        <b>Image</b>
-                                                                    </th>
-                                                                    <th style="background-color: #7460ee; background: linear-gradient(to bottom right, #cc66ff 1%, #0033cc 100%); color: white;"
-                                                                        class="col-2"><b>Status</b></th>
-                                                                </tr>
-                                                            </thead>
-                                                            <tbody>
-                                                                <?php
-                                                                $id = 1;
-                                                                while ($row = mysqli_fetch_assoc($result1)) {
-                                                                ?>
-                                                                    <tr>
-                                                                        <td>
-                                                                            <?php echo $id; ?>
-                                                                        </td>
-                                                                        <td>
-                                                                            <?php echo $row['id']; ?>
-                                                                        </td>
-                                                                        <td>
-                                                                            <?php echo $row['faculty_name']; ?>
-                                                                        </td>
-                                                                        <td>
-                                                                            <button type="button"
-                                                                                value='<?php echo $row['id']; ?>'
-                                                                                class="btn btn-success btndesc ml-5"
-                                                                                data-toggle="modal" id="seeproblemapr"
-                                                                                data-toggle="modal" id="seeproblemapr"
-                                                                                data-target="#probdescappr">View More</button>
-                                                                        </td>
-                                                                        <td>
-                                                                            <?php echo $row['date_of_reg']; ?>
-                                                                        </td>
-                                                                        <td>
-                                                                            <button type="button"
-                                                                                value="<?php echo $row['id']; ?>"
-                                                                                class="btn btn-success btncertificate"
-                                                                                data-toggle="modal"
-                                                                                data-target="#viewimgappr">View</button>
-                                                                        </td>
-                                                                        <td>
-                                                                            <?php
-                                                                            // Define the status messages array
-                                                                            $statusMessages = [
-                                                                                1 => 'Pending',
-                                                                                2 => 'Approved by infra',
-                                                                                3 => 'Rejected by infra',
-                                                                                4 => 'Approved by HOD',
-                                                                                5 => 'Rejected by HOD',
-                                                                                6 => 'Sent to principal for approval',
-                                                                                7 => 'Assigned to worker',
-                                                                                8 => 'Worker pending',
-                                                                                9 => 'Worker started to work',
-                                                                                10 => 'Worker in progress',
-                                                                                11 => 'Waiting for approval',
-                                                                                12 => 'Sent to infra for completion',
-                                                                                13 => 'Work completed',
-                                                                                14 => 'Reassign',
-                                                                                15 => 'Sent to manager for rework',
-                                                                                16 => 'Rejected by manager',
-                                                                                17 => 'Rejected by principal',
-                                                                            ];
-
-                                                                            // Get the status from the row and display the corresponding message
-                                                                            $status = $row['status'];
-                                                                            $statusMessage = $statusMessages[$status] ?? 'Unknown status';
-
-                                                                            // Output the status message
-                                                                            echo $statusMessage;
-                                                                            ?>
-                                                                        </td>
-                                                                    </tr>
-                                                                <?php
-                                                                    $id++;
-                                                                }
-                                                                ?>
-                                                            </tbody>
-                                                        </table>
-                                                    </div>
-                                                </div>
-                                                <!------------------view problem description modal-->
-                                                <div class="modal fade" id="probdescappr" tabindex="-1"
-                                                    aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                                    <div class="modal-dialog">
-                                                        <div class="modal-content">
-                                                            <div class="modal-header">
-                                                                <h5 class="modal-title" id="exampleModalLabel">Problem
-                                                                    Description</h5>
-                                                                <button type="button" class="btn" data-dismiss="modal"
-                                                                    aria-label="Close"><i class="mdi mdi-close"></i>
-                                                                </button>
-                                                            </div>
-                                                            <form id="addnewdetails">
-                                                                <div class="modal-body" style="font-size:larger;">
-                                                                    <textarea type="text" id="pdapr" style="width:440px;height: 180px;" readonly>
-                                                                </textarea>
-                                                                </div>
-                                                                <div class="modal-footer">
-                                                                    <button type="button" class="btn btn-secondary"
-                                                                        data-dismiss="modal">Close</button>
-
-                                                                </div>
-                                                            </form>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <!------------view image modal-->
-                                                <div class="modal fade" id="viewimgappr" tabindex="-1"
-                                                    aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                                    <div class="modal-dialog">
-                                                        <div class="modal-content">
-                                                            <div class="modal-header">
-                                                                <h5 class="modal-title" id="exampleModalLabel">Problem
-                                                                    Image</h5>
-                                                                <button type="button" class="btn" data-dismiss="modal"
-                                                                    aria-label="Close"><i class="mdi mdi-close"></i>
-                                                                </button>
-                                                            </div>
-                                                            <form id="addnewdetails">
-                                                                <div class="modal-body" style="font-size:larger;">
-                                                                    <center>
-                                                                        <?php echo $row['image']; ?>
-                                                                    </center>
-                                                                </div>
-                                                                <div class="modal-footer">
-                                                                    <button type="button" class="btn btn-secondary"
-                                                                        data-dismiss="modal">Close</button>
-                                                                </div>
-                                                            </form>
-
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                            <!-----------completed tab----------->
-                                            <div class="tab-pane p-20" id="completed" role="tabpanel">
-                                                <div class="row">
-                                                    <div class="col-md-12">
-                                                        <div class="card">
-                                                            <div class="card-header">
-                                                                <h4>Completed Complaint Details</h4>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="card-body">
-                                                    <div class="table-responsive">
-                                                        <table id="myTable3" class="table table-bordered table-striped">
-                                                            <thead>
-                                                                <tr>
-                                                                    <th
-                                                                        style="background-color: #7460ee; background: linear-gradient(to bottom right, #cc66ff 1%, #0033cc 100%); color: white;">
-                                                                        <b>S.No</b>
-                                                                    </th>
-                                                                    <th
-                                                                        style="background-color: #7460ee; background: linear-gradient(to bottom right, #cc66ff 1%, #0033cc 100%); color: white;">
-                                                                        <b>Problem id</b>
-                                                                    </th>
-                                                                    <th
-                                                                        style="background-color: #7460ee; background: linear-gradient(to bottom right, #cc66ff 1%, #0033cc 100%); color: white;">
-                                                                        <b>Faculty Name</b>
-                                                                    </th>
-                                                                    <th
-                                                                        style="background-color: #7460ee; background: linear-gradient(to bottom right, #cc66ff 1%, #0033cc 100%); color: white;">
-                                                                        <b>Problem Description</b>
-                                                                    </th>
-                                                                    <th
-                                                                        style="background-color: #7460ee; background: linear-gradient(to bottom right, #cc66ff 1%, #0033cc 100%); color: white;">
-                                                                        <b>Date Registered</b>
-                                                                    </th>
-                                                                    <th
-                                                                        style="background-color: #7460ee; background: linear-gradient(to bottom right, #cc66ff 1%, #0033cc 100%); color: white;">
-                                                                        <b>Image</b>
-                                                                    </th>
-                                                                    <th style="background-color: #7460ee; background: linear-gradient(to bottom right, #cc66ff 1%, #0033cc 100%); color: white;">
-                                                                        <b>Status</b>
-                                                                    </th>
-                                                                </tr>
-                                                            </thead>
-                                                            <tbody>
-                                                                <?php
-                                                                $id = 1;
-                                                                while ($row = mysqli_fetch_assoc($result2)) {
-                                                                ?>
-                                                                    <tr>
-                                                                        <td>
-                                                                            <?php echo $id; ?>
-                                                                        </td>
-                                                                        <td>
-                                                                            <?php echo $row['id']; ?>
-                                                                        </td>
-                                                                        <td>
-                                                                            <?php echo $row['faculty_name']; ?>
-                                                                        </td>
-                                                                        <td>
-                                                                            <button type="button"
-                                                                                value="<?php echo $row['id']; ?>"
-                                                                                class="btn btn-success btndesc ml-5"
-                                                                                data-toggle="modal" id="seeproblemcomp"
-                                                                                data-target="#probdesccomp">View More</button>
-                                                                        </td>
-                                                                        <td>
-                                                                            <?php echo $row['date_of_reg']; ?>
-                                                                        </td>
-                                                                        <td>
-                                                                            <button type="button"
-                                                                                value="<?php echo $row['id']; ?>"
-                                                                                class="btn btn-success btncertificate"
-                                                                                data-toggle="modal"
-                                                                                data-target="#viewimgcomp">View</button>
-                                                                        </td>
-                                                                        <td>
-                                                                            <center>
-                                                                                <b>Completed</b>
-                                                                            </center>
-                                                                        </td>
-                                                                    </tr>
-                                                                <?php
-                                                                    $id++;
-                                                                }
-                                                                ?>
-                                                            </tbody>
-                                                        </table>
-                                                    </div>
-                                                </div>
-                                                <!------------------view problem description modal---------------->
-                                                <div class="modal fade" id="probdesccomp" tabindex="-1"
-                                                    aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                                    <div class="modal-dialog">
-                                                        <div class="modal-content">
-                                                            <div class="modal-header">
-                                                                <h5 class="modal-title" id="exampleModalLabel">Problem
-                                                                    Description</h5>
-                                                                <button type="button" class="btn" data-dismiss="modal"
-                                                                    aria-label="Close"><i class="mdi mdi-close"></i>
-                                                                </button>
-                                                            </div>
-                                                            <form id="addnewdetails">
-                                                                <div class="modal-body" style="font-size:larger;">
-                                                                    <textarea type="text" id="pdcomp" value="" style="width:440px;height: 180px;" readonly>
-                                                                </textarea>
-                                                                </div>
-                                                                <div class="modal-footer">
-                                                                    <button type="button" class="btn btn-secondary"
-                                                                        data-dismiss="modal">Close</button>
-                                                                </div>
-                                                            </form>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <!------------view image modal-->
-                                                <div class="modal fade" id="viewimgcomp" tabindex="-1"
-                                                    aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                                    <div class="modal-dialog">
-                                                        <div class="modal-content">
-                                                            <div class="modal-header">
-                                                                <h5 class="modal-title" id="exampleModalLabel">Problem
-                                                                    Image</h5>
-                                                                <button type="button" class="btn" data-dismiss="modal"
-                                                                    aria-label="Close"><i class="mdi mdi-close"></i>
-                                                                </button>
-                                                            </div>
-                                                            <form id="addnewdetails">
-                                                                <div class="modal-body" style="font-size:larger;">
-                                                                    <center>
-                                                                        <img src="assets/images/logo2.png" alt="no img">
-                                                                    </center>
-                                                                </div>
-                                                                <div class="modal-footer">
-                                                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                                                </div>
-                                                            </form>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                            <!----------rejected tab------->
-                                            <div class="tab-pane p-20" id="rejected" role="tabpanel">
-                                                <div class="row">
-                                                    <div class="col-md-12">
-                                                        <div class="card">
-                                                            <div class="card-header">
-                                                                <h4>Rejected Complaint Details</h4>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="card-body">
-                                                    <div class="table-responsive">
-                                                        <table id="myTable4" class="table table-bordered table-striped">
-                                                            <thead>
-                                                                <tr>
-                                                                    <th
-                                                                        style="background-color: #7460ee; background: linear-gradient(to bottom right, #cc66ff 1%, #0033cc 100%); color: white;">
-                                                                        <b>S.No</b>
-                                                                    </th>
-                                                                    <th
-                                                                        style="background-color: #7460ee; background: linear-gradient(to bottom right, #cc66ff 1%, #0033cc 100%); color: white;">
-                                                                        <b>Problem id</b>
-                                                                    </th>
-                                                                    <th
-                                                                        style="background-color: #7460ee; background: linear-gradient(to bottom right, #cc66ff 1%, #0033cc 100%); color: white;">
-                                                                        <b>Faculty Name</b>
-                                                                    </th>
-                                                                    <th
-                                                                        style="background-color: #7460ee; background: linear-gradient(to bottom right, #cc66ff 1%, #0033cc 100%); color: white;">
-                                                                        <b>Problem Description</b>
-                                                                    </th>
-                                                                    <th
-                                                                        style="background-color: #7460ee; background: linear-gradient(to bottom right, #cc66ff 1%, #0033cc 100%); color: white;">
-                                                                        <b>Date Registered</b>
-                                                                    </th>
-                                                                    <th
-                                                                        style="background-color: #7460ee; background: linear-gradient(to bottom right, #cc66ff 1%, #0033cc 100%); color: white;">
-                                                                        <b>Image</b>
-                                                                    </th>
-                                                                    <th style="background-color: #7460ee; background: linear-gradient(to bottom right, #cc66ff 1%, #0033cc 100%); color: white;">
-                                                                        <b>Status</b>
-                                                                    </th>
-                                                                </tr>
-                                                            </thead>
-                                                            <tbody>
-                                                                <?php
-                                                                $id = 1;
-                                                                while ($row = mysqli_fetch_assoc($result3)) {
-                                                                ?>
-                                                                    <tr>
-                                                                        <td>
-                                                                            <?php echo $id; ?>
-                                                                        </td>
-                                                                        <td>
-                                                                            <?php echo $row['id']; ?>
-                                                                        </td>
-                                                                        <td>
-                                                                            <?php echo $row['faculty_name']; ?>
-                                                                        </td>
-                                                                        <td>
-                                                                            <button type="button"
-                                                                                value="<?php echo $row['id']; ?>"
-                                                                                class="btn btn-success btndesc ml-5"
-                                                                                data-toggle="modal" id="seeproblemrej"
-                                                                                data-target="#probdescrej">View More</button>
-                                                                        </td>
-                                                                        <td>
-                                                                            <?php echo $row['date_of_reg']; ?>
-                                                                        </td>
-                                                                        <td>
-                                                                            <button type="button"
-                                                                                value="<?php echo $row['id']; ?>"
-                                                                                class="btn btn-success btncertificate"
-                                                                                data-toggle="modal"
-                                                                                data-target="#viewimgrej">View</button>
-
-                                                                        </td>
-                                                                        <td class="col-1">
-                                                                            <button type="button" value="<?php echo $row['id']; ?>" class="btn btn-danger btnrejectmodal" data-toggle="modal"
-                                                                                data-target="#problemrejected" id="rejectedfeedback">Rejected Reason</button>
-                                                                        </td>
-                                                                    </tr>
-                                                                <?php
-                                                                    $id++;
-                                                                }
-                                                                ?>
-                                                            </tbody>
-                                                        </table>
-                                                    </div>
-                                                </div>
-                                                <!------------------view problem description modal---------------->
-                                                <div class="modal fade" id="probdescrej" tabindex="-1"
-                                                    aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                                    <div class="modal-dialog">
-                                                        <div class="modal-content">
-                                                            <div class="modal-header">
-                                                                <h5 class="modal-title" id="exampleModalLabel">Problem
-                                                                    Description</h5>
-                                                                <button type="button" class="btn" data-dismiss="modal"
-                                                                    aria-label="Close"><i class="mdi mdi-close"></i>
-                                                                </button>
-                                                            </div>
-                                                            <form id="addnewdetails">
-                                                                <div class="modal-body" style="font-size:larger;">
-                                                                    <textarea type="text" id="pdrej" value="" style="width:440px;height: 180px;" readonly>
-                                                                </textarea>
-                                                                </div>
-                                                                <div class="modal-footer">
-                                                                    <button type="button" class="btn btn-secondary"
-                                                                        data-dismiss="modal">Close</button>
-
-                                                                </div>
-                                                            </form>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <!------------view image modal-->
-                                                <div class="modal fade" id="viewimgrej" tabindex="-1"
-                                                    aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                                    <div class="modal-dialog">
-                                                        <div class="modal-content">
-                                                            <div class="modal-header">
-                                                                <h5 class="modal-title" id="exampleModalLabel">Problem
-                                                                    Image</h5>
-                                                                <button type="button" class="btn" data-dismiss="modal"
-                                                                    aria-label="Close"><i class="mdi mdi-close"></i>
-                                                                </button>
-                                                            </div>
-                                                            <form id="addnewdetails">
-                                                                <div class="modal-body" style="font-size:larger;">
-                                                                    <center>
-                                                                        <img src="assets/images/logo2.png" alt="no img">
-                                                                    </center>
-                                                                </div>
-                                                                <div class="modal-footer">
-                                                                    <button type="button" class="btn btn-secondary"
-                                                                        data-dismiss="modal">Close</button>
-
-                                                                </div>
-                                                            </form>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <!------------problem rejected modal-------------->
-                                                <div class="modal fade" id="problemrejected" tabindex="-1"
-                                                    aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                                    <div class="modal-dialog">
-                                                        <div class="modal-content">
-                                                            <div class="modal-header">
-                                                                <h5 class="modal-title" id="exampleModalLabel">Reason
-                                                                    for Rejection</h5>
-                                                                <button type="button" class="btn" data-dismiss="modal"
-                                                                    aria-label="Close"><i class="mdi mdi-close"></i>
-                                                                </button>
-                                                            </div>
-                                                            <form id="addnewdetails">
-                                                                <div class="modal-body" style="font-size:larger;">
-                                                                    <textarea type="text" id="pdrej2" value="" style="width:440px;height: 180px;" readonly>
-                                                                </textarea>
-                                                                    <div class="modal-footer">
-                                                                        <button type="button" class="btn btn-secondary"
-                                                                            data-dismiss="modal">Close</button>
+                                                    <!--------------approved tab-------------------->
+                                                    <div class="tab-pane p-20" id="approved" role="tabpanel">
+                                                        <div class="row">
+                                                            <div class="col-md-12">
+                                                                <div class="card">
+                                                                    <div class="card-header">
+                                                                        <h4>Approved Complaint Details
+                                                                        </h4>
                                                                     </div>
-                                                            </form>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="card-body">
+                                                            <div class="table-responsive">
+                                                                <table id="myTable2" class="table table-bordered table-striped">
+                                                                    <thead>
+                                                                        <tr>
+                                                                            <th
+                                                                                style="background-color: #7460ee; background: linear-gradient(to bottom right, #cc66ff 1%, #0033cc 100%); color: white;">
+                                                                                <b>S.No</b>
+                                                                            </th>
+                                                                            <th
+                                                                                style="background-color: #7460ee; background: linear-gradient(to bottom right, #cc66ff 1%, #0033cc 100%); color: white;">
+                                                                                <b>Problem id</b>
+                                                                            </th>
+                                                                            <th
+                                                                                style="background-color: #7460ee; background: linear-gradient(to bottom right, #cc66ff 1%, #0033cc 100%); color: white;">
+                                                                                <b>Faculty Name</b>
+                                                                            </th>
+                                                                            <th
+                                                                                style="background-color: #7460ee; background: linear-gradient(to bottom right, #cc66ff 1%, #0033cc 100%); color: white;">
+                                                                                <b>Problem Description</b>
+                                                                            </th>
+                                                                            <th
+                                                                                style="background-color: #7460ee; background: linear-gradient(to bottom right, #cc66ff 1%, #0033cc 100%); color: white;">
+                                                                                <b>Date Registered</b>
+                                                                            </th>
+                                                                            <th
+                                                                                style="background-color: #7460ee; background: linear-gradient(to bottom right, #cc66ff 1%, #0033cc 100%); color: white;">
+                                                                                <b>Image</b>
+                                                                            </th>
+                                                                            <th style="background-color: #7460ee; background: linear-gradient(to bottom right, #cc66ff 1%, #0033cc 100%); color: white;"
+                                                                                class="col-2"><b>Status</b></th>
+                                                                        </tr>
+                                                                    </thead>
+                                                                    <tbody>
+                                                                        <?php
+                                                                        $id = 1;
+                                                                        while ($row = mysqli_fetch_assoc($result1)) {
+                                                                        ?>
+                                                                            <tr>
+                                                                                <td>
+                                                                                    <?php echo $id; ?>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <?php echo $row['id']; ?>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <?php echo $row['faculty_name']; ?>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <button type="button"
+                                                                                        value='<?php echo $row['id']; ?>'
+                                                                                        class="btn btn-success btndesc ml-5"
+                                                                                        data-toggle="modal" id="seeproblemapr"
+                                                                                        data-toggle="modal" id="seeproblemapr"
+                                                                                        data-target="#probdescappr">View More</button>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <?php echo $row['date_of_reg']; ?>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <button type="button"
+                                                                                        value="<?php echo $row['id']; ?>"
+                                                                                        class="btn btn-success btncertificate"
+                                                                                        data-toggle="modal"
+                                                                                        data-target="#viewimgappr">View</button>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <?php
+                                                                                    // Define the status messages array
+                                                                                    $statusMessages = [
+                                                                                        1 => 'Pending',
+                                                                                        2 => 'Approved by infra',
+                                                                                        3 => 'Rejected by infra',
+                                                                                        4 => 'Approved by HOD',
+                                                                                        5 => 'Rejected by HOD',
+                                                                                        6 => 'Sent to principal for approval',
+                                                                                        7 => 'Assigned to worker',
+                                                                                        8 => 'Worker pending',
+                                                                                        9 => 'Worker started to work',
+                                                                                        10 => 'Worker in progress',
+                                                                                        11 => 'Waiting for approval',
+                                                                                        12 => 'Sent to infra for completion',
+                                                                                        13 => 'Work completed',
+                                                                                        14 => 'Reassign',
+                                                                                        15 => 'Sent to manager for rework',
+                                                                                        16 => 'Rejected by manager',
+                                                                                        17 => 'Rejected by principal',
+                                                                                    ];
+
+                                                                                    // Get the status from the row and display the corresponding message
+                                                                                    $status = $row['status'];
+                                                                                    $statusMessage = $statusMessages[$status] ?? 'Unknown status';
+
+                                                                                    // Output the status message
+                                                                                    echo $statusMessage;
+                                                                                    ?>
+                                                                                </td>
+                                                                            </tr>
+                                                                        <?php
+                                                                            $id++;
+                                                                        }
+                                                                        ?>
+                                                                    </tbody>
+                                                                </table>
+                                                            </div>
+                                                        </div>
+                                                        <!------------------view problem description modal-->
+                                                        <div class="modal fade" id="probdescappr" tabindex="-1"
+                                                            aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                            <div class="modal-dialog">
+                                                                <div class="modal-content">
+                                                                    <div class="modal-header">
+                                                                        <h5 class="modal-title" id="exampleModalLabel">Problem
+                                                                            Description</h5>
+                                                                        <button type="button" class="btn" data-dismiss="modal"
+                                                                            aria-label="Close"><i class="mdi mdi-close"></i>
+                                                                        </button>
+                                                                    </div>
+                                                                    <form id="addnewdetails">
+                                                                        <div class="modal-body" style="font-size:larger;">
+                                                                            <textarea type="text" id="pdapr" style="width:440px;height: 180px;" readonly>
+                                                                </textarea>
+                                                                        </div>
+                                                                        <div class="modal-footer">
+                                                                            <button type="button" class="btn btn-secondary"
+                                                                                data-dismiss="modal">Close</button>
+
+                                                                        </div>
+                                                                    </form>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <!------------view image modal-->
+                                                        <div class="modal fade" id="viewimgappr" tabindex="-1"
+                                                            aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                            <div class="modal-dialog">
+                                                                <div class="modal-content">
+                                                                    <div class="modal-header">
+                                                                        <h5 class="modal-title" id="exampleModalLabel">Problem
+                                                                            Image</h5>
+                                                                        <button type="button" class="btn" data-dismiss="modal"
+                                                                            aria-label="Close"><i class="mdi mdi-close"></i>
+                                                                        </button>
+                                                                    </div>
+                                                                    <form id="addnewdetails">
+                                                                        <div class="modal-body" style="font-size:larger;">
+                                                                            <center>
+                                                                                <?php echo $row['image']; ?>
+                                                                            </center>
+                                                                        </div>
+                                                                        <div class="modal-footer">
+                                                                            <button type="button" class="btn btn-secondary"
+                                                                                data-dismiss="modal">Close</button>
+                                                                        </div>
+                                                                    </form>
+
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <!-----------completed tab----------->
+                                                    <div class="tab-pane p-20" id="completed" role="tabpanel">
+                                                        <div class="row">
+                                                            <div class="col-md-12">
+                                                                <div class="card">
+                                                                    <div class="card-header">
+                                                                        <h4>Completed Complaint Details</h4>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="card-body">
+                                                            <div class="table-responsive">
+                                                                <table id="myTable3" class="table table-bordered table-striped">
+                                                                    <thead>
+                                                                        <tr>
+                                                                            <th
+                                                                                style="background-color: #7460ee; background: linear-gradient(to bottom right, #cc66ff 1%, #0033cc 100%); color: white;">
+                                                                                <b>S.No</b>
+                                                                            </th>
+                                                                            <th
+                                                                                style="background-color: #7460ee; background: linear-gradient(to bottom right, #cc66ff 1%, #0033cc 100%); color: white;">
+                                                                                <b>Problem id</b>
+                                                                            </th>
+                                                                            <th
+                                                                                style="background-color: #7460ee; background: linear-gradient(to bottom right, #cc66ff 1%, #0033cc 100%); color: white;">
+                                                                                <b>Faculty Name</b>
+                                                                            </th>
+                                                                            <th
+                                                                                style="background-color: #7460ee; background: linear-gradient(to bottom right, #cc66ff 1%, #0033cc 100%); color: white;">
+                                                                                <b>Problem Description</b>
+                                                                            </th>
+                                                                            <th
+                                                                                style="background-color: #7460ee; background: linear-gradient(to bottom right, #cc66ff 1%, #0033cc 100%); color: white;">
+                                                                                <b>Date Registered</b>
+                                                                            </th>
+                                                                            <th
+                                                                                style="background-color: #7460ee; background: linear-gradient(to bottom right, #cc66ff 1%, #0033cc 100%); color: white;">
+                                                                                <b>Image</b>
+                                                                            </th>
+                                                                            <th style="background-color: #7460ee; background: linear-gradient(to bottom right, #cc66ff 1%, #0033cc 100%); color: white;">
+                                                                                <b>Status</b>
+                                                                            </th>
+                                                                        </tr>
+                                                                    </thead>
+                                                                    <tbody>
+                                                                        <?php
+                                                                        $id = 1;
+                                                                        while ($row = mysqli_fetch_assoc($result2)) {
+                                                                        ?>
+                                                                            <tr>
+                                                                                <td>
+                                                                                    <?php echo $id; ?>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <?php echo $row['id']; ?>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <?php echo $row['faculty_name']; ?>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <button type="button"
+                                                                                        value="<?php echo $row['id']; ?>"
+                                                                                        class="btn btn-success btndesc ml-5"
+                                                                                        data-toggle="modal" id="seeproblemcomp"
+                                                                                        data-target="#probdesccomp">View More</button>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <?php echo $row['date_of_reg']; ?>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <button type="button"
+                                                                                        value="<?php echo $row['id']; ?>"
+                                                                                        class="btn btn-success btncertificate"
+                                                                                        data-toggle="modal"
+                                                                                        data-target="#viewimgcomp">View</button>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <center>
+                                                                                        <b>Completed</b>
+                                                                                    </center>
+                                                                                </td>
+                                                                            </tr>
+                                                                        <?php
+                                                                            $id++;
+                                                                        }
+                                                                        ?>
+                                                                    </tbody>
+                                                                </table>
+                                                            </div>
+                                                        </div>
+                                                        <!------------------view problem description modal---------------->
+                                                        <div class="modal fade" id="probdesccomp" tabindex="-1"
+                                                            aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                            <div class="modal-dialog">
+                                                                <div class="modal-content">
+                                                                    <div class="modal-header">
+                                                                        <h5 class="modal-title" id="exampleModalLabel">Problem
+                                                                            Description</h5>
+                                                                        <button type="button" class="btn" data-dismiss="modal"
+                                                                            aria-label="Close"><i class="mdi mdi-close"></i>
+                                                                        </button>
+                                                                    </div>
+                                                                    <form id="addnewdetails">
+                                                                        <div class="modal-body" style="font-size:larger;">
+                                                                            <textarea type="text" id="pdcomp" value="" style="width:440px;height: 180px;" readonly>
+                                                                </textarea>
+                                                                        </div>
+                                                                        <div class="modal-footer">
+                                                                            <button type="button" class="btn btn-secondary"
+                                                                                data-dismiss="modal">Close</button>
+                                                                        </div>
+                                                                    </form>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <!------------view image modal-->
+                                                        <div class="modal fade" id="viewimgcomp" tabindex="-1"
+                                                            aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                            <div class="modal-dialog">
+                                                                <div class="modal-content">
+                                                                    <div class="modal-header">
+                                                                        <h5 class="modal-title" id="exampleModalLabel">Problem
+                                                                            Image</h5>
+                                                                        <button type="button" class="btn" data-dismiss="modal"
+                                                                            aria-label="Close"><i class="mdi mdi-close"></i>
+                                                                        </button>
+                                                                    </div>
+                                                                    <form id="addnewdetails">
+                                                                        <div class="modal-body" style="font-size:larger;">
+                                                                            <center>
+                                                                                <img src="assets/images/logo2.png" alt="no img">
+                                                                            </center>
+                                                                        </div>
+                                                                        <div class="modal-footer">
+                                                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                                                        </div>
+                                                                    </form>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <!----------rejected tab------->
+                                                    <div class="tab-pane p-20" id="rejected" role="tabpanel">
+                                                        <div class="row">
+                                                            <div class="col-md-12">
+                                                                <div class="card">
+                                                                    <div class="card-header">
+                                                                        <h4>Rejected Complaint Details</h4>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="card-body">
+                                                            <div class="table-responsive">
+                                                                <table id="myTable4" class="table table-bordered table-striped">
+                                                                    <thead>
+                                                                        <tr>
+                                                                            <th
+                                                                                style="background-color: #7460ee; background: linear-gradient(to bottom right, #cc66ff 1%, #0033cc 100%); color: white;">
+                                                                                <b>S.No</b>
+                                                                            </th>
+                                                                            <th
+                                                                                style="background-color: #7460ee; background: linear-gradient(to bottom right, #cc66ff 1%, #0033cc 100%); color: white;">
+                                                                                <b>Problem id</b>
+                                                                            </th>
+                                                                            <th
+                                                                                style="background-color: #7460ee; background: linear-gradient(to bottom right, #cc66ff 1%, #0033cc 100%); color: white;">
+                                                                                <b>Faculty Name</b>
+                                                                            </th>
+                                                                            <th
+                                                                                style="background-color: #7460ee; background: linear-gradient(to bottom right, #cc66ff 1%, #0033cc 100%); color: white;">
+                                                                                <b>Problem Description</b>
+                                                                            </th>
+                                                                            <th
+                                                                                style="background-color: #7460ee; background: linear-gradient(to bottom right, #cc66ff 1%, #0033cc 100%); color: white;">
+                                                                                <b>Date Registered</b>
+                                                                            </th>
+                                                                            <th
+                                                                                style="background-color: #7460ee; background: linear-gradient(to bottom right, #cc66ff 1%, #0033cc 100%); color: white;">
+                                                                                <b>Image</b>
+                                                                            </th>
+                                                                            <th style="background-color: #7460ee; background: linear-gradient(to bottom right, #cc66ff 1%, #0033cc 100%); color: white;">
+                                                                                <b>Status</b>
+                                                                            </th>
+                                                                        </tr>
+                                                                    </thead>
+                                                                    <tbody>
+                                                                        <?php
+                                                                        $id = 1;
+                                                                        while ($row = mysqli_fetch_assoc($result3)) {
+                                                                        ?>
+                                                                            <tr>
+                                                                                <td>
+                                                                                    <?php echo $id; ?>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <?php echo $row['id']; ?>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <?php echo $row['faculty_name']; ?>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <button type="button"
+                                                                                        value="<?php echo $row['id']; ?>"
+                                                                                        class="btn btn-success btndesc ml-5"
+                                                                                        data-toggle="modal" id="seeproblemrej"
+                                                                                        data-target="#probdescrej">View More</button>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <?php echo $row['date_of_reg']; ?>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <button type="button"
+                                                                                        value="<?php echo $row['id']; ?>"
+                                                                                        class="btn btn-success btncertificate"
+                                                                                        data-toggle="modal"
+                                                                                        data-target="#viewimgrej">View</button>
+
+                                                                                </td>
+                                                                                <td class="col-1">
+                                                                                    <button type="button" value="<?php echo $row['id']; ?>" class="btn btn-danger btnrejectmodal" data-toggle="modal"
+                                                                                        data-target="#problemrejected" id="rejectedfeedback">Rejected Reason</button>
+                                                                                </td>
+                                                                            </tr>
+                                                                        <?php
+                                                                            $id++;
+                                                                        }
+                                                                        ?>
+                                                                    </tbody>
+                                                                </table>
+                                                            </div>
+                                                        </div>
+                                                        <!------------------view problem description modal---------------->
+                                                        <div class="modal fade" id="probdescrej" tabindex="-1"
+                                                            aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                            <div class="modal-dialog">
+                                                                <div class="modal-content">
+                                                                    <div class="modal-header">
+                                                                        <h5 class="modal-title" id="exampleModalLabel">Problem
+                                                                            Description</h5>
+                                                                        <button type="button" class="btn" data-dismiss="modal"
+                                                                            aria-label="Close"><i class="mdi mdi-close"></i>
+                                                                        </button>
+                                                                    </div>
+                                                                    <form id="addnewdetails">
+                                                                        <div class="modal-body" style="font-size:larger;">
+                                                                            <textarea type="text" id="pdrej" value="" style="width:440px;height: 180px;" readonly>
+                                                                </textarea>
+                                                                        </div>
+                                                                        <div class="modal-footer">
+                                                                            <button type="button" class="btn btn-secondary"
+                                                                                data-dismiss="modal">Close</button>
+
+                                                                        </div>
+                                                                    </form>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <!------------view image modal-->
+                                                        <div class="modal fade" id="viewimgrej" tabindex="-1"
+                                                            aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                            <div class="modal-dialog">
+                                                                <div class="modal-content">
+                                                                    <div class="modal-header">
+                                                                        <h5 class="modal-title" id="exampleModalLabel">Problem
+                                                                            Image</h5>
+                                                                        <button type="button" class="btn" data-dismiss="modal"
+                                                                            aria-label="Close"><i class="mdi mdi-close"></i>
+                                                                        </button>
+                                                                    </div>
+                                                                    <form id="addnewdetails">
+                                                                        <div class="modal-body" style="font-size:larger;">
+                                                                            <center>
+                                                                                <img src="assets/images/logo2.png" alt="no img">
+                                                                            </center>
+                                                                        </div>
+                                                                        <div class="modal-footer">
+                                                                            <button type="button" class="btn btn-secondary"
+                                                                                data-dismiss="modal">Close</button>
+
+                                                                        </div>
+                                                                    </form>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <!------------problem rejected modal-------------->
+                                                        <div class="modal fade" id="problemrejected" tabindex="-1"
+                                                            aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                            <div class="modal-dialog">
+                                                                <div class="modal-content">
+                                                                    <div class="modal-header">
+                                                                        <h5 class="modal-title" id="exampleModalLabel">Reason
+                                                                            for Rejection</h5>
+                                                                        <button type="button" class="btn" data-dismiss="modal"
+                                                                            aria-label="Close"><i class="mdi mdi-close"></i>
+                                                                        </button>
+                                                                    </div>
+                                                                    <form id="addnewdetails">
+                                                                        <div class="modal-body" style="font-size:larger;">
+                                                                            <textarea type="text" id="pdrej2" value="" style="width:440px;height: 180px;" readonly>
+                                                                </textarea>
+                                                                            <div class="modal-footer">
+                                                                                <button type="button" class="btn btn-secondary"
+                                                                                    data-dismiss="modal">Close</button>
+                                                                            </div>
+                                                                    </form>
+                                                                </div>
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
+                                                <footer class="footer text-center">
+                                                    <b>
+                                                        2024 © M.Kumarasamy College of Engineering All Rights Reserved.<br>
+                                                        Developed and Maintained by Technology Innovation Hub.
+                                                    </b>
+                                                </footer>
                                             </div>
                                         </div>
-                                        <footer class="footer text-center">
-                                            <b>
-                                                2024 © M.Kumarasamy College of Engineering All Rights Reserved.<br>
-                                                Developed and Maintained by Technology Innovation Hub.
-                                            </b>
-                                        </footer>
-                                    </div>
-                                </div>
                             </form>
                         </div>
                     </div>
@@ -1042,7 +1015,7 @@ $result3 = mysqli_query($conn, $sql3);
             $('#myTable2').DataTable();
             $('#myTable3').DataTable();
             $('#myTable4').DataTable();
-          //  table.ajax.reload()
+            //  table.ajax.reload()
         });
 
         $(document).on('click', '.btnapprove', function(e) {
@@ -1094,7 +1067,7 @@ $result3 = mysqli_query($conn, $sql3);
                             $('#myTable1').load(location.href + " #myTable1");
                             $('#myTable2').load(location.href + " #myTable2");
                             $('#myTable3').load(location.href + " #myTable3");
-                           // table.ajax.reload()
+                            // table.ajax.reload()
                         }
                     }
                 });
@@ -1118,14 +1091,14 @@ $result3 = mysqli_query($conn, $sql3);
                     processData: false,
                     contentType: false,
 
-                success: function(response) {
-                    var res = jQuery.parseJSON(response);
-                    if (res.status == 200) {
-                        $('#rejectreason').modal('hide');
-                        $('#rejectdetails')[0].reset();
-                        $('#myTable1').load(location.href + " #myTable1");
-                        $('#myTable4').load(location.href + " #myTable4");
-                        table.ajax.reload()
+                    success: function(response) {
+                        var res = jQuery.parseJSON(response);
+                        if (res.status == 200) {
+                            $('#rejectreason').modal('hide');
+                            $('#rejectdetails')[0].reset();
+                            $('#myTable1').load(location.href + " #myTable1");
+                            $('#myTable4').load(location.href + " #myTable4");
+                            table.ajax.reload()
 
                         } else if (res.status == 500) {
                             $('#rejectreason').modal('hide');
@@ -1270,36 +1243,7 @@ $result3 = mysqli_query($conn, $sql3);
                 }
             });
         });
-
-        // $(document).ready(function() {
-        // Show image in modal
-        //     $(document).on('click', '.btncertificate', function () {
-        //         var user_id = $(this).val(); // Get the user ID from the button
-
-        //         $.ajax({
-        //             type: "POST",
-        //             url: "backend.php",
-        //             data: {
-        //                 'get_image': true,
-        //                 'user_id': user_id
-        //             },
-        //             dataType: "json", // Expect JSON response
-        //             success: function (response) {
-        //                 if (response.status == 200) {
-        //                     // Update the modal image source
-        //                     $('#modalImage').attr('src', response.data.image);
-        //                     $('#viewimgappr').modal('show'); // Show the modal
-        //                 } else {
-        //                     alert(response.message); // Show an error message if no image is found
-        //                 }
-        //             },
-        //             error: function (xhr, status, error) {
-        //                 // Handle any error that occurred during the AJAX request
-        //                 alert('An error occurred: ' + error);
-        //             }
-        //         });
-        //     });
-        // });
     </script>
 </body>
+
 </html>

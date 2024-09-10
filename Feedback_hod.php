@@ -330,12 +330,11 @@ $result3 = mysqli_query($conn, $sql3);
                                                                             <?php echo $row['date_of_reg']; ?>
                                                                         </td>
                                                                         <td>
-                                                                            <button type="button"
-                                                                                value="<?php echo $row['id']; ?>"
-                                                                                class="btn btn-success btncertificate ml-5"
-                                                                                data-toggle="modal"
-                                                                                data-target="#probdescrej">View
-                                                                            </button>
+                                                                        <button type="button"
+                                                                            value="<?php echo $row['id']; ?>"
+                                                                            class="btn btn-success btncertificate"
+                                                                            data-toggle="modal"
+                                                                            data-target="#imageModal">View</button>
                                                                                        
                                                                         </td>
 
@@ -383,33 +382,24 @@ $result3 = mysqli_query($conn, $sql3);
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <!------------view image modal-->
-                                                <div class="modal fade" id="viewimgrej" tabindex="-1"
-                                                    aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                                    <div class="modal-dialog">
-                                                        <div class="modal-content">
-                                                            <div class="modal-header">
-                                                                <h5 class="modal-title" id="exampleModalLabel">Problem
-                                                                    Image</h5>
-                                                                <button type="button" class="btn" data-dismiss="modal"
-                                                                    aria-label="Close"><i class="mdi mdi-close"></i>
-                                                                </button>
-                                                            </div>
-                                                            <form id="addnewdetails">
-                                                                <div class="modal-body" style="font-size:larger;">
-                                                                    <center>
-                                                                        <img src="assets/images/logo2.png" alt="no img">
-                                                                    </center>
-                                                                </div>
-                                                                <div class="modal-footer">
-                                                                    <button type="button" class="btn btn-secondary"
-                                                                        data-dismiss="modal">Close</button>
-
-                                                                </div>
-                                                            </form>
-                                                        </div>
-                                                    </div>
-                                                </div>
+                                <!-- Modal image view-->
+                                <div class="modal fade" id="imageModal" tabindex="-1" aria-labelledby="imageModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="imageModalLabel">Image</h5>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <img id="modalImage" src="" alt="Image" class="img-fluid" style="width: 100%; height: auto;">
+                                                <!-- src will be set dynamically -->
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>  
                                                 <!------------reject  reason modal----->
                                                 <div class="modal fade" id="rejectreason" tabindex="-1"
                                                     aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -511,11 +501,8 @@ $result3 = mysqli_query($conn, $sql3);
                                                                             <?php echo $row['date_of_reg']; ?>
                                                                         </td>
                                                                         <td>
-                                                                            <button type="button"
-                                                                                value="<?php echo $row['id']; ?>"
-                                                                                class="btn btn-success btncertificate"
-                                                                                data-toggle="modal"
-                                                                                data-target="#viewimgappr">View</button>
+                                                                        <button type="button" class="btn btn-success btnapprove" value="<?php echo $row['id']; ?>" data-toggle="modal" data-target="#approvedModal">View Approved</button>
+                                                                    
                                                                         </td>
                                                                         <td>
                                                                             <?php
@@ -582,35 +569,23 @@ $result3 = mysqli_query($conn, $sql3);
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <!------------view image modal-->
-                                                <div class="modal fade" id="viewimgappr" tabindex="-1"
-                                                    aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                                    <div class="modal-dialog">
-                                                        <div class="modal-content">
-                                                            <div class="modal-header">
-                                                                <h5 class="modal-title" id="exampleModalLabel">Problem
-                                                                    Image</h5>
-                                                                <button type="button" class="btn" data-dismiss="modal"
-                                                                    aria-label="Close"><i class="mdi mdi-close"></i>
-                                                                </button>
-                                                            </div>
-                                                            <form id="addnewdetails">
-                                                                <div class="modal-body" style="font-size:larger;">
-                                                                    <center>
-                                                                        <?php echo $row['image']; ?>
-                                                                    </center>
-                                                                </div>
-                                                                <div class="modal-footer">
-                                                                    <button type="button" class="btn btn-secondary"
-                                                                        data-dismiss="modal">Close</button>
-                                                                </div>
-                                                            </form>
-
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-
+                                                <!-- Modal for Approved Images -->
+<div class="modal fade" id="approvedModal" tabindex="-1" aria-labelledby="approvedModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="approvedModalLabel">Approved Image</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <img id="approvedImage" src="" alt="Approved Image" class="img-fluid" style="width: 100%; height: auto;">
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
 
                                             <!-----------completed tab----------->
                                             <div class="tab-pane p-20" id="completed" role="tabpanel">
@@ -684,11 +659,8 @@ $result3 = mysqli_query($conn, $sql3);
                                                                             <?php echo $row['date_of_reg']; ?>
                                                                         </td>
                                                                         <td>
-                                                                            <button type="button"
-                                                                                value="<?php echo $row['id']; ?>"
-                                                                                class="btn btn-success btncertificate"
-                                                                                data-toggle="modal"
-                                                                                data-target="#viewimgcomp">View</button>
+                                                                        <button type="button" class="btn btn-primary btncompleted" value="<?php echo $row['id']; ?>" data-toggle="modal" data-target="#completedModal">View Completed</button>
+
                                                                         </td>
                                                                         <td>
                                                                             <center>
@@ -728,33 +700,23 @@ $result3 = mysqli_query($conn, $sql3);
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <!------------view image modal-->
-                                                <div class="modal fade" id="viewimgcomp" tabindex="-1"
-                                                    aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                                    <div class="modal-dialog">
-                                                        <div class="modal-content">
-                                                            <div class="modal-header">
-                                                                <h5 class="modal-title" id="exampleModalLabel">Problem
-                                                                    Image</h5>
-                                                                <button type="button" class="btn" data-dismiss="modal"
-                                                                    aria-label="Close"><i class="mdi mdi-close"></i>
-                                                                </button>
-                                                            </div>
-                                                            <form id="addnewdetails">
-                                                                <div class="modal-body" style="font-size:larger;">
-                                                                    <center>
-                                                                        <img src="assets/images/logo2.png" alt="no img">
-                                                                    </center>
-                                                                </div>
-                                                                <div class="modal-footer">
-                                                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                                                </div>
-                                                            </form>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-
+                                                <!-- Modal for Completed Images -->
+<div class="modal fade" id="completedModal" tabindex="-1" aria-labelledby="completedModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="completedModalLabel">Completed Image</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <img id="completedImage" src="" alt="Completed Image" class="img-fluid" style="width: 100%; height: auto;">
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
                                             <!----------rejected tab------->
                                             <div class="tab-pane p-20" id="rejected" role="tabpanel">
                                                 <div class="row">
@@ -827,11 +789,8 @@ $result3 = mysqli_query($conn, $sql3);
                                                                             <?php echo $row['date_of_reg']; ?>
                                                                         </td>
                                                                         <td>
-                                                                            <button type="button"
-                                                                                value="<?php echo $row['id']; ?>"
-                                                                                class="btn btn-success btncertificate"
-                                                                                data-toggle="modal"
-                                                                                data-target="#viewimgrej">View</button>
+                                                                            <button type="button" class="btn btn-danger btnrejected" value="<?php echo $row['id']; ?>" data-toggle="modal" data-target="#rejectedModal">View Rejected</button>
+
 
                                                                         </td>
                                                                         <td class="col-1">
@@ -1114,7 +1073,6 @@ $result3 = mysqli_query($conn, $sql3);
             });
         });
         //<!------------------rejected tab probdesc ajax------------->
-
         $(document).on('click', '#seeproblemrej', function(e) {
             e.preventDefault();
             var user_idrej1 = $(this).val();
@@ -1145,7 +1103,7 @@ $result3 = mysqli_query($conn, $sql3);
         $(document).on('click', '#rejectedfeedback', function(e) {
             e.preventDefault();
             var user_idrej = $(this).val();
-            console.log(user_idrej)
+            console.log(user_idrej)             
             $.ajax({
                 type: "POST",
                 url: "backend.php",
@@ -1166,36 +1124,36 @@ $result3 = mysqli_query($conn, $sql3);
                 }
             });
         });
+        $(document).ready(function () {
+    // Show image in modal when the button is clicked
+    $(document).on('click', '.btncertificate', function () {
+        var user_id = $(this).val(); // Get the user ID from the button
 
-        // $(document).ready(function() {
-        // Show image in modal
-        //     $(document).on('click', '.btncertificate', function () {
-        //         var user_id = $(this).val(); // Get the user ID from the button
+        $.ajax({
+            type: "POST",
+            url: "backend.php", // Your backend PHP file
+            data: {
+                'get_image': true,
+                'user_id': user_id
+            },
+            dataType: "json",
+            success: function (response) {
+                if (response.status == 200) {
+                    // Update the modal image source with the image from the backend
+                    $('#modalImage').attr('src', response.data.image);
+                    $('#imageModal').modal('show'); // Show the modal
+                } else {
+                    alert(response.message); // Show error message if no image is found
+                }
+            },
+            error: function (xhr, status, error) {
+                // Handle any error that occurred during the AJAX request
+                alert('An error occurred: ' + error);
+            }
+        });
+    });
+});
 
-        //         $.ajax({
-        //             type: "POST",
-        //             url: "backend.php",
-        //             data: {
-        //                 'get_image': true,
-        //                 'user_id': user_id
-        //             },
-        //             dataType: "json", // Expect JSON response
-        //             success: function (response) {
-        //                 if (response.status == 200) {
-        //                     // Update the modal image source
-        //                     $('#modalImage').attr('src', response.data.image);
-        //                     $('#viewimgappr').modal('show'); // Show the modal
-        //                 } else {
-        //                     alert(response.message); // Show an error message if no image is found
-        //                 }
-        //             },
-        //             error: function (xhr, status, error) {
-        //                 // Handle any error that occurred during the AJAX request
-        //                 alert('An error occurred: ' + error);
-        //             }
-        //         });
-        //     });
-        // });
     </script>
 </body>
 </html>

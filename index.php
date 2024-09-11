@@ -145,8 +145,8 @@ $sql3 = "SELECT * FROM complaints_detail WHERE status = 5";
                 <!-- Sidebar navigation-->
                 <nav class="sidebar-nav">
                     <ul id="sidebarnav" class="p-t-30">
-                        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="index.html" aria-expanded="false"><i class="mdi mdi-view-dashboard"></i><span class="hide-menu">Dashboard</span></a></li>
-                        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="profile.html" aria-expanded="false"><i class="mdi mdi-account"></i><span class="hide-menu">Profile</span></a></li>
+                        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="index.php" aria-expanded="false"><i class="mdi mdi-view-dashboard"></i><span class="hide-menu">Dashboard</span></a></li>
+                        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="profile.php" aria-expanded="false"><i class="mdi mdi-account"></i><span class="hide-menu">Profile</span></a></li>
                         <li class="sidebar-item"> <a class="sidebar-link has-arrow waves-effect waves-dark" href="edit-profile.html" aria-expanded="false"><i class="mdi mdi-account-edit"></i><span class="hide-menu">Edit Profile</span></a>
                         <ul aria-expanded="false" class="collapse  first-level">
                             <li class="sidebar-item"><a href="basic-details.php" class="sidebar-link"><i class="mdi mdi-account-settings-variant"></i><span class="hide-menu"> Basic Details </span></a></li>
@@ -155,7 +155,6 @@ $sql3 = "SELECT * FROM complaints_detail WHERE status = 5";
                         </li>
                         <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="password.php" aria-expanded="false"><i class="mdi mdi-account-key"></i><span class="hide-menu">Change password</span></a></li>
                         <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="Feedback_hod.php" aria-expanded="false"><i class="mdi mdi-comment-text"></i><span class="hide-menu">Feedback Corner</span></a>
-                        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="https://www.camsmkce.in/index.aspx" aria-expanded="false"><i class="mdi mdi-vector-arrange-above"></i><span class="hide-menu">Cams</span></a>
                     </ul>
                 </nav>
                 <!-- End Sidebar navigation -->
@@ -220,100 +219,7 @@ $sql3 = "SELECT * FROM complaints_detail WHERE status = 5";
                         </div>                        
                     </div>
                 </div><br>
-                <div class="card">
-        <div class="card-body">
-            <h4 class="card-title m-b-0">Issue Analysis</h4><br>
-            <div class="row">
-                <!-- Pending -->
-                <div class="col-12 col-md-3 mb-3">
-                    <div class="cir" >
-                        <div class="bo">
-                            <div class="content1">
-                                <div class="stats-box text-center p-3" style="background-color:orange;">
-                                    <i class="fas fa-clock"></i>
-                                    <h1 class="font-light text-white">
-                                        <?php $query2 = "SELECT COUNT(*) as pending FROM complaints_detail WHERE  status ='2'";
-                                        $output2 = mysqli_query($conn, $query2);
-                                        $row2 = mysqli_fetch_assoc($output2);
-                                        $pendingCount = $row2['pending'];
-                                        echo $pendingCount;
-                                        ?>
-                                    </h1>
-                                    <small class="font-light">Pending</small>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
                 
-                <!-- Approved -->
-                <div class="col-12 col-md-3 mb-3">
-                    <div class="cir">
-                        <div class="bo">
-                            <div class="content1">
-                                <div class="stats-box text-center p-3" style="background-color:rgb(14, 86, 239);">
-                                    <i class="fas fa-check"></i>
-                                    <h1 class="font-light text-white">
-                                        <?php $query2 = "SELECT COUNT(*) as approved FROM complaints_detail WHERE   (status ='4' or status ='6' or status='7' or status='8' or status='9' or status='10' or status='11')";
-                                        $output2 = mysqli_query($conn, $query2);
-                                        $row2 = mysqli_fetch_assoc($output2);
-                                        $pendingCount = $row2['approved'];
-                                        echo $pendingCount;
-                                        ?>
-                                    </h1>
-                                    <small class="font-light">Approved</small>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Completed -->
-                <div class="col-12 col-md-3 mb-3">
-                    <div class="cir">
-                        <div class="bo">
-                            <div class="content1">
-                                <div class="stats-box text-center p-3" style="background-color:rgb(70, 160, 70);">
-                                    <i class="mdi mdi-check-all"></i>
-                                    <h1 class="font-light text-white">
-                                        <?php $query2 = "SELECT COUNT(*) as completed FROM complaints_detail WHERE  status ='11'";
-                                        $output2 = mysqli_query($conn, $query2);
-                                        $row2 = mysqli_fetch_assoc($output2);
-                                        $pendingCount = $row2['completed'];
-                                        echo $pendingCount;
-                                        ?>
-                                    </h1>
-                                    <small class="font-light">Completed</small>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Rejected -->
-                <div class="col-12 col-md-3 mb-3">
-                    <div class="cir">
-                        <div class="bo">
-                            <div class="content1">
-                                <div class="stats-box text-center p-3" style="background-color: rgb(241, 0, 0);">
-                                    <i class="mdi mdi-close-circle"></i>
-                                    <h1 class="font-light text-white">
-                                        <?php $query2 = "SELECT COUNT(*) as rejected FROM complaints_detail WHERE  status ='5'";
-                                        $output2 = mysqli_query($conn, $query2);
-                                        $row2 = mysqli_fetch_assoc($output2);
-                                        $pendingCount = $row2['rejected'];
-                                        echo $pendingCount;
-                                        ?>
-                                    </h1>
-                                    <small class="font-light">Rejected</small>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
 
                         <!-- <div class="m-t-20">
                             <div class="d-flex no-block align-items-center">
@@ -332,7 +238,7 @@ $sql3 = "SELECT * FROM complaints_detail WHERE status = 5";
                             </div>
                         </div> -->
                     
-    <footer class="footer text-center">
+    <footer class="footer text-center" style="padding-top:375px;">
         <b>2024 &copy M.Kumarasamy College of Engineering All Rights Reserved.<br>
         Developed and Maintained by Technology Innovation Hub.</b>
     </footer>

@@ -29,6 +29,7 @@ $result3 = mysqli_query($conn, $sql3);
     <link href="dist/css/style.min.css" rel="stylesheet">
     <link href="styles.css" rel="stylesheet">
     <link href="dboardstyles.css" rel="stylesheet">
+    
     <link href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.min.css" rel="stylesheet" crossorigin="anonymous">
     <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js" crossorigin="anonymous"></script>
 
@@ -133,12 +134,8 @@ $result3 = mysqli_query($conn, $sql3);
                 <!-- Sidebar navigation-->
                 <nav class="sidebar-nav">
                     <ul id="sidebarnav" class="p-t-30">
-                        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
-                                href="index.php" aria-expanded="false"><i class="mdi mdi-view-dashboard"></i><span
-                                    class="hide-menu">Dashboard</span></a></li>
-                        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
-                                href="profile.php" aria-expanded="false"><i class="mdi mdi-account"></i><span
-                                    class="hide-menu">Profile</span></a></li>
+                        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="index.php" aria-expanded="false"><i class="mdi mdi-view-dashboard"></i><span class="hide-menu">Dashboard</span></a></li>
+                        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="profile.php" aria-expanded="false"><i class="mdi mdi-account"></i><span class="hide-menu">Profile</></a></li>
                         <li class="sidebar-item"> <a class="sidebar-link has-arrow waves-effect waves-dark"
                                 href="edit-profile.html" aria-expanded="false"><i class="mdi mdi-account-edit"></i><span
                                     class="hide-menu">Edit Profile</span></a>
@@ -393,7 +390,7 @@ $result3 = mysqli_query($conn, $sql3);
                                                                             <?php echo $id; ?>
                                                                         </td>
                                                                         <td>
-                                                                            <?php echo $row['id']; ?>
+                                                                            <?php echo $row['problem_id']; ?>
                                                                         </td>
                                                                         <td>
                                                                             <?php echo $row['faculty_name']; ?>
@@ -546,7 +543,7 @@ $result3 = mysqli_query($conn, $sql3);
                                                                                     <?php echo $id; ?>
                                                                                 </td>
                                                                                 <td>
-                                                                                    <?php echo $row['id']; ?>
+                                                                                    <?php echo $row['problem_id']; ?>
                                                                                 </td>
                                                                                 <td>
                                                                                     <?php echo $row['faculty_name']; ?>
@@ -719,7 +716,7 @@ $result3 = mysqli_query($conn, $sql3);
                                                                                     <?php echo $id; ?>
                                                                                 </td>
                                                                                 <td>
-                                                                                    <?php echo $row['id']; ?>
+                                                                                    <?php echo $row['problem_id']; ?>
                                                                                 </td>
                                                                                 <td>
                                                                                     <?php echo $row['faculty_name']; ?>
@@ -862,7 +859,7 @@ $result3 = mysqli_query($conn, $sql3);
                                                                                     <?php echo $id; ?>
                                                                                 </td>
                                                                                 <td>
-                                                                                    <?php echo $row['id']; ?>
+                                                                                    <?php echo $row['problem_id']; ?>
                                                                                 </td>
                                                                                 <td>
                                                                                     <?php echo $row['faculty_name']; ?>
@@ -1005,9 +1002,9 @@ $result3 = mysqli_query($conn, $sql3);
     <script src="dist/js/waves.js"></script>
     <script src="dist/js/sidebarmenu.js"></script>
     <script src="dist/js/custom.min.js"></script>
-    <script src="assets/extra-libs/multicheck/datatable-checkbox-init.js"></script>
-    <script src="assets/extra-libs/multicheck/jquery.multicheck.js"></script>
-    <script src="assets/extra-libs/DataTables/datatables.min.js"></script>
+    <!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> -->
+    <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.11.5/css/dataTables.bootstrap4.min.css">
 
     <script>
         $(document).ready(function() {
@@ -1015,12 +1012,11 @@ $result3 = mysqli_query($conn, $sql3);
             $('#myTable2').DataTable();
             $('#myTable3').DataTable();
             $('#myTable4').DataTable();
-            //  table.ajax.reload()
+            table.ajax.reload()
         });
 
         $(document).on('click', '.btnapprove', function(e) {
             e.preventDefault();
-
             if (confirm('Are you sure you want to approve this complaint?')) {
                 var update_id = $(this).val();
                 $.ajax({

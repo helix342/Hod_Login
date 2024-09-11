@@ -1,7 +1,6 @@
 <?php
 include("db.php");
 ?>
-
 <!DOCTYPE html>
 <html dir="ltr" lang="en">
 <head>
@@ -139,7 +138,7 @@ include("db.php");
         <nav class="sidebar-nav">
           <ul id="sidebarnav" class="p-t-30">
             <li class="sidebar-item">
-              <a class="sidebar-link waves-effect waves-dark sidebar-link" href="index.html" aria-expanded="false">
+              <a class="sidebar-link waves-effect waves-dark sidebar-link" href="index.php" aria-expanded="false">
                 <i class="mdi mdi-view-dashboard"></i>
                 <span class="hide-menu">Dashboard</span>
               </a>
@@ -189,9 +188,9 @@ include("db.php");
               </a>
             </li>
             <li class="sidebar-item">
-              <a class="sidebar-link waves-effect waves-dark sidebar-link" href="https://www.camsmkce.in" aria-expanded="false">
-                <i class="mdi mdi-web"></i>
-                <span class="hide-menu">CAMSS</span>
+              <a class="sidebar-link waves-effect waves-dark sidebar-link" href="Feedback_hod.php" aria-expanded="false">
+                <i class="mdi mdi-comment-text"></i>
+                <span class="hide-menu">Feedback Corner</span>
               </a>
             </li>
           </ul>

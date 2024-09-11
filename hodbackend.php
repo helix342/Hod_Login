@@ -176,7 +176,6 @@ if (isset($_POST['seedetailsrej'])) {
     } else {
         $res = [
             'status' => 500,
-            
             'message' => 'Details Not Deleted'
         ];
         echo json_encode($res);
@@ -210,63 +209,47 @@ if (isset($_POST['seefeedback'])) {
         return;
     }
 }
-// Handle get image request
-// if (isset($_POST['get_image'])) {
-//     $user_id = $_POST['user_id'];
 
-//     $query = "SELECT images FROM complaints_detail WHERE id = ?";
-//     if ($stmt = $conn->prepare($query)) {
-//         $stmt->bind_param('i', $user_id);
-//         $stmt->execute();
-//         $result = $stmt->get_result();
+    // Get Pending Image
+    if (isset($_POST['get_image'])) {
+        $task_id = isset($_POST['task_id']) ? intval($_POST['task_id']) : '';
 
-//         if ($result->num_rows > 0) {
-//             $row = $result->fetch_assoc();
-//             $imageData = base64_encode($row['images']); // Encode image data to base64
-//             $res = ['status' => 200, 'data' => ['image' => 'data:image/jpeg;base64,' . $imageData]];
-//         } else {
-//             $res = ['status' => 404, 'message' => 'No image found'];
-//         }
-//         $stmt->close();
-//     } else {
-//         $res = ['status' => 500, 'message' => 'Database error: ' . $conn->error];
-//     }
-//     echo json_encode($res);
-//     exit();
-// }
+        // Validate task_id
+        if ($task_id == 0) {
+            echo json_encode(['status' => 400, 'message' => 'Task ID not provided or invalid']);
+            exit;
+        }
+    
+        // Query to fetch the image based on task_id
+        $query = "SELECT image FROM complaints_detail WHERE id = ?";
+        $stmt = $conn->prepare($query);
 
-$conn->close();
-// Handle get image request
-if (isset($_POST['get_image'])) {
-    $user_id = $_POST['user_id'];
+        if (!$stmt) {
+            echo json_encode(['status' => 500, 'message' => 'Prepare statement failed: ' . $conn->error]);
+            exit;
+        }
 
-    $query = "SELECT images FROM complaints_detail WHERE id = ?";
-    if ($stmt = $conn->prepare($query)) {
-        $stmt->bind_param('i', $user_id);
+        $stmt->bind_param('i', $task_id);
         $stmt->execute();
         $result = $stmt->get_result();
 
         if ($result->num_rows > 0) {
             $row = $result->fetch_assoc();
-            // Convert the binary image data to Base64
-            $imageData = base64_encode($row['images']);
-            $res = [
-                'status' => 200,
-                'data' => ['image' => 'data:image/jpeg;base64,' . $imageData]
-            ];
-            echo json_encode($res);
-        } else {
-            $res = ['status' => 404, 'message' => 'No image found'];
-            echo json_encode($res);
-        }
-        $stmt->close();
-    } else {
-        $res = ['status' => 500, 'message' => 'Database error: ' . $conn->error];
-        echo json_encode($res);
-    }
-    exit();
-}
+            $image_path = 'uploads/' . $row['image']; // Assuming 'image' column stores the correct filename
 
-$conn->close();
+            // Check if the image file exists on the server
+            if (file_exists($image_path)) {
+                echo json_encode(['status' => 200, 'data' => ['image' => $image_path]]);
+            } else {
+                echo json_encode(['status' => 404, 'message' => 'Image file not found on the server']);
+            }
+        } else {
+            echo json_encode(['status' => 404, 'message' => 'No image found']);
+        }
+
+        $stmt->close();
+        $conn->close();
+        exit;
+    }
 
 ?>

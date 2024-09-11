@@ -194,10 +194,10 @@ $result3 = mysqli_query($conn, $sql3);
                                     <h4 class="card-title">Complaint Details</h4>
                                     <div class="card">
                                         <ul class="nav nav-tabs mb-3" role="tablist">
-                                            <li class="nav-item">
+                                            <li class="nav-item" style="">
                                                 <a class="nav-link active show" data-toggle="tab" href="#dashboard"
                                                     role="tab" aria-selected="true"><span class="hidden-sm-up"></span>
-                                                    <span class="hidden-xs-down"><i
+                                                    <span sty class="hidden-xs-down"><i
                                                             class="mdi mdi-view-grid"></i><b>&nbsp Dashboard</b></span></a>
                                             </li>
                                             <li class="nav-item">
@@ -591,7 +591,7 @@ $result3 = mysqli_query($conn, $sql3);
                                                                                 1 => 'Pending',
                                                                                 2 => 'Approved by infra',
                                                                                 3 => 'Rejected by infra',
-                                                                                4 => 'Approved by HOD',
+                                                                                4 => 'Forwarded to Manager',
                                                                                 5 => 'Rejected by HOD',
                                                                                 6 => 'Sent to principal for approval',
                                                                                 7 => 'Assigned to worker',

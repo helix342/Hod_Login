@@ -155,7 +155,6 @@ $sql3 = "SELECT * FROM complaints_detail WHERE status = 5";
                         </li>
                         <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="password.php" aria-expanded="false"><i class="mdi mdi-account-key"></i><span class="hide-menu">Change password</span></a></li>
                         <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="Feedback_hod.php" aria-expanded="false"><i class="mdi mdi-comment-text"></i><span class="hide-menu">Feedback Corner</span></a>
-                        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="https://www.camsmkce.in/index.aspx" aria-expanded="false"><i class="mdi mdi-vector-arrange-above"></i><span class="hide-menu">Cams</span></a>
                     </ul>
                 </nav>
                 <!-- End Sidebar navigation -->
